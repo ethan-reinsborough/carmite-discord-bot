@@ -13,7 +13,6 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
   if (/I'm/.test(msg) == true || /i'm/.test(msg) == true || /im/.test(msg) == true) {
-    var i = msg.toLowerCase();
-    msg.reply(`nice to meet you ${str.substring(i.indexOf("i") + 1)}, I am Carmite Bot!`);
+    msg.reply(`nice to meet you ${msg.substring(msg.indexOf("m") + 2)}, I am Carmite Bot!`);
   }
 });
