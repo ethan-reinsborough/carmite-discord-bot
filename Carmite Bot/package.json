@@ -1,0 +1,24 @@
+{
+  "name": "carmite-bot",
+  "version": "1.0.0",
+  "description": "Experimental discord bot",
+  "main": "app.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethan-reinsborough/carmite-discord-bot.git"
+  },
+  "author": "Ethan Reinsborough",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethan-reinsborough/carmite-discord-bot/issues"
+  },
+  "homepage": "https://github.com/ethan-reinsborough/carmite-discord-bot#readme"
+}
