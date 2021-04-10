@@ -15,9 +15,12 @@ console.log(stringtest.substring(stringtest.indexOf("m") + 2));
 client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
-  if (/I'm/.test(msg) == true || /i'm/.test(msg) == true || /im/.test(msg) == true) {
-    var i = msg.content.substring(msg.content.indexOf("m") + 2);
-    msg.reply(`nice to meet you ${i}, I am Carmite Bot!`);
-    msg.channel.send(`nice to meet you ${i}, I am Carmite Bot!`);
+  if (/I'm/.test(msg) == true || /i'm/.test(msg) == true) {
+    var i = msg.content.substring(msg.content.indexOf("I'm") + 4);
+    msg.channel.send(`Nice to meet you ${i}, I am Carmite Bot!`);
+  }
+  if(/im/.test(msg) == true){
+    var i = msg.content.substring(msg.content.indexOf("im") + 3);
+    msg.channel.send(`Nice to meet you ${i}, I am Carmite Bot!`);
   }
 });
