@@ -17,7 +17,6 @@ client.login(process.env.BOT_TOKEN);
 client.on("message", (msg) => {
   if (/I'm/.test(msg) == true || /i'm/.test(msg) == true || /im/.test(msg) == true) {
     var i = msg.content.substring(msg.content.indexOf("m") + 2);
-    Discord.Message({content:"Hello"});
     msg.reply(`nice to meet you ${i}, I am Carmite Bot!`);
     msg.channel.send(`nice to meet you ${i}, I am Carmite Bot!`);
   }
