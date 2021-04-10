@@ -10,5 +10,5 @@ client.on('ready', () => {
   client.login(process.env.BOT_TOKEN)
 
   client.on('message', (msg) => {
-    if (msg.content === 'Hello') msg.reply('Hi');
+    if (msg.content === 'Hello') msg.reply(message.author.displayAvatarURL());
   });
