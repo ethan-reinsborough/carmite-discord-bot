@@ -26,7 +26,7 @@ client.on("message", (msg) => {
   if(/pingcat/.test(msg) == true){
     msg.channel.send('<@!461140829889626123>');
   }
-  if(msg.content.startsWith('<:christianserver:830537820992176179>')){
+  if(msg.content.startsWith(':christianserver:830537820992176179')){
     msg.channel.send('<@!461140829889626123>');
   }
   if(/pingethan/.test(msg) == true){
