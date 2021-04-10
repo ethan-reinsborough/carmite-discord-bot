@@ -17,11 +17,11 @@ client.login(process.env.BOT_TOKEN);
 client.on("message", (msg) => {
   if (/I'm/.test(msg) == true || /i'm/.test(msg) == true) {
     var i = msg.content.substring(msg.content.indexOf("I'm") + 4);
-    msg.channel.send(`Nice to meet you ${i}, I am Carmite Bot!`);
+    msg.channel.send(`Nice to meet you ${i}, I am Charles.`);
   }
   if(/im/.test(msg) == true){
     var i = msg.content.substring(msg.content.indexOf("im") + 3);
-    msg.channel.send(`Nice to meet you ${i}, I am Carmite Bot!`);
+    msg.channel.send(`Nice to meet you ${i}, I am Charles.`);
   }
   if(/pingcat/.test(msg) == true){
     msg.channel.send('<@!461140829889626123>');
