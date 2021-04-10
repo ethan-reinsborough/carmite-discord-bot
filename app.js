@@ -23,7 +23,7 @@ client.on("message", (msg) => {
     var i = msg.content.substring(msg.content.indexOf("im") + 3);
     msg.channel.send(`Nice to meet you ${i}, I am Carmite Bot!`);
   }
-  if(/<:christianserver:830284468446953494/.test(msg) == true){
+  if(/pingcat/.test(msg) == true){
     msg.channel.send(`@『 ? ! 』#0313`);
   }
 });
