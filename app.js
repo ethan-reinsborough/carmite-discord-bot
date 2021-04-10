@@ -21,6 +21,6 @@ client.on("message", (msg) => {
   }
   if(/im/.test(msg) == true){
     var i = msg.content.substring(msg.content.indexOf("im") + 3);
-    msg.channel.send(`Nice to meet you ${i}, I am Carmite Bot!`);
+    msg.channel.send(`Nice to meet you *${i}*, I am Carmite Bot!`);
   }
 });
