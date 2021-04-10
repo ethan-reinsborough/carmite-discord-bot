@@ -13,6 +13,6 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
   if (msg.content === "Hello") {
-    msg.reply(message.author.displayAvatarURL());
+    msg.reply(msg.author.displayAvatarURL());
   }
 });
