@@ -7,7 +7,7 @@ const client = new Discord.Client();
 const regex = /I'm/;
 const regex2 = /i'm/;
 const regex3 = /im/;
-const found = paragraph.match(regex);
+
 client.on("ready", () => {
   console.log("Bot is ready");
 });
