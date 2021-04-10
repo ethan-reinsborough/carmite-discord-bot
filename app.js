@@ -13,6 +13,6 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
   if (/I'm/.test(msg) == true || /i'm/.test(msg) == true || /im/.test(msg) == true) {
-    msg.reply("Nice to meet you, I'm Carmite Bot!");
+    msg.reply("Nice to meet you, I am Carmite Bot!");
   }
 });
