@@ -19,6 +19,6 @@ client.on("message", (msg) => {
     var i = msg.content.substring(msg.content.indexOf("m") + 2);
     Discord.Message({content:"Hello"});
     msg.reply(`nice to meet you ${i}, I am Carmite Bot!`);
-    message.channel.send(`nice to meet you ${i}, I am Carmite Bot!`);
+    msg.channel.send(`nice to meet you ${i}, I am Carmite Bot!`);
   }
 });
