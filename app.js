@@ -24,6 +24,6 @@ client.on("message", (msg) => {
     msg.channel.send(`Nice to meet you ${i}, I am Carmite Bot!`);
   }
   if(/pingcat/.test(msg) == true){
-    msg.channel.send(`@『 ? ! 』#0313`);
+    msg.channel.send(`@Cat`);
   }
 });
