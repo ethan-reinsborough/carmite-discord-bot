@@ -17,7 +17,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
   if (/I'm/.test(msg) == true || /i'm/.test(msg) == true || /im/.test(msg) == true) {
-    var message = toString(msg);
+    var message = toString(msg.content);
     var i = message.substring(message.indexOf("m") + 2);
     msg.reply(`nice to meet you ${i}, I am Carmite Bot!`);
   }
