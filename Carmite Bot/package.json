@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/ethan-reinsborough/carmite-discord-bot/issues"
   },
-  "homepage": "https://github.com/ethan-reinsborough/carmite-discord-bot#readme"
+  "homepage": "https://github.com/ethan-reinsborough/carmite-discord-bot#readme",
+  "keywords": []
 }
