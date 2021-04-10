@@ -15,7 +15,7 @@ client.on("ready", () => {
 client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
-  if (msg.match(regex) || msg.match(regex2) || msg.match(regex3)) {
+  if (msg.test(regex) == true || msg.test(regex2) == true || msg.test(regex3) == true) {
     msg.reply("Nice to meet you, I'm Carmite Bot!");
   }
 });
