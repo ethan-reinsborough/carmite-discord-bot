@@ -52,9 +52,6 @@ const messageFactories = [
     gamersFactory
 ]
 
-const imageFactories = [
-  gimmeCat
-]
 
 //Messages
 client.on("message", (msg) => {
@@ -65,10 +62,7 @@ client.on("message", (msg) => {
           .forEach(response => msg.channel.send(response));
   }
   if (!msg.author.bot && msg.content === "gimmecat") {
-    imageFactories
-        .map(f => f(msg))
-        .filter(response => response != undefined)
-        .forEach(response => msg.channel.send(response));
-}
+    msg.channel.send(gimmeCat());
+  }
 });
 
