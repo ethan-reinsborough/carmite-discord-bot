@@ -46,16 +46,22 @@ const messageFactories = [
 ]
 
 client.on("message", async (msg) => {
-  /*
-  if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
-      messageFactories
-          .map(f => f(msg.content))
-          .filter(response => response != undefined)
-          .forEach(response => msg.channel.send(response));
-  } */
+  if (!msg.author.bot && !(/gimmecat/.test(msg.content)) && !(/gimmedog/.test(msg.content))) {
+    messageFactories
+        .map(f => f(msg.content))
+        .filter(response => response != undefined)
+        .forEach(response => msg.channel.send(response));
+ } 
   if (/gimmecat/.test(msg.content)) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     msg.channel.send(file);
+    return;
   }
+  if(/gimmecat/.test(msg.content)){
+    const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
+    msg.channel.send(file);
+    return;
+  }
+  
 });
 
