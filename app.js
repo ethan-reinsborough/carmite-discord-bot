@@ -46,19 +46,19 @@ const messageFactories = [
 ]
 
 client.on("message", async (msg) => {
-  if (/gimmecat/.test(msg.content)) {
+  if (/gimmecat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     msg.channel.send(file);
   }
-  if(/gimmedog/.test(msg.content)){
+  if(/gimmedog/.test(msg.content.toLowerCase())){
     const res = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
     msg.channel.send(res['message']);
   }
-  if(/gimmeconfidence/.test(msg.content)){
+  if(/gimmeconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
     msg.channel.send(adv['affirmation']);
   }
-  if(/urban/.test(msg.content)){
+  if(/urban/.test(msg.content.toLowerCase())){
     var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
     const { list } = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`).then(response => response.json());
     if (!list.length) {
