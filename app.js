@@ -5,8 +5,6 @@ const fetch = require('node-fetch');
 const Discord = require("discord.js");
 require("dotenv").config();
 
-const client = new Discord.Client();
-
 client.on("ready", () => {
   console.log("Bot is ready");
 });
@@ -48,6 +46,10 @@ const messageFactories = [
 client.on("message", async (msg) => {
   if (/gimmecat/.test(msg.content)) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+    msg.channel.send(file);
+  }
+  if(/gimmedog/.test(msg.content)){
+    const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
     msg.channel.send(file);
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
