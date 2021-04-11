@@ -21,12 +21,12 @@ function dadJokeFactory(body) {
 }
 
 function pingEthanFactory(body) {
-  if (/pingethan/.test(msg)) 
+  if (/pingethan/.test(body)) 
     return "<@!180787488950976523>";
 }
 
 function bugCatFactory(body) {
-  if (msg.content.startsWith("<:christianserver:830284378180681798>")) 
+  if (body.startsWith("<:christianserver:830284378180681798>")) 
     return "<@!461140829889626123>";
 }
 
