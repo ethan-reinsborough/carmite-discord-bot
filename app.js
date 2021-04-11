@@ -32,7 +32,7 @@ function bugCatFactory(body) {
 
 function gamersFactory(body){
   if (/summon gamers/.test(body)) 
-    return "<@!here GAME NIGHT TONIGHT BRUHS!>";
+    return "<@here> GAME NIGHT TONIGHT BRUHS!>";
 }
 
 const messageFactories = [
