@@ -13,7 +13,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
   if (/.*\s(I|i)(:?'?m)\s/.test(msg) == true) {
-    var i = msg.content.substring(msg.content.toLowerCae().indexOf("I'm") + 4);
+    var i = msg.content.substring(msg.content.toLowerCase().indexOf("I'm") + 4);
     msg.channel.send(`Nice to meet you ${i}, I am Charles.`);
   }
   if(/pingcat/.test(msg) == true){
