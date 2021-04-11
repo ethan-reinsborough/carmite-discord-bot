@@ -11,25 +11,37 @@ client.on("ready", () => {
 
 client.login(process.env.BOT_TOKEN);
 
-client.on("message", (msg) => {
+function dadJokeFactory(body) {
   let pattern = /(^|(.*\s))(I|i)(('?m)|( am))\s(?<name>.+)/;
-  let match = msg.match(pattern);
+  let match = body.match(pattern);
   if (match) {
-    msg.channel.send(JSON.stringify(match));
-    if (!msg.author.bot) {
       let name = match.groups["name"];
-      msg.channel.send(`Nice to meet you ${name}, I am Charles.`);
-    }
+      return `Nice to meet you ${name}, I am Charles.`;
   }
-  if (/pingcat/.test(msg) == true) {
-    msg.channel.send("<@!461140829889626123>");
-  }
-  if (msg.content.startsWith("<:christianserver:830284378180681798>")) {
-    msg.channel.send("<@!461140829889626123>");
-  }
-  if (/pingethan/.test(msg) == true) {
-    msg.channel.send("<@!180787488950976523>");
+}
+
+function pingEthanFactory(body) {
+  if (/pingethan/.test(msg)) 
+    return "<@!180787488950976523>";
+}
+
+function bugCatFactory(body) {
+  if (msg.content.startsWith("<:christianserver:830284378180681798>") 
+    return "<@!461140829889626123>";
+}
+
+const messageFactories = [
+    dadJokeFactory,
+    bugCatFactory,
+    pingEthanFactory
+]
+
+client.on("message", (msg) => {
+  if (!msg.author.bot) {
+      messageFactories
+          .map(f => f(msg.content))
+          .filter(response => response != undefined)
+          .forEach(response => msg.channel.send(response));
   }
 });
-
 
