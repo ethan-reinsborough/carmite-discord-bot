@@ -30,10 +30,16 @@ function bugCatFactory(body) {
     return "<@!461140829889626123>";
 }
 
+function gamersFactory(body){
+  if (body == "summon gamers") 
+    return "<@!here GAME NIGHT TONIGHT BRUHS!>";
+}
+
 const messageFactories = [
     dadJokeFactory,
     bugCatFactory,
-    pingEthanFactory
+    pingEthanFactory,
+    gamersFactory
 ]
 
 client.on("message", (msg) => {
