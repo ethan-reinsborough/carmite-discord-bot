@@ -12,9 +12,11 @@ client.on("ready", () => {
 client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
-  //if (/.*\s(I|i)(:?'?m)\s/.test(msg) == true) {
+  if (/(^|\s)(I|i)(('?m)| am)\s/.test(msg) == true) {
+    if(!message.author.bot){
     var i = msg.content.substring(msg.content.toLowerCase().indexOf("I'm") + 4);
     msg.channel.send(`Nice to meet you ${i}, I am Charles.`);
+    }
   }
   if(/pingcat/.test(msg) == true){
     msg.channel.send('<@!461140829889626123>');
