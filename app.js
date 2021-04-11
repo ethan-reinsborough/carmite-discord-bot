@@ -52,11 +52,12 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   }
   if(/gimmedog/.test(msg.content)){
+    
     const res = await fetch('https://dog.ceo/api/breeds/image/random');
     const json = await res.json();
-    var stringDoggo = JSON.stringify(json);
-    var doggo  = JSON.parse(stringDoggo);
-    msg.channel.send(doggo['message']);
+    //var stringDoggo = JSON.stringify(json);
+    //var doggo  = JSON.parse(stringDoggo);
+    msg.channel.send(json['message']);
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
