@@ -26,7 +26,7 @@ function pingEthanFactory(body) {
 }
 
 function bugCatFactory(body) {
-  if (msg.content.startsWith("<:christianserver:830284378180681798>") 
+  if (msg.content.startsWith("<:christianserver:830284378180681798>")) 
     return "<@!461140829889626123>";
 }
 
