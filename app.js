@@ -49,7 +49,7 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   }
   if(/gimmedog/.test(msg.content)){
-    const { text } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.text());
+    const { text } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
     msg.channel.send(text[0]);
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
