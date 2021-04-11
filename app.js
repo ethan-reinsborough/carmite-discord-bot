@@ -1,4 +1,7 @@
+//#region Startup
 "use strict";
+
+const fetch = require('node-fetch');
 
 const Discord = require("discord.js");
 require("dotenv").config();
@@ -10,6 +13,7 @@ client.on("ready", () => {
 });
 
 client.login(process.env.BOT_TOKEN);
+//#endregion
 
 function dadJokeFactory(body) {
   let pattern = /(^|(.*\s))(I|i)(('?m)|( am))\s(?<name>.+)/;
@@ -30,10 +34,18 @@ function bugCatFactory(body) {
     return "<@!461140829889626123>";
 }
 
+function gimmeCat(body){
+  if(/gimmecat/.test(msg)){
+    const { file } = fetch('https://aws.random.cat/meow').then(response => response.json());
+    return file;
+  }
+}
+
 const messageFactories = [
     dadJokeFactory,
     bugCatFactory,
-    pingEthanFactory
+    pingEthanFactory,
+    gimmeCat
 ]
 
 client.on("message", (msg) => {
