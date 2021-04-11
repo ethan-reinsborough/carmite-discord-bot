@@ -54,8 +54,9 @@ client.on("message", async (msg) => {
   if(/gimmedog/.test(msg.content)){
     const res = await fetch('https://dog.ceo/api/breeds/image/random');
     const json = await res.json();
-    var doggo  = JSON.parse(json);
-    msg.channel.send(doggo.message);
+    var stringDoggo = JSON.stringify(json);
+    var doggo  = JSON.parse(stringDoggo);
+    msg.channel.send(doggo['message']);
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
