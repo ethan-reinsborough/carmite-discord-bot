@@ -54,17 +54,20 @@ client.on("message", async (msg) => {
     const res = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
     msg.channel.send(res['message']);
   }
-  if(/gimmeadvice/.test(msg.content)){
+  if(/gimmeconfidence/.test(msg.content)){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
     msg.channel.send(adv['affirmation']);
   }
   if(/urban/.test(msg.content)){
     var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
+    msg.channel.send(query);
+    /*
     const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
     if (!list.length) {
       return message.channel.send(`No results found for ${query}.`);
     }
     message.channel.send(list[0].definition);
+    */
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
