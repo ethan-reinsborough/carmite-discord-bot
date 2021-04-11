@@ -49,14 +49,28 @@ const messageFactories = [
     dadJokeFactory,
     bugCatFactory,
     pingEthanFactory,
-    gimmeCat,
     gamersFactory
 ]
 
+const imageFactories = [
+  gimmeCat
+]
+
+//Messages
 client.on("message", (msg) => {
   if (!msg.author.bot) {
       messageFactories
           .map(f => f(msg.content))
+          .filter(response => response != undefined)
+          .forEach(response => msg.channel.send(response));
+  }
+});
+
+//Images
+client.on("message", (msg) => {
+  if (!msg.author.bot) {
+      imageFactories
+          .map(f => f(msg))
           .filter(response => response != undefined)
           .forEach(response => msg.channel.send(response));
   }
