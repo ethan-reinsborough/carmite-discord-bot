@@ -39,6 +39,8 @@ function gimmeCat(body){
     const { file } = fetch('https://aws.random.cat/meow').then(response => response.json());
     return file;
   }
+}
+
 function gamersFactory(body){
   if (/summon gamers/.test(body)) 
     return "@here GAME NIGHT TONIGHT BRUHS!";
