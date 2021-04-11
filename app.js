@@ -33,13 +33,6 @@ function bugCatFactory(body) {
     return "<@!461140829889626123>";
 }
 
-function gimmeCat(body){
-  if(/gimmecat/.test(body)){
-    const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
-    return file;
-  }
-}
-
 function gamersFactory(body){
   if (/summon gamers/.test(body)) 
     return "@here GAME NIGHT TONIGHT BRUHS!";
@@ -52,8 +45,6 @@ const messageFactories = [
     gamersFactory
 ]
 
-
-//Messages
 client.on("message", (msg) => {
   if (!msg.author.bot) {
       messageFactories
@@ -61,8 +52,9 @@ client.on("message", (msg) => {
           .filter(response => response != undefined)
           .forEach(response => msg.channel.send(response));
   }
-  if (!msg.author.bot && msg.content === "gimmecat") {
-    msg.channel.send(gimmeCat());
+  if (/gimmecat/.test(msg)) {
+    const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+    msg.channel.send(file);
   }
 });
 
