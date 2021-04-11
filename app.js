@@ -47,12 +47,12 @@ client.on("message", async (msg) => {
   if (/gimmecat/.test(msg.content)) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     msg.channel.send(file);
-  }
+  }/*
   if(/gimmedog/.test(msg.content)){
     const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.text());
     file = JSON.parse(file);
     msg.channel.send(file);
-  }
+  }*/
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
         .map(f => f(msg.content))
