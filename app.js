@@ -38,6 +38,7 @@ function gamersFactory(body){
     return "@here GAME NIGHT TONIGHT BRUHS!";
 }
 
+
 const messageFactories = [
     dadJokeFactory,
     bugCatFactory,
@@ -51,10 +52,10 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   }
   if(/gimmedog/.test(msg.content)){
-    const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.text());
-    //file = JSON.parse(file);
-
-    msg.channel.send(JSON.stringify(file));
+    const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json())
+    .then(data => {
+      msg.channel.send(data);
+    });
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
