@@ -31,7 +31,7 @@ function bugCatFactory(body) {
 }
 
 function gamersFactory(body){
-  if (body == "summon gamers") 
+  if (/summon gamers/.test(body)) 
     return "<@!here GAME NIGHT TONIGHT BRUHS!>";
 }
 
