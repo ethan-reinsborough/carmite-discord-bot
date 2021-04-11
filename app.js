@@ -61,13 +61,12 @@ client.on("message", async (msg) => {
   if(/urban/.test(msg.content)){
     var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
     msg.channel.send(query);
-    /*
-    const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+  
+    const { list } = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`).then(response => response.json());
     if (!list.length) {
       return message.channel.send(`No results found for ${query}.`);
     }
     message.channel.send(list[0].definition);
-    */
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
