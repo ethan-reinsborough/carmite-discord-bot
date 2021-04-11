@@ -55,8 +55,8 @@ client.on("message", async (msg) => {
     msg.channel.send(res['message']);
   }
   if(/gimmeadvice/.test(msg.content)){
-    const { file } = await fetch('https://www.affirmations.dev/').then(response => response.json());
-    msg.channel.send(file['affirmation']);
+    const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
+    msg.channel.send(adv['affirmation']);
   }
   if(/urban/.test(msg.content)){
     var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
