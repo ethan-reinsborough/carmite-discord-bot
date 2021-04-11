@@ -52,7 +52,7 @@ client.on("message", (msg) => {
           .filter(response => response != undefined)
           .forEach(response => msg.channel.send(response));
   }
-  if (/gimmecat/.test(msg)) {
+  if (/gimmecat/.test(msg.content)) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     msg.channel.send(file);
   }
