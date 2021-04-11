@@ -12,7 +12,8 @@ client.on("ready", () => {
 client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
-  if (/.*\s(I|i)(:?'?m)\s/.test(msg) == true) {
+  ///
+  //if (/.*\s(I|i)(:?'?m)\s/.test(msg) == true) {
     var i = msg.content.substring(msg.content.indexOf("I'm") + 4);
     msg.channel.send(`Nice to meet you ${i}, I am Charles.`);
   }
