@@ -38,7 +38,6 @@ function gamersFactory(body){
     return "@here GAME NIGHT TONIGHT BRUHS!";
 }
 
-
 const messageFactories = [
     dadJokeFactory,
     bugCatFactory,
@@ -54,6 +53,18 @@ client.on("message", async (msg) => {
   if(/gimmedog/.test(msg.content)){
     const res = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
     msg.channel.send(res['message']);
+  }
+  if(/gimmeadvice/.test(msg.content)){
+    const { file } = await fetch('https://www.affirmations.dev/').then(response => response.json());
+    msg.channel.send(file['affirmation']);
+  }
+  if(/urban/.test(msg.content)){
+    var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
+    const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+    if (!list.length) {
+      return message.channel.send(`No results found for ${query}.`);
+    }
+    message.channel.send(list[0].definition);
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
