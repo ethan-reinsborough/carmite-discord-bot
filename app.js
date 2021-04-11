@@ -35,7 +35,7 @@ function bugCatFactory(body) {
 }
 
 function gimmeCat(body){
-  if(/gimmecat/.test(msg)){
+  if(/gimmecat/.test(body)){
     const { file } = fetch('https://aws.random.cat/meow').then(response => response.json());
     return file;
   }
