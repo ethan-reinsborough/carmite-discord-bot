@@ -16,10 +16,10 @@ client.on("message", (msg) => {
   let match = msg.match(pattern);
   if (match) {
     msg.channel.send(JSON.stringify(match));
-    if (!msg.author.bot) {
+    //if (!msg.author.bot) {
       let name = match.groups["name"];
       msg.channel.send(`Nice to meet you ${name}, I am Charles.`);
-    }
+    //}
   }
   if (/pingcat/.test(msg) == true) {
     msg.channel.send("<@!461140829889626123>");
