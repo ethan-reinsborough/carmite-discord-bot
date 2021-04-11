@@ -13,7 +13,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on("message", (msg) => {
   if (/(^|\s)(I|i)(('?m)| am)\s/.test(msg) == true) {
-    if(!message.author.bot){
+    if(!msg.author.bot){
     var i = msg.content.substring(msg.content.toLowerCase().indexOf("I'm") + 4);
     msg.channel.send(`Nice to meet you ${i}, I am Charles.`);
     }
