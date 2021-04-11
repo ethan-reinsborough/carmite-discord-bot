@@ -15,6 +15,7 @@ client.on("message", (msg) => {
   let pattern = /(^|(.*\s))(I|i)(('?m)|( am))\s(?<name>.+)/;
   let match = msg.match(pattern);
   if (match) {
+    msg.channel.send(JSON.stringify(match);
     if (!msg.author.bot) {
       let name = match.groups["name"];
       msg.channel.send(`Nice to meet you ${name}, I am Charles.`);
