@@ -3,6 +3,8 @@
 
 const fetch = require('node-fetch');
 const Discord = require("discord.js");
+require("dotenv").config();
+
 const client = new Discord.Client();
 
 client.on("ready", () => {
@@ -52,7 +54,7 @@ client.on("message", async (msg) => {
     const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.text());
     file = JSON.parse(file);
     msg.channel.send(file);
-  }*/
+  }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
         .map(f => f(msg.content))
