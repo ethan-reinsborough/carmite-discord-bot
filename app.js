@@ -64,7 +64,7 @@ client.on("message", async (msg) => {
     if (!list.length) {
       return message.channel.send(`No results found for ${query}.`);
     }
-    message.channel.send(list[0]['definition']);
+    message.channel.send(list[0].definition);
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
