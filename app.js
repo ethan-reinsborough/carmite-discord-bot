@@ -64,15 +64,11 @@ client.on("message", (msg) => {
           .filter(response => response != undefined)
           .forEach(response => msg.channel.send(response));
   }
-});
-
-//Images
-client.on("message", (msg) => {
-  if (!msg.author.bot) {
-      imageFactories
-          .map(f => f(msg))
-          .filter(response => response != undefined)
-          .forEach(response => msg.channel.send(response));
-  }
+  if (!msg.author.bot && msg.content === "gimmecat") {
+    imageFactories
+        .map(f => f(msg))
+        .filter(response => response != undefined)
+        .forEach(response => msg.channel.send(response));
+}
 });
 
