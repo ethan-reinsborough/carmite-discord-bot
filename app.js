@@ -49,8 +49,8 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   }
   if(/gimmedog/.test(msg.content)){
-    const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.text());
-    msg.channel.send(file);
+    const text = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.text());
+    msg.channel.send(text);
   }
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
     messageFactories
