@@ -2,7 +2,6 @@
 "use strict";
 
 const fetch = require('node-fetch');
-
 const Discord = require("discord.js");
 require("dotenv").config();
 
@@ -36,7 +35,7 @@ function bugCatFactory(body) {
 
 function gimmeCat(body){
   if(/gimmecat/.test(body)){
-    const { file } = fetch('https://aws.random.cat/meow').then(response => response.json());
+    const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     return file;
   }
 }
