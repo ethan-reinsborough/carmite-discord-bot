@@ -45,7 +45,7 @@ const messageFactories = [
     gamersFactory
 ]
 
-client.on("message", (msg) => {
+client.on("message", async (msg) => {
   /*
   if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
       messageFactories
