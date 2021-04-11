@@ -52,7 +52,7 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   }
   if(/gimmedog/.test(msg.content)){
-    const { file } = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json())
+    fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json())
     .then(data => {
       msg.channel.send(data);
     });
