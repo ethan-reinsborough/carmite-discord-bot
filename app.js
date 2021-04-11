@@ -25,12 +25,12 @@ function dadJokeFactory(body) {
 }
 
 function pingEthanFactory(body) {
-  if (/pingethan/.test(msg)) 
+  if (/pingethan/.test(body)) 
     return "<@!180787488950976523>";
 }
 
 function bugCatFactory(body) {
-  if (msg.content.startsWith("<:christianserver:830284378180681798>")) 
+  if (body.startsWith("<:christianserver:830284378180681798>")) 
     return "<@!461140829889626123>";
 }
 
@@ -39,13 +39,17 @@ function gimmeCat(body){
     const { file } = fetch('https://aws.random.cat/meow').then(response => response.json());
     return file;
   }
+function gamersFactory(body){
+  if (/summon gamers/.test(body)) 
+    return "@here GAME NIGHT TONIGHT BRUHS!";
 }
 
 const messageFactories = [
     dadJokeFactory,
     bugCatFactory,
     pingEthanFactory,
-    gimmeCat
+    gimmeCat,
+    gamersFactory
 ]
 
 client.on("message", (msg) => {
