@@ -95,12 +95,7 @@ client.on("message", async (msg) => {
     let query = words.slice(1).join('+');
     let definitions;
     await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`)
-          .then(response => {
-              definitions = response.json()['list']
-                  .map(e => e.definition);
-          });
-    definitions.push(`${query} is not a word, genius.`)
-    msg.channel.send(definitions[0]);
+          .then(response => msg.channel.send(JSON.stringify(response)));
   }
 
   if (!msg.author.bot) {
