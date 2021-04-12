@@ -63,7 +63,7 @@ client.on("message", async (msg) => {
   }
   if(/gadvice/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://api.adviceslip.com/advice').then(response => response.json());
-    msg.channel.send(adv['advice']);
+    msg.channel.send(adv[0]['advice']);
   }
   if(/gfox/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://randomfox.ca/floof/').then(response => response.json());
@@ -97,7 +97,7 @@ client.on("message", async (msg) => {
     }
     message.channel.send(list[0].definition);
   }
-  if (!msg.author.bot && !(/gimmecat/.test(msg.content))) {
+  if (!msg.author.bot) {
     messageFactories
         .map(f => f(msg.content))
         .filter(response => response != undefined)
