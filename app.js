@@ -46,6 +46,9 @@ const messageFactories = [
 ]
 
 client.on("message", async (msg) => {
+  if (/ghelp/.test(msg.content.toLowerCase())) {
+    msg.channel.send("Current Commands:\ngcat,gdog,gcofidence,gchuck,gdad");
+  }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     msg.channel.send(file);
@@ -65,6 +68,10 @@ client.on("message", async (msg) => {
   if(/gdumpy/.test(msg.content.toLowerCase())){
     const res = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
     msg.channel.send(res['value']);
+  } 
+  if(/gdad/.test(msg.content.toLowerCase())){
+    const res = await fetch('https://icanhazdadjoke.com/').then(response => response.json());
+    msg.channel.send(res['joke']);
   } 
   if(/urban/.test(msg.content.toLowerCase())){
     var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
