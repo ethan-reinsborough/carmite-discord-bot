@@ -89,14 +89,20 @@ client.on("message", async (msg) => {
     const { file } = await fetch('https://icanhazdadjoke.com').then(response => response.json());
     msg.channel.send(file);
   } 
+
   if(/urban/.test(msg.content.toLowerCase())){
-    var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
-    const { list } = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`).then(response => response.json());
-    if (!list.length) {
-      return message.channel.send(`No results found for ${query}.`);
-    }
-    message.channel.send(list[0].definition);
+    let words = msg.content.toLowerCase().split(' ');
+    let query = words.slice(1).join('+');
+    let definitions;
+    await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`)
+          .then(response => {
+              definition = response.json()
+              .map(e => e.definition);
+          });
+    definitions.push(`${query} is not a word, genius.`)
+    message.channel.send(definitions[0]);
   }
+
   if (!msg.author.bot) {
     messageFactories
         .map(f => f(msg.content))
