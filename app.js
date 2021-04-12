@@ -47,7 +47,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Current Commands:\ng(imme): bored, cat, chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("Current Commands:\ng(imme): advice, bored, cat, chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -59,6 +59,10 @@ client.on("message", async (msg) => {
   }
   if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
+    msg.channel.send(adv['affirmation']);
+  }
+  if(/gadvice/.test(msg.content.toLowerCase())){
+    const adv = await fetch('https://api.adviceslip.com/advice').then(response => response.json());
     msg.channel.send(adv['affirmation']);
   }
   if(/gfox/.test(msg.content.toLowerCase())){
