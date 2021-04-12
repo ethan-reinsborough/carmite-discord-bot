@@ -70,7 +70,7 @@ client.on("message", async (msg) => {
     msg.channel.send(res['value']);
   } 
   if(/gdad/.test(msg.content.toLowerCase())){
-    const { file } = await fetch('https://icanhazdadjoke.com/').then(response => response.json());
+    const { file } = await fetch('https://icanhazdadjoke.com').then(response => response.json());
     msg.channel.send(file);
   } 
   if(/urban/.test(msg.content.toLowerCase())){
