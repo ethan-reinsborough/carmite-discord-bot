@@ -63,7 +63,7 @@ client.on("message", async (msg) => {
   }
   if(/gadvice/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://api.adviceslip.com/advice').then(response => response.json());
-    msg.channel.send(adv['affirmation']);
+    msg.channel.send(adv['activity']);
   }
   if(/gfox/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://randomfox.ca/floof/').then(response => response.json());
