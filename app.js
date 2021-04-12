@@ -47,7 +47,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Current Commands:\ng(imme): cat, chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("Current Commands:\ng(imme): bored, cat, chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -65,6 +65,10 @@ client.on("message", async (msg) => {
     const adv = await fetch('https://randomfox.ca/floof/').then(response => response.json());
     msg.channel.send(adv['image']);
   }
+  if(/gbored/.test(msg.content.toLowerCase())){
+    const res = await fetch('https://www.boredapi.com/api/activity/ ').then(response => response.json());
+    msg.channel.send(res['activity']);
+  } 
   if(/gchuck/.test(msg.content.toLowerCase())){
     const res = await fetch('https://api.chucknorris.io/jokes/random').then(response => response.json());
     msg.channel.send(res['value']);
@@ -72,6 +76,10 @@ client.on("message", async (msg) => {
   if(/gdumpy/.test(msg.content.toLowerCase())){
     const res = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
     msg.channel.send(res['value']);
+  } 
+  if(/gshibe/.test(msg.content.toLowerCase())){
+    const { file } = await fetch('http://shibe.online/api/shibes?count=1&urls=[true/false]&httpsUrls=[true/false]').then(response => response.json());
+    msg.channel.send(file);
   } 
   if(/gdad/.test(msg.content.toLowerCase())){
     const { file } = await fetch('https://icanhazdadjoke.com').then(response => response.json());
