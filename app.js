@@ -47,7 +47,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Current Commands:\ng(imme): cat, dog, confidence, chuck, dad");
+    msg.channel.send("Current Commands:\ng(imme): cat, chuck, confidence, dad, dog, dumpy");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
