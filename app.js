@@ -46,18 +46,26 @@ const messageFactories = [
 ]
 
 client.on("message", async (msg) => {
-  if (/gimmecat/.test(msg.content.toLowerCase())) {
+  if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     msg.channel.send(file);
   }
-  if(/gimmedog/.test(msg.content.toLowerCase())){
+  if(/gdog/.test(msg.content.toLowerCase())){
     const res = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
     msg.channel.send(res['message']);
   }
-  if(/gimmeconfidence/.test(msg.content.toLowerCase())){
+  if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
     msg.channel.send(adv['affirmation']);
   }
+  if(/gchuck/.test(msg.content.toLowerCase())){
+    const res = await fetch('https://api.chucknorris.io/jokes/random').then(response => response.json());
+    msg.channel.send(res['value']);
+  } 
+  if(/gdumpy/.test(msg.content.toLowerCase())){
+    const res = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
+    msg.channel.send(res['value']);
+  } 
   if(/urban/.test(msg.content.toLowerCase())){
     var query = msg.content.substring(msg.content.toLowerCase().indexOf("n") + 1);
     const { list } = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`).then(response => response.json());
