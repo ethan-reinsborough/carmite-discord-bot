@@ -100,7 +100,7 @@ client.on("message", async (msg) => {
               .map(e => e.definition);
           });
     definitions.push(`${query} is not a word, genius.`)
-    message.channel.send(definitions[0]);
+    msg.channel.send(definitions[0]);
   }
 
   if (!msg.author.bot) {
