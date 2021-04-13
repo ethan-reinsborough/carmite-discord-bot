@@ -93,12 +93,8 @@ client.on("message", async (msg) => {
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
-    let definitions;
-    await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`)
-          .then(response => {
-              definitions = response.json()['list']
-                  .map(e => e.definition);
-          });
+    let definitions = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`)
+          .then(response => response.json()['list'].map(e => e.definition));
     definitions.push(`${query} is not a word, genius.`)
     msg.channel.send(definitions[0]);
   }
