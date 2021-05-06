@@ -97,7 +97,7 @@ client.on("message", async (msg) => {
     const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
     const res2 = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}`).then(response => response.json());
     const title = res2['title'];
-    msg.channel.send(`Image from anime with ID of ${randomNum}. Title: ${title}`);
+    msg.channel.send(`Title: ${title}`);
     msg.channel.send(res['pictures']['0']['large']);
   } 
   if(/urban/.test(msg.content.toLowerCase())){
