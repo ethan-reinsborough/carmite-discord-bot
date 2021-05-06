@@ -113,12 +113,12 @@ client.on("message", async (msg) => {
     const res = await fetch(`https://api.jikan.moe/v3/character/${randomNum}/pictures`).then(response => response.json());
     const res2 = await fetch(`https://api.jikan.moe/v3/character/${randomNum}`).then(response => response.json());
     const title = res2['name'];
-    const anime = res2['animeography']['0'];
+    const anime = res2['animeography']['0']['name'];
     if(title === undefined){
       msg.channel.send("No results found. Please try again.");
     }
     if(anime === undefined){
-      anime = res2['mangaography']['0'];
+      anime = res2['mangaography']['0']['name'];
     }
     else{
       msg.channel.send(`${title} : ${anime}`);
