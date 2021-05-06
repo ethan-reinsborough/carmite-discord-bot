@@ -114,6 +114,7 @@ client.on("message", async (msg) => {
     const res2 = await fetch(`https://api.jikan.moe/v3/character/${randomNum}`).then(response => response.json());
     const title = res2['name'];
     const anime = res2['animeography']['0']['name'];
+    
     if(title === undefined){
       msg.channel.send("No results found. Please try again.");
     }
@@ -121,7 +122,7 @@ client.on("message", async (msg) => {
       anime = res2['mangaography']['0']['name'];
     }
     else{
-      msg.channel.send(`${title} : ${anime}`);
+      msg.channel.send(`${title} (Anime: ${anime})`);
       let pictureList = Object.keys(res['pictures']).length;
       let randPic = Math.floor((Math.random() * pictureList));
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
