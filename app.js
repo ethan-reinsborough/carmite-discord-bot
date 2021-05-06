@@ -121,7 +121,7 @@ client.on("message", async (msg) => {
     }
     if(anime === undefined){
       anime = res2['mangaography']['0']['name'];
-      description = "Manga"
+      description = "Manga";
     }
     else{
       msg.channel.send(`${title} (${description}: ${anime})`);
