@@ -101,7 +101,7 @@ client.on("message", async (msg) => {
       msg.channel.send("No results found. Please try again.");
     }
     else{
-      msg.channel.send(`Title: ${title}`);
+      msg.channel.send(`${title}`);
       msg.channel.send(res['pictures']['0']['large']);
     } 
   } 
