@@ -107,6 +107,24 @@ client.on("message", async (msg) => {
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
     } 
   } 
+  if(/gchar/.test(msg.content.toLowerCase())){
+    let randomNum = Math.floor((Math.random() * 45205) + 1);
+    
+    const res = await fetch(`https://api.jikan.moe/v3/character/${randomNum}/pictures`).then(response => response.json());
+    const res2 = await fetch(`https://api.jikan.moe/v3/character/${randomNum}`).then(response => response.json());
+    const title = res2['name'];
+    if(title === undefined){
+      msg.channel.send("No results found. Please try again.");
+    }
+    else{
+      msg.channel.send(`${title}`);
+      let pictureList = Object.keys(res['pictures']).length;
+      let randPic = Math.floor((Math.random() * pictureList));
+      msg.channel.send(res['pictures'][`${randPic}`]['large']);
+    } 
+  } 
+
+  https://api.jikan.moe/v3/character/45205/pictures
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
