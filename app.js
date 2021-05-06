@@ -105,7 +105,6 @@ client.on("message", async (msg) => {
       let pictureList = Object.keys(res['pictures']).length;
       let randPic = Math.floor((Math.random() * pictureList));
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
-      msg.channel.send(`Image shown was index of ${randPic} in returned list`);
     } 
   } 
   if(/urban/.test(msg.content.toLowerCase())){
