@@ -49,7 +49,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Current Commands:\ng(imme): advice, bored, cat, chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("Current Commands:\ng(imme): advice, anime, bored, cat, chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -97,8 +97,13 @@ client.on("message", async (msg) => {
     const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
     const res2 = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}`).then(response => response.json());
     const title = res2['title'];
-    msg.channel.send(`Title: ${title}`);
-    msg.channel.send(res['pictures']['0']['large']);
+    if(title === undefined){
+      msg.channel.send("No results found. Please try again.");
+    }
+    else{
+      msg.channel.send(`Title: ${title}`);
+      msg.channel.send(res['pictures']['0']['large']);
+    } 
   } 
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
