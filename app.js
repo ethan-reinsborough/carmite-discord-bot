@@ -49,7 +49,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Current Commands:\ng(imme): advice, anime, bored, cat, chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("Current Commands:\ng(imme): advice, anime, bored, cat, char, chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -114,15 +114,17 @@ client.on("message", async (msg) => {
     const res2 = await fetch(`https://api.jikan.moe/v3/character/${randomNum}`).then(response => response.json());
     const title = res2['name'];
     const anime = res2['animeography']['0']['name'];
-    
+    const description = "Anime";
+
     if(title === undefined){
       msg.channel.send("No results found. Please try again.");
     }
     if(anime === undefined){
       anime = res2['mangaography']['0']['name'];
+      description = "Manga"
     }
     else{
-      msg.channel.send(`${title} (Anime: ${anime})`);
+      msg.channel.send(`${title} (${description}: ${anime})`);
       let pictureList = Object.keys(res['pictures']).length;
       let randPic = Math.floor((Math.random() * pictureList));
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
