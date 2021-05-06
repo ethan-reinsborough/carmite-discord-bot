@@ -103,7 +103,6 @@ client.on("message", async (msg) => {
     else{
       msg.channel.send(`${title}`);
       let pictureList = len(res['pictures']);
-      msg.channel.send(pictureList);
       msg.channel.send(res['pictures']['0']['large']);
     } 
   } 
