@@ -103,7 +103,7 @@ client.on("message", async (msg) => {
     else{
       msg.channel.send(`${title}`);
       let pictureList = Object.keys(res['pictures']).length;
-      let randPic = Math.floor((Math.random() * pictureList) + 1);
+      let randPic = Math.floor((Math.random() * pictureList));
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
       
     } 
