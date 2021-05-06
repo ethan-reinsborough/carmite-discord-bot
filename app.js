@@ -117,6 +117,9 @@ client.on("message", async (msg) => {
     if(title === undefined){
       msg.channel.send("No results found. Please try again.");
     }
+    if(anime === undefined){
+      anime = res2['mangaography']['0'];
+    }
     else{
       msg.channel.send(`${title} : ${anime}`);
       let pictureList = Object.keys(res['pictures']).length;
