@@ -103,8 +103,9 @@ client.on("message", async (msg) => {
     else{
       msg.channel.send(`${title}`);
       let pictureList = Object.keys(res['pictures']).length;
-      msg.channel.send(res['pictures']['0']['large']);
-      msg.channel.send(pictureList);
+      let randPic = Math.floor((Math.random() * pictureList) + 1);
+      msg.channel.send(res['pictures'][`${randpic}`]['large']);
+      
     } 
   } 
   if(/urban/.test(msg.content.toLowerCase())){
