@@ -92,7 +92,6 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   } 
   if(/ganime/.test(msg.content.toLowerCase())){
-    msg.channel.send("anime command");
     let randomNum = Math.floor((Math.random() * 10000) + 1);
     const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
     msg.channel.send(res['pictures']['0']['large']);
