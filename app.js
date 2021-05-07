@@ -336,7 +336,7 @@ client.on("message", async (msg) => {
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   } 
   if(/gowo/.test(msg.content.toLowerCase())){
-    let result = msg.content.substr(original.indexOf(" ") + 1);
+    let result = msg.content.substr(msg.content.indexOf(" ") + 1);
     msg.channel.send("Unmodified result " + result);
     let owo = await neko.sfw.OwOify({text: `${result}`});
     msg.channel.send(owo);
