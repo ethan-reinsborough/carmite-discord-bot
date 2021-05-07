@@ -143,7 +143,7 @@ client.on("message", async (msg) => {
   }
   if(/glesbian/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.Nekos.nsfw.lesbian());
-  }
+  }/*
   if(/npat/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.Nekos.sfw.pat());
   }
@@ -176,8 +176,8 @@ client.on("message", async (msg) => {
   }
   if(/nwaifu/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.NekoLove.sfw.waifu());
-  }
-  /* Too powerful
+  } 
+   Too powerful
   if(/ginfiniteporn/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.gif());
     msg.channel.send("ginfiniteporn");
@@ -359,6 +359,9 @@ client.on("message", async (msg) => {
     neko.nsfw.avatar().then(neko => {msg.channel.send(neko.url);});
   }
   if(/nboobs/.test(msg.content.toLowerCase())){
+    neko.nsfw.boobs().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/tits/.test(msg.content.toLowerCase())){
     neko.nsfw.boobs().then(neko => {msg.channel.send(neko.url);});
   }
   if(/urban/.test(msg.content.toLowerCase())){
