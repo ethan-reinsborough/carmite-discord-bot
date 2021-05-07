@@ -501,38 +501,32 @@ if(/gsnake/.test(msg.content.toLowerCase())){
 }
 
 if(/gpokemon/.test(msg.content.toLowerCase())){
-  module.exports.run = async (client, message, args) => {
  
     const pokemon = await Spawn().catch(e => {});
-    if (!pokemon) return message.channel.send("Opps! Something went wrong :(");
-    const filter = m => m.author.id === message.author.id;
+    if (!pokemon) return msg.channel.send("Opps! Something went wrong :(");
+    const filter = m => m.author.id === msg.author.id;
   
     const embed = new MessageEmbed()
         .setAuthor("Guess the pokemon")
         .setColor("#FFFF00")
         .setImage(pokemon.imageURL);
     
-    await message.channel.send(embed);
+    await msg.channel.send(embed);
   
-    message.channel.awaitMessages(filter, {
+    msg.channel.awaitMessages(filter, {
         max: 1,
         error: ["time"],
         time: 15000
     })
     .then(collected => {
         const m = collected.first();
-        if (!m.content || m.content.toLowerCase() !== pokemon.name.toLowerCase()) return message.channel.send(`❌ | Incorrect guess! The answer was **${pokemon.name}**.`);
-        return message.channel.send(`✅ | Correct guess!`);
+        if (!m.content || m.content.toLowerCase() !== pokemon.name.toLowerCase()) return msg.channel.send(`❌ | Incorrect guess! The answer was **${pokemon.name}**.`);
+        return msg.channel.send(`✅ | Correct guess!`);
     })
     .catch(() => {
-        message.channel.send(`❌ | You did not answer in time. The correct answer was **${pokemon.name}**!`);
+        msg.channel.send(`❌ | You did not answer in time. The correct answer was **${pokemon.name}**!`);
     });
   
-  };
-  
-  module.exports.help = {
-    name: "pokemon",
-    aliases: ["guessthepokemon"]
   };
 }
 
