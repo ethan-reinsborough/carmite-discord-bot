@@ -61,8 +61,40 @@ client.on("message", async (msg) => {
     msg.channel.send(res['message']);
   }
   if(/ghentai/.test(msg.content.toLowerCase())){
-    
     msg.channel.send(hmtai.nsfw.hentai());
+  }
+  if(/gyuri/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.yuri());
+  }
+  if(/gpantsu/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.pantsu());
+  }
+  if(/gthighs/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.thighs());
+  }
+  if(/gtentacles/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.tentacles());
+  }
+  if(/gnsfwallpaper/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.nsfwMobileWallpaper());
+  }
+  if(/gass/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.ass());
+  }
+  if(/gboobjob/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.boobjob());
+  }
+  if(/gnsfwgif/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.gif());
+  }
+  if(/gahegao/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.ahegao());
+  }
+  if(/gdoujin/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.manga());
+  }
+  if(/gneko/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.nsfwNeko());
   }
   if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
