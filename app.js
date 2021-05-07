@@ -344,7 +344,7 @@ client.on("message", async (msg) => {
     neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
   }
   if(/gnhgif/.test(msg.content.toLowerCase())){
-    neko.nsfw.randomHentaiGif.then(neko => {msg.channel.send(neko.url);});
+    msg.channel.send(await neko.nsfw.randomHentaiGif());
   }
   if(/gnngif/.test(msg.content.toLowerCase())){
     neko.nsfw.nekoGif.then(neko => {msg.channel.send(neko.url);});
