@@ -140,7 +140,10 @@ client.on("message", async (msg) => {
     let rank = res['top'][`${listNum}`]['rank'];
     let score = res['top'][`${listNum}`]['score'];
     if(score === 0){
-      score = "Unranked";
+      score = "Unscored";
+    }
+    if(rank === 0){
+      rank = "Unranked";
     }
     msg.channel.send(`${title} : Rank ${rank} : Score ${score}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
