@@ -5,6 +5,9 @@ const fetch = require('node-fetch');
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
 const HMfull = require("hmfull");
+const { HAnimeAPI } = require("hanime");
+
+const api = new HAnimeAPI();
 require("dotenv").config();
 
 const client = new Discord.Client();
@@ -58,6 +61,12 @@ client.on("message", async (msg) => {
   }
   if (/nhelp/.test(msg.content.toLowerCase())) {
     msg.channel.send("Neko Help uwu | n: pat, slap, kiss, gif, baka, hug, holo, smug, waifu, punch");
+  }
+  if (/testhanime/.test(msg.content.toLowerCase())) {
+    
+    const results = await api.search('big boobs');
+    const video = await api.get_video(results.videos[0]);
+    msg.channel.send(video);
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
