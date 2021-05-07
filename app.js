@@ -56,13 +56,13 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Current Commands:\ng(imme): advice, anime, tanime(first 50 pages), granime(very random), bored, cat, char, tchar(first 50 pages), grchar(very random), chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("g(imme): advice, anime, tanime(first 50 pages), granime(very random), bored, cat, char, tchar(first 50 pages), grchar(very random), chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/ghnsfw/.test(msg.content.toLowerCase())) {
     msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
   }
   if (/nhelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Neko Help uwu | n: pat, slap, kiss, gif, baka, hug, holo, smug, waifu, punch");
+    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, ticklelizard, avatar.");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -119,7 +119,6 @@ client.on("message", async (msg) => {
   }
   if(/gero/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.ero());
-    msg.channel.send("gero");
   }
   if(/gelves/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.ero());
@@ -141,9 +140,6 @@ client.on("message", async (msg) => {
   }
   if(/gnekoboobs/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.Nekos.nsfw.boobs());
-  }
-  if(/glesbian/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.nsfw.lesbian());
   }/*
   if(/npat/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.Nekos.sfw.pat());
@@ -337,7 +333,7 @@ client.on("message", async (msg) => {
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   } 
   //idk
-  if(/gowo/.test(msg.content.toLowerCase())){
+  if(/nowo/.test(msg.content.toLowerCase())){
     let result = msg.content.substr(msg.content.indexOf(" ") + 1);
     neko.sfw.OwOify({text: `${result}`}).then(neko => {msg.channel.send(neko.owo)});
   }
@@ -356,7 +352,7 @@ client.on("message", async (msg) => {
   if(/nspank/.test(msg.content.toLowerCase())){
     neko.nsfw.spank().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/navatar/.test(msg.content.toLowerCase())){
+  if(/nsfwavatar/.test(msg.content.toLowerCase())){
     neko.nsfw.avatar().then(neko => {msg.channel.send(neko.url);});
   }
   if(/nboobs/.test(msg.content.toLowerCase())){
@@ -368,17 +364,62 @@ client.on("message", async (msg) => {
   if(/nkitsune/.test(msg.content.toLowerCase())){
     neko.nsfw.kitsune().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/nhentai/.test(msg.content.toLowerCase())){
-    neko.nsfw.hentai().then(neko => {msg.channel.send(neko.url);});
-  }
   if(/nero/.test(msg.content.toLowerCase())){
     neko.nsfw.ero().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/neroneko/.test(msg.content.toLowerCase())){
+  if(/neron/.test(msg.content.toLowerCase())){
     neko.nsfw.eroNeko().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/neroyuri/.test(msg.content.toLowerCase())){
+  if(/neroy/.test(msg.content.toLowerCase())){
     neko.nsfw.eroYuri().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nerok/.test(msg.content.toLowerCase())){
+    neko.nsfw.eroKemonomimi().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nanal/.test(msg.content.toLowerCase())){
+    neko.nsfw.anal().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nclassic/.test(msg.content.toLowerCase())){
+    neko.nsfw.classic().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nwaifu/.test(msg.content.toLowerCase())){
+    neko.sfw.waifu().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/ncatgirl/.test(msg.content.toLowerCase())){
+    neko.sfw.gecg().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nwallpaper/.test(msg.content.toLowerCase())){
+    neko.sfw.wallpaper().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nkiss/.test(msg.content.toLowerCase())){
+    neko.sfw.kiss().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nbaka/.test(msg.content.toLowerCase())){
+    neko.sfw.baka().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nslap/.test(msg.content.toLowerCase())){
+    neko.sfw.slap().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nsmug/.test(msg.content.toLowerCase())){
+    neko.sfw.smug().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/ncuddle/.test(msg.content.toLowerCase())){
+    neko.sfw.cuddle().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nsafeneko/.test(msg.content.toLowerCase())){
+    neko.sfw.neko().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nsafenekogif/.test(msg.content.toLowerCase())){
+    neko.sfw.nekoGif.then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/ntickle/.test(msg.content.toLowerCase())){
+    neko.sfw.tickle().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nlizard/.test(msg.content.toLowerCase())){
+    neko.sfw.lizard().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/navatar/.test(msg.content.toLowerCase())){
+    neko.sfw.avatar().then(neko => {msg.channel.send(neko.url);});
   }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
