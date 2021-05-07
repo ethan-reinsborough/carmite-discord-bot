@@ -160,7 +160,6 @@ client.on("message", async (msg) => {
     }
     msg.channel.send(`${title} | Rank: ${rank}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
-    msg.react('❤️');
   }
   
   if(/ganime/.test(msg.content.toLowerCase())){
