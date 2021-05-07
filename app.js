@@ -339,6 +339,10 @@ client.on("message", async (msg) => {
   if(/gnewneko/.test(msg.content.toLowerCase())){
     neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
   }
+  if(/gowo/.test(msg.content.toLowerCase())){
+    let result = msg.content.substr(msg.content.indexOf(" ") + 1);
+    neko.sfw.OwOify({text: `${result}`}).then(neko => {msg.channel.send(neko.owo)});
+  }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
