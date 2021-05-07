@@ -175,10 +175,11 @@ client.on("message", async (msg) => {
   if(/nwaifu/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.NekoLove.sfw.waifu());
   }
+  /* Too powerful
   if(/ginfiniteporn/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.gif());
     msg.channel.send("ginfiniteporn");
-  }
+  }*/
   if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
     msg.channel.send(adv['affirmation']);
