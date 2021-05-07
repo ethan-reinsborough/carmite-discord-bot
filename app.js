@@ -74,9 +74,9 @@ client.on("message", async (msg) => {
 //#region Help Documentation
 
 if (/ghelp/.test(msg.content.toLowerCase())) {
-  msg.channel.send("**g**(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox");
+  msg.channel.send("**g**(imme): anime, banime(first 10 pages),tanime(first 50 pages), ranime(very random), bored, cat, char, bchar(first 10 pages), tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox, pokemon");
   msg.channel.send("NSFW **g**(imme): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
-  msg.channel.send("Neko Help UwU | **n**(eko): (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nero, yero, kero, anal, classic, pholo, pholoero, gasm | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl.");
+  msg.channel.send("Neko Help UwU | **n**(eko): (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, classic, pholo, pholoero, gasm \n(SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl.");
 }
 if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
   msg.channel.send("**g**: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
@@ -388,7 +388,7 @@ if(/nkitsune/.test(msg.content.toLowerCase())){
 if(/nero/.test(msg.content.toLowerCase())){
   neko.nsfw.ero().then(neko => {msg.channel.send(neko.url);});
 }
-if(/nnero/.test(msg.content.toLowerCase())){
+if(/nnekoero/.test(msg.content.toLowerCase())){
   neko.nsfw.eroNeko().then(neko => {msg.channel.send(neko.url);});
 }
 if(/nyero/.test(msg.content.toLowerCase())){
@@ -499,7 +499,7 @@ if(/nfoxgirl/.test(msg.content.toLowerCase())){
 //https://www.npmjs.com/package/snakecord
 //Might need more dependencies
 if(/gsnake/.test(msg.content.toLowerCase())){
-  return snakeGame.newGame(message);
+  return snakeGame.newGame(msg);
 }
 
 //Random shit idk it's 2 AM why am i still awake
