@@ -67,7 +67,7 @@ client.on("message", async (msg) => {
 if (/ghelp/.test(msg.content.toLowerCase())) {
   msg.channel.send("**g**(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox");
   msg.channel.send("NSFW **g**(imme): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
-  msg.channel.send("Neko Help UwU | **n**: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nero, yero, kero, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar.");
+  msg.channel.send("Neko Help UwU | **n**(eko): (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nero, yero, kero, anal, classic, pholo, pholoero, gasm | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl.");
 }
 if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
   msg.channel.send("**g**: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
@@ -361,6 +361,15 @@ if(/nanal/.test(msg.content.toLowerCase())){
 if(/nclassic/.test(msg.content.toLowerCase())){
   neko.nsfw.classic().then(neko => {msg.channel.send(neko.url);});
 }
+if(/npholo/.test(msg.content.toLowerCase())){
+  neko.nsfw.holo().then(neko => {msg.channel.send(neko.url);});
+}
+if(/npholoero/.test(msg.content.toLowerCase())){
+  neko.nsfw.holoEro().then(neko => {msg.channel.send(neko.url);});
+}
+if(/ngasm/.test(msg.content.toLowerCase())){
+  neko.nsfw.gasm().then(neko => {msg.channel.send(neko.url);});
+}
 if(/nwaifu/.test(msg.content.toLowerCase())){
   neko.sfw.waifu().then(neko => {msg.channel.send(neko.url);});
 }
@@ -399,6 +408,24 @@ if(/nlizard/.test(msg.content.toLowerCase())){
 }
 if(/navatar/.test(msg.content.toLowerCase())){
   neko.sfw.avatar().then(neko => {msg.channel.send(neko.url);});
+}
+if(/npoke/.test(msg.content.toLowerCase())){
+  neko.sfw.poke().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nhug/.test(msg.content.toLowerCase())){
+  neko.sfw.hug().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nfeed/.test(msg.content.toLowerCase())){
+  neko.sfw.hug().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nholo/.test(msg.content.toLowerCase())){
+  neko.sfw.holo().then(neko => {msg.channel.send(neko.url);});
+}
+if(/ngoose/.test(msg.content.toLowerCase())){
+  neko.sfw.goose().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nfoxgirl/.test(msg.content.toLowerCase())){
+  neko.sfw.goose().then(neko => {msg.channel.send(neko.url);});
 }
 
 //#endregion
