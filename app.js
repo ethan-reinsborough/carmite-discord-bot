@@ -370,6 +370,15 @@ client.on("message", async (msg) => {
   if(/nhentai/.test(msg.content.toLowerCase())){
     neko.nsfw.hentai().then(neko => {msg.channel.send(neko.url);});
   }
+  if(/nero/.test(msg.content.toLowerCase())){
+    neko.nsfw.ero().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/neroneko/.test(msg.content.toLowerCase())){
+    neko.nsfw.eroNeko().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/neroyuri/.test(msg.content.toLowerCase())){
+    neko.nsfw.eroYuri().then(neko => {msg.channel.send(neko.url);});
+  }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
