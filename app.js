@@ -57,6 +57,8 @@ const messageFactories = [
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
     msg.channel.send("g(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("NSFW g(imme): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
+    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, ticklelizard, avatar.");
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
     msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
