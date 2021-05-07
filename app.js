@@ -75,9 +75,10 @@ client.on("message", async (msg) => {
 //#region Help Documentation
 
 if (/ghelp/.test(msg.content.toLowerCase())) {
-  msg.channel.send("```**g**(*imme*): anime, banime(first 10 pages),tanime(first 50 pages), ranime(very random), bored, cat, char, bchar(first 10 pages), tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox, pokemon```");
-  msg.channel.send("```NSFW **g**(*imme*): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits```");
-  msg.channel.send("```Neko Help UwU \n **n**(*eko*): \n(__NSFW__) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, classic, pholo, pholoero, gasm \n(__SFW__) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl.```");
+  msg.channel.send("Gimme Help OwO \n**g**(*imme*): anime, banime(first 10 pages),tanime(first 50 pages), ranime(very random), bored, cat, char, bchar(first 10 pages), tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox.");
+  msg.channel.send("NSFW **g**(*imme*): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
+  msg.channel.send("Neko Help UwU \n **n**(*eko*): \n(__NSFW__) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, classic, pholo, pholoero, gasm \n(__SFW__) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl.");
+  msg.channel.send("\nGames: \n **g**(*imme*): pokemon, snake.");
 }
 if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
   msg.channel.send("**g**: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
