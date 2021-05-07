@@ -337,7 +337,7 @@ client.on("message", async (msg) => {
   } 
   //idk
   if(/gnewneko/.test(msg.content.toLowerCase())){
-    neko.nsfw.neko().then(neko => {msg.channel.send(neko);});
+    neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
   }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
