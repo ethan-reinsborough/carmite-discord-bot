@@ -493,14 +493,14 @@ if(/nfoxgirl/.test(msg.content.toLowerCase())){
 //#endregion
 
 //#region Snakecord??
-
+//https://www.npmjs.com/package/lewds.api
 //https://www.npmjs.com/package/snakecord
 //Might need more dependencies
 if(/gsnake/.test(msg.content.toLowerCase())){
   return snakeGame.newGame(message);
 }
 
-if(/gsnake/.test(msg.content.toLowerCase())){
+if(/gpokemon/.test(msg.content.toLowerCase())){
   module.exports.run = async (client, message, args) => {
  
     const pokemon = await Spawn().catch(e => {});
