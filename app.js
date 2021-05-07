@@ -2,6 +2,7 @@
 "use strict";
 
 const fetch = require('node-fetch');
+const SnakeGame = require("snakecord");
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
 const HMfull = require("hmfull");
@@ -9,6 +10,12 @@ const nekoClient = require('nekos.life');
 const neko = new nekoClient();
 //const { HAnimeAPI } = require("hanime");
 
+const snakeGame = new SnakeGame({
+  title: 'Snake Game',
+  color: "GREEN",
+  timestamp: false,
+  gameOverTitle: "Game Over"
+});
 //const api = new HAnimeAPI();
 require("dotenv").config();
 
@@ -482,6 +489,16 @@ if(/nfoxgirl/.test(msg.content.toLowerCase())){
   msg.channel.send(file);
 } 
 */
+
+//#endregion
+
+//#region Snakecord??
+
+//https://www.npmjs.com/package/snakecord
+
+if(/gsnake/.test(msg.content.toLowerCase())){
+  return snakeGame.newGame(message);
+}
 
 //#endregion
 
