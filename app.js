@@ -335,10 +335,11 @@ client.on("message", async (msg) => {
     msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   } 
+  //idk
   if(/gowo/.test(msg.content.toLowerCase())){
     let result = msg.content.substr(msg.content.indexOf(" ") + 1);
-    let owo = await neko.sfw.OwOify({text: `${result}`}).then(response => response.json());
-    msg.channel.send(owo);
+    let owo = await neko.sfw.OwOify({text: `${result}`});
+    msg.channel.send(String(owo));
   }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
