@@ -361,8 +361,11 @@ client.on("message", async (msg) => {
   if(/nboobs/.test(msg.content.toLowerCase())){
     neko.nsfw.boobs().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/tits/.test(msg.content.toLowerCase())){
-    neko.nsfw.boobs().then(neko => {msg.channel.send(neko.url);});
+  if(/ntits/.test(msg.content.toLowerCase())){
+    neko.nsfw.tits().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nkitsune/.test(msg.content.toLowerCase())){
+    neko.nsfw.kitsune().then(neko => {msg.channel.send(neko.url);});
   }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
