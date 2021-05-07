@@ -56,7 +56,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("ghelpnsfw nhelp")
+    msg.channel.send("ghelpnsfw nhelp");
     msg.channel.send("g(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
