@@ -179,7 +179,7 @@ client.on("message", async (msg) => {
     }
     msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
-    msg.reactions('❤️');
+    msg.react('❤️');
   } 
 
   if(/urban/.test(msg.content.toLowerCase())){
