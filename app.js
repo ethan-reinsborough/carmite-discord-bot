@@ -4,6 +4,7 @@
 const fetch = require('node-fetch');
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
+const HMfull = require("hmfull");
 require("dotenv").config();
 
 const client = new Discord.Client();
@@ -53,7 +54,10 @@ client.on("message", async (msg) => {
     msg.channel.send("Current Commands:\ng(imme): advice, anime, tanime(first 50 pages), granime(very random), bored, cat, char, tchar(first 50 pages), grchar(very random), chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/ghnsfw/.test(msg.content.toLowerCase())) {
-    msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public");
+    msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
+  }
+  if (/nhelp/.test(msg.content.toLowerCase())) {
+    msg.channel.send("Neko Help uwu | n: pat, slap, kiss, gif, baka, hug, holo, smug, waifu, punch");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -128,6 +132,45 @@ client.on("message", async (msg) => {
   }
   if(/gpublic/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.public());
+  }
+  if(/gnekoboobs/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.nsfw.boobs());
+  }
+  if(/gboobs/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.nsfw.boobs());
+  }
+  if(/npat/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.pat());
+  }
+  if(/nslap/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.slap());
+  }
+  if(/nkiss/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.kiss());
+  }
+  if(/ngif/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.nekogif());
+  }
+  if(/nbaka/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.baka());
+  }
+  if(/nhug/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.hug());
+  }
+  if(/nholo/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.holo());
+  }
+  if(/nsmug/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.sfw.smug());
+  }
+  if(/nsmug/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.NekoLove.sfw.punch());
+  }
+  if(/gtits/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.nsfw.tits());
+  }
+  if(/nwaifu/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.NekoLove.sfw.waifu());
   }
   if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
