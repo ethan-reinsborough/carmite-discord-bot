@@ -495,7 +495,7 @@ if(/nfoxgirl/.test(msg.content.toLowerCase())){
 
 //#endregion
 
-//#region Snakecord??
+//#region Snakecord
 
 //https://www.npmjs.com/package/lewds.api
 //https://www.npmjs.com/package/snakecord
