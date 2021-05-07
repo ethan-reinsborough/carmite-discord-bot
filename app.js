@@ -498,15 +498,13 @@ if(/nfoxgirl/.test(msg.content.toLowerCase())){
 
 //#region Snakecord
 
-//https://www.npmjs.com/package/lewds.api
-//https://www.npmjs.com/package/snakecord
-//Might need more dependencies
 if(/gsnake/.test(msg.content.toLowerCase())){
   return snakeGame.newGame(msg);
 }
 //#endregion
 
 //#region Pokemon Game
+
 if(/gpokemon/.test(msg.content.toLowerCase())){
     const pokemon = await Spawn().catch(e => {});
     if (!pokemon) return msg.channel.send("Opps! Something went wrong :(");
@@ -536,7 +534,13 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
 
 //#endregion
 
-  if(!msg.author.bot) {
+//#region Interesting Links (Future Additions..?)
+
+//https://www.npmjs.com/package/lewds.api
+
+//#endregion
+  
+if(!msg.author.bot) {
     messageFactories
         .map(f => f(msg.content))
         .filter(response => response != undefined)
