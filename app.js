@@ -340,27 +340,26 @@ client.on("message", async (msg) => {
     let result = msg.content.substr(msg.content.indexOf(" ") + 1);
     neko.sfw.OwOify({text: `${result}`}).then(neko => {msg.channel.send(neko.owo)});
   }
-  if(/gnneko/.test(msg.content.toLowerCase())){
+  if(/nneko/.test(msg.content.toLowerCase())){
     neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/gnhgif/.test(msg.content.toLowerCase())){
-    msg.channel.send(await neko.nsfw.randomHentaiGif());
+  if(/nhgif/.test(msg.content.toLowerCase())){
+    neko.nsfw.randomHentaiGif().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/gnngif/.test(msg.content.toLowerCase())){
-    msg.channel.send(await neko.nsfw.nekoGif());
-    //neko.nsfw.nekoGif.then(neko => {msg.channel.send(neko.url);});
+  if(/nngif/.test(msg.content.toLowerCase())){
+    neko.nsfw.nekoGif().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/gngirlgif/.test(msg.content.toLowerCase())){
-    neko.nsfw.girlSoloGif.then(neko => {msg.channel.send(neko.url);});
+  if(/ngirlgif/.test(msg.content.toLowerCase())){
+    neko.nsfw.girlSoloGif().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/gnspank/.test(msg.content.toLowerCase())){
-    neko.nsfw.spank.then(neko => {msg.channel.send(neko.url);});
+  if(/nspank/.test(msg.content.toLowerCase())){
+    neko.nsfw.spank().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/gnavatar/.test(msg.content.toLowerCase())){
-    neko.nsfw.avatar.then(neko => {msg.channel.send(neko.url);});
+  if(/navatar/.test(msg.content.toLowerCase())){
+    neko.nsfw.avatar().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/gnboobs/.test(msg.content.toLowerCase())){
-    neko.nsfw.boobs.then(neko => {msg.channel.send(neko.url);});
+  if(/nboobs/.test(msg.content.toLowerCase())){
+    neko.nsfw.boobs().then(neko => {msg.channel.send(neko.url);});
   }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
