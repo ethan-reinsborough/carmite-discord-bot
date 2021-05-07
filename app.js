@@ -338,7 +338,7 @@ client.on("message", async (msg) => {
   if(/gowo/.test(msg.content.toLowerCase())){
     let result = msg.content.substr(msg.content.indexOf(" ") + 1);
     let owo = await neko.sfw.OwOify({text: `${result}`}).then(response => response.json());
-    msg.channel.send(owo['owo']);
+    msg.channel.send(owo);
   }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
