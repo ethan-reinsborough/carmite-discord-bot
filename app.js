@@ -91,7 +91,7 @@ client.on("message", async (msg) => {
     const { file } = await fetch('https://icanhazdadjoke.com').then(response => response.json());
     msg.channel.send(file);
   } 
-  if(/ganime/.test(msg.content.toLowerCase())){
+  if(/granime/.test(msg.content.toLowerCase())){
     let randomNum = Math.floor((Math.random() * 10000) + 1);
     
     const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
@@ -107,7 +107,7 @@ client.on("message", async (msg) => {
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
     } 
   } 
-  if(/gchar/.test(msg.content.toLowerCase())){
+  if(/grchar/.test(msg.content.toLowerCase())){
     let randomNum = Math.floor((Math.random() * 45205) + 1);
     
     const res = await fetch(`https://api.jikan.moe/v3/character/${randomNum}/pictures`).then(response => response.json());
@@ -130,7 +130,17 @@ client.on("message", async (msg) => {
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
     } 
   } 
-
+  if(/ganime/.test(msg.content.toLowerCase())){
+    let pageNum = Math.floor((Math.random() * 357) + 1);
+    const res = await fetch(`https://api.jikan.moe/v3/top/anime/${randomNum}`).then(response => response.json());
+    let listLength = Object.keys(res['top']).length;
+    let listNum = Math.floor((Math.random() * listLength));
+    let title = res['top'][`${listNum}`]['title'];
+    let rank = res['top'][`${listNum}`]['rank'];
+    let score = res['top'][`${listNum}`]['score'];
+    msg.channel.send(`${title} : Rank ${rank} : Score ${score}`);
+    msg.channel.send(res['top'][`${listNum}`]['image_url']);
+  } 
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
