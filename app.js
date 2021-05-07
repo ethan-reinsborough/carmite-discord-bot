@@ -22,7 +22,7 @@ const riotApiKey = process.env.RIOT_API_KEY;
 
 client.login(process.env.BOT_TOKEN);
 //#endregion
-
+/*
 function dadJokeFactory(body) {
   let pattern = /(^|(.*\s))(I|i)(('?m)|( am))\s(?<name>.+)/;
   let match = body.match(pattern);
@@ -30,7 +30,7 @@ function dadJokeFactory(body) {
       let name = match.groups["name"];
       return `Nice to meet you ${name}, I am Charles.`;
   }
-}
+}*/
 
 function pingEthanFactory(body) {
   if (/pingethan/.test(body)) 
@@ -336,8 +336,26 @@ client.on("message", async (msg) => {
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   } 
   //idk
-  if(/gnewneko/.test(msg.content.toLowerCase())){
+  if(/nneko/.test(msg.content.toLowerCase())){
     neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nhgif/.test(msg.content.toLowerCase())){
+    neko.nsfw.randomHentaiGif.then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nngif/.test(msg.content.toLowerCase())){
+    neko.nsfw.nekoGif.then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/ngirlgif/.test(msg.content.toLowerCase())){
+    neko.nsfw.girlSoloGif.then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nspank/.test(msg.content.toLowerCase())){
+    neko.nsfw.spank.then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/navatar/.test(msg.content.toLowerCase())){
+    neko.nsfw.avatar.then(neko => {msg.channel.send(neko.url);});
+  }
+  if(/nboobs/.test(msg.content.toLowerCase())){
+    neko.nsfw.boobs.then(neko => {msg.channel.send(neko.url);});
   }
   if(/gowo/.test(msg.content.toLowerCase())){
     let result = msg.content.substr(msg.content.indexOf(" ") + 1);
