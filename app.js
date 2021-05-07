@@ -18,11 +18,15 @@ client.on("ready", () => {
   console.log("Bot is ready");
 });
 
-const riotApiKey = process.env.RIOT_API_KEY;
+//const riotApiKey = process.env.RIOT_API_KEY;
 
 client.login(process.env.BOT_TOKEN);
+
 //#endregion
 
+//#region Factory Implementation
+
+/* Disabled as requested by users
 function dadJokeFactory(body) {
   let pattern = /(^|(.*\s))(I|i)(('?m)|( am))\s(?<name>.+)/;
   let match = body.match(pattern);
@@ -31,6 +35,7 @@ function dadJokeFactory(body) {
       return `Nice to meet you ${name}, I am Charles.`;
   }
 }
+*/
 
 function pingEthanFactory(body) {
   if (/pingethan/.test(body)) 
@@ -48,381 +53,360 @@ function gamersFactory(body){
 }
 
 const messageFactories = [
-    dadJokeFactory,
+    //dadJokeFactory,
     bugCatFactory,
     pingEthanFactory,
     gamersFactory
 ]
+//#endregion
 
 client.on("message", async (msg) => {
-  if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("g(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dad, dog, dumpy, fox");
-    msg.channel.send("NSFW g(imme): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
-    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nero, yero, kero, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar.");
-  }
-  if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
-    msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
-  }
-  if (/nhelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar.");
-  }
-  if (/gcat/.test(msg.content.toLowerCase())) {
-    const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
-    msg.channel.send(file);
-  }
-  if(/gdog/.test(msg.content.toLowerCase())){
-    const res = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
-    msg.channel.send(res['message']);
-  }
-  if(/ghentai/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.hentai());
-  }
-  if(/gyuri/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.yuri());
-  }
-  if(/gpantsu/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.pantsu());
-  }
-  if(/gthighs/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.thighs());
-  }
-  if(/gtentacles/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.tentacles());
-  }
-  if(/gnsfwallpaper/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.nsfwMobileWallpaper());
-  }
-  if(/gass/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.ass());
-  }
-  if(/gboobjob/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.boobjob());
-  }
-  if(/gnsfwgif/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.gif());
-  }
-  if(/gahegao/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.ahegao());
-  }
-  if(/gdoujin/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.manga());
-  }
-  if(/gneko/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.nsfwNeko());
-  }
-  if(/gbdsm/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.bdsm());
-  }
-  if(/gfemdom/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.femdom());
-  }
-  if(/gincest/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.incest());
-  }
-  if(/gero/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.ero());
-  }
-  if(/gelves/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.ero());
-  }
-  if(/gglasses/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.glasses());
-  }
-  if(/guniform/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.uniform());
-  }
-  if(/gbang/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.gangbang());
-  }
-  if(/gmoarthigh/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.zettaiRyouiki());
-  }
-  if(/gpublic/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.public());
-  }
-  if(/gnekoboobs/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.nsfw.boobs());
-  }/*
-  if(/npat/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.pat());
-  }
-  if(/nslap/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.slap());
-  }
-  if(/nkiss/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.kiss());
-  }
-  if(/ngif/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.nekogif());
-  }
-  if(/nbaka/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.baka());
-  }
-  if(/nhug/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.hug());
-  }
-  if(/nholo/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.holo());
-  }
-  if(/nsmug/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.sfw.smug());
-  }
-  if(/nsmug/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.NekoLove.sfw.punch());
-  }
-  if(/gspank/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.nsfw.spank());
-  }
-  if(/nwaifu/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.NekoLove.sfw.waifu());
-  } 
-   Too powerful
-  if(/ginfiniteporn/.test(msg.content.toLowerCase())){
-    msg.channel.send(hmtai.nsfw.gif());
-    msg.channel.send("ginfiniteporn");
-  }*/
-  if(/gconfidence/.test(msg.content.toLowerCase())){
-    const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
-    msg.channel.send(adv['affirmation']);
-  }
-  if(/gadvice/.test(msg.content.toLowerCase())){
-    const adv = await fetch('https://api.adviceslip.com/advice').then(response => response.json());
-    msg.channel.send(adv[0]['advice']);
-  }
-  if(/gfox/.test(msg.content.toLowerCase())){
-    const adv = await fetch('https://randomfox.ca/floof/').then(response => response.json());
-    msg.channel.send(adv['image']);
-  }
-  if(/gbored/.test(msg.content.toLowerCase())){
-    const res = await fetch('https://www.boredapi.com/api/activity/ ').then(response => response.json());
-    msg.channel.send(res['activity']);
-  } 
-  if(/gchuck/.test(msg.content.toLowerCase())){
-    const res = await fetch('https://api.chucknorris.io/jokes/random').then(response => response.json());
-    msg.channel.send(res['value']);
-  } 
-  if(/gdumpy/.test(msg.content.toLowerCase())){
-    const res = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
-    msg.channel.send(res['value']);
-  } 
-  if(/gshibe/.test(msg.content.toLowerCase())){
-    const { file } = await fetch('http://shibe.online/api/shibes?count=1&urls=[true/false]&httpsUrls=[true/false]').then(response => response.json());
-    msg.channel.send(file);
-  } 
-  if(/gdad/.test(msg.content.toLowerCase())){
-    const { file } = await fetch('https://icanhazdadjoke.com').then(response => response.json());
-    msg.channel.send(file);
-  } 
-  if(/granime/.test(msg.content.toLowerCase())){
-    let randomNum = Math.floor((Math.random() * 10000) + 1);
-    
-    const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
-    const res2 = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}`).then(response => response.json());
-    const title = res2['title'];
-    if(title === undefined){
-      msg.channel.send("No results found. Please try again.");
-    }
-    else{
-      msg.channel.send(`${title}`);
-      let pictureList = Object.keys(res['pictures']).length;
-      let randPic = Math.floor((Math.random() * pictureList));
-      msg.channel.send(res['pictures'][`${randPic}`]['large']);
-    } 
-  } 
-  if(/grchar/.test(msg.content.toLowerCase())){
-    let randomNum = Math.floor((Math.random() * 45205) + 1);
-    
-    const res = await fetch(`https://api.jikan.moe/v3/character/${randomNum}/pictures`).then(response => response.json());
-    const res2 = await fetch(`https://api.jikan.moe/v3/character/${randomNum}`).then(response => response.json());
-    const title = res2['name'];
-    const anime = res2['animeography']['0']['name'];
-    const description = "Anime";
 
-    if(title === undefined){
-      msg.channel.send("No results found. Please try again.");
-    }
-    if(anime === undefined){
-      anime = res2['mangaography']['0']['name'];
-      description = "Manga";
-    }
-    else{
-      msg.channel.send(`${title} (${description}: ${anime})`);
-      let pictureList = Object.keys(res['pictures']).length;
-      let randPic = Math.floor((Math.random() * pictureList));
-      msg.channel.send(res['pictures'][`${randPic}`]['large']);
-    } 
+//#region Help Documentation
+
+if (/ghelp/.test(msg.content.toLowerCase())) {
+  msg.channel.send("**g**(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox");
+  msg.channel.send("NSFW **g**(imme): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
+  msg.channel.send("Neko Help UwU | **n**: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nero, yero, kero, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar.");
+}
+if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
+  msg.channel.send("**g**: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
+}
+if (/nhelp/.test(msg.content.toLowerCase())) {
+  msg.channel.send("Neko Help UwU | **n**: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar.");
+}
+
+//#endregion
+
+//#region G(imme) Commands
+
+if (/gcat/.test(msg.content.toLowerCase())) {
+  const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+  msg.channel.send(file);
+}
+if(/gdog/.test(msg.content.toLowerCase())){
+  const res = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
+  msg.channel.send(res['message']);
+}
+if(/ghentai/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.hentai());
+}
+if(/gyuri/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.yuri());
+}
+if(/gpantsu/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.pantsu());
+}
+if(/gthighs/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.thighs());
+}
+if(/gtentacles/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.tentacles());
+}
+if(/gnsfwallpaper/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.nsfwMobileWallpaper());
+}
+if(/gass/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.ass());
+}
+if(/gboobjob/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.boobjob());
+}
+if(/gnsfwgif/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.gif());
+}
+if(/gahegao/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.ahegao());
+}
+if(/gdoujin/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.manga());
+}
+if(/gneko/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.nsfwNeko());
+}
+if(/gbdsm/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.bdsm());
+}
+if(/gfemdom/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.femdom());
+}
+if(/gincest/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.incest());
+}
+if(/gero/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.ero());
+}
+if(/gelves/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.ero());
+}
+if(/gglasses/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.glasses());
+}
+if(/guniform/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.uniform());
+}
+if(/gbang/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.gangbang());
+}
+if(/gmoarthigh/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.zettaiRyouiki());
+}
+if(/gpublic/.test(msg.content.toLowerCase())){
+  msg.channel.send(hmtai.nsfw.public());
+}
+if(/gnekoboobs/.test(msg.content.toLowerCase())){
+  msg.channel.send(HMfull.Nekos.nsfw.boobs());
+}
+if(/gconfidence/.test(msg.content.toLowerCase())){
+  const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
+  msg.channel.send(adv['affirmation']);
+}
+if(/gadvice/.test(msg.content.toLowerCase())){
+  const adv = await fetch('https://api.adviceslip.com/advice').then(response => response.json());
+  msg.channel.send(adv[0]['advice']);
+}
+if(/gfox/.test(msg.content.toLowerCase())){
+  const adv = await fetch('https://randomfox.ca/floof/').then(response => response.json());
+  msg.channel.send(adv['image']);
+}
+if(/gbored/.test(msg.content.toLowerCase())){
+  const res = await fetch('https://www.boredapi.com/api/activity/ ').then(response => response.json());
+  msg.channel.send(res['activity']);
+} 
+if(/gchuck/.test(msg.content.toLowerCase())){
+  const res = await fetch('https://api.chucknorris.io/jokes/random').then(response => response.json());
+  msg.channel.send(res['value']);
+} 
+if(/gdumpy/.test(msg.content.toLowerCase())){
+  const res = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
+  msg.channel.send(res['value']);
+} 
+if(/gshibe/.test(msg.content.toLowerCase())){
+  const { file } = await fetch('http://shibe.online/api/shibes?count=1&urls=[true/false]&httpsUrls=[true/false]').then(response => response.json());
+  msg.channel.send(file);
+} 
+if(/granime/.test(msg.content.toLowerCase())){
+
+  let randomNum = Math.floor((Math.random() * 10000) + 1);
+  
+  const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
+  const res2 = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}`).then(response => response.json());
+  const title = res2['title'];
+  if(title === undefined){
+    msg.channel.send("No results found. Please try again.");
   }
-  if(/granime/.test(msg.content.toLowerCase())){
-    let randomNum = Math.floor((Math.random() * 10000) + 1);
-    
-    const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
-    const res2 = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}`).then(response => response.json());
-    const title = res2['title'];
-    if(title === undefined){
-      msg.channel.send("No results found. Please try again.");
-    }
-    else{
-      msg.channel.send(`${title}`);
-      let pictureList = Object.keys(res['pictures']).length;
-      let randPic = Math.floor((Math.random() * pictureList));
-      msg.channel.send(res['pictures'][`${randPic}`]['large']);
-    } 
+  else{
+    msg.channel.send(`${title}`);
+    let pictureList = Object.keys(res['pictures']).length;
+    let randPic = Math.floor((Math.random() * pictureList));
+    msg.channel.send(res['pictures'][`${randPic}`]['large']);
   } 
-  if(/gchar/.test(msg.content.toLowerCase())){
-    let pageNum = Math.floor((Math.random() * 2717) + 1);
-    const res = await fetch(`https://api.jikan.moe/v3/top/characters/${pageNum}`).then(response => response.json());
-    let listLength = 49;
-    let listNum = Math.floor((Math.random() * listLength));
+} 
+if(/grchar/.test(msg.content.toLowerCase())){
+  let randomNum = Math.floor((Math.random() * 45205) + 1);
+  
+  const res = await fetch(`https://api.jikan.moe/v3/character/${randomNum}/pictures`).then(response => response.json());
+  const res2 = await fetch(`https://api.jikan.moe/v3/character/${randomNum}`).then(response => response.json());
+  const title = res2['name'];
+  const anime = res2['animeography']['0']['name'];
+  const description = "Anime";
 
-    let title = res['top'][`${listNum}`]['title'];
-    let rank = res['top'][`${listNum}`]['rank'];
-
-    if(rank === 0){
-      rank = "Unranked";
-    }
-    msg.channel.send(`${title} | Rank: ${rank}`);
-    msg.channel.send(res['top'][`${listNum}`]['image_url']);
+  if(title === undefined){
+    msg.channel.send("No results found. Please try again.");
   }
-  if(/gtchar/.test(msg.content.toLowerCase())){
-    let pageNum = Math.floor((Math.random() * 50) + 1);
-    const res = await fetch(`https://api.jikan.moe/v3/top/characters/${pageNum}`).then(response => response.json());
-    let listLength = 49;
-    let listNum = Math.floor((Math.random() * listLength));
-
-    let title = res['top'][`${listNum}`]['title'];
-    let rank = res['top'][`${listNum}`]['rank'];
-
-    if(rank === 0){
-      rank = "Unranked";
-    }
-    msg.channel.send(`${title} | Rank: ${rank}`);
-    msg.channel.send(res['top'][`${listNum}`]['image_url']);
+  if(anime === undefined){
+    anime = res2['mangaography']['0']['name'];
+    description = "Manga";
   }
-  if(/gtanime/.test(msg.content.toLowerCase())){
-    let pageNum = Math.floor((Math.random() * 50) + 1);
-    const res = await fetch(`https://api.jikan.moe/v3/top/anime/${pageNum}`).then(response => response.json());
-    //let listLength = Object.keys(res['top']).length;
-    let listLength = 49;
-    let listNum = Math.floor((Math.random() * listLength));
-    let title = res['top'][`${listNum}`]['title'];
-    let rank = res['top'][`${listNum}`]['rank'];
-    let score = res['top'][`${listNum}`]['score'];
-    if(score === 0){
-      score = "Unscored";
-    }
-    if(rank === 0){
-      rank = "Unranked";
-    }
-    msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
-    msg.channel.send(res['top'][`${listNum}`]['image_url']);
+  else{
+    msg.channel.send(`${title} (${description}: ${anime})`);
+    let pictureList = Object.keys(res['pictures']).length;
+    let randPic = Math.floor((Math.random() * pictureList));
+    msg.channel.send(res['pictures'][`${randPic}`]['large']);
   } 
-  if(/ganime/.test(msg.content.toLowerCase())){
-    let pageNum = Math.floor((Math.random() * 357) + 1);
-    const res = await fetch(`https://api.jikan.moe/v3/top/anime/${pageNum}`).then(response => response.json());
-    //let listLength = Object.keys(res['top']).length;
-    let listLength = 49;
-    let listNum = Math.floor((Math.random() * listLength));
-    let title = res['top'][`${listNum}`]['title'];
-    let rank = res['top'][`${listNum}`]['rank'];
-    let score = res['top'][`${listNum}`]['score'];
-    if(score === 0){
-      score = "Unscored";
-    }
-    if(rank === 0){
-      rank = "Unranked";
-    }
-    msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
-    msg.channel.send(res['top'][`${listNum}`]['image_url']);
+}
+if(/granime/.test(msg.content.toLowerCase())){
+  let randomNum = Math.floor((Math.random() * 10000) + 1);
+  
+  const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
+  const res2 = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}`).then(response => response.json());
+  const title = res2['title'];
+  if(title === undefined){
+    msg.channel.send("No results found. Please try again.");
+  }
+  else{
+    msg.channel.send(`${title}`);
+    let pictureList = Object.keys(res['pictures']).length;
+    let randPic = Math.floor((Math.random() * pictureList));
+    msg.channel.send(res['pictures'][`${randPic}`]['large']);
   } 
-  //idk
-  if(/nowo/.test(msg.content.toLowerCase())){
-    let result = msg.content.substr(msg.content.indexOf(" ") + 1);
-    neko.sfw.OwOify({text: `${result}`}).then(neko => {msg.channel.send(neko.owo)});
+} 
+if(/gchar/.test(msg.content.toLowerCase())){
+  let pageNum = Math.floor((Math.random() * 2717) + 1);
+  const res = await fetch(`https://api.jikan.moe/v3/top/characters/${pageNum}`).then(response => response.json());
+  let listLength = 49;
+  let listNum = Math.floor((Math.random() * listLength));
+
+  let title = res['top'][`${listNum}`]['title'];
+  let rank = res['top'][`${listNum}`]['rank'];
+
+  if(rank === 0){
+    rank = "Unranked";
   }
-  if(/nneko/.test(msg.content.toLowerCase())){
-    neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
+  msg.channel.send(`${title} | Rank: ${rank}`);
+  msg.channel.send(res['top'][`${listNum}`]['image_url']);
+}
+if(/gtchar/.test(msg.content.toLowerCase())){
+  let pageNum = Math.floor((Math.random() * 50) + 1);
+  const res = await fetch(`https://api.jikan.moe/v3/top/characters/${pageNum}`).then(response => response.json());
+  let listLength = 49;
+  let listNum = Math.floor((Math.random() * listLength));
+
+  let title = res['top'][`${listNum}`]['title'];
+  let rank = res['top'][`${listNum}`]['rank'];
+
+  if(rank === 0){
+    rank = "Unranked";
   }
-  if(/nhgif/.test(msg.content.toLowerCase())){
-    neko.nsfw.randomHentaiGif().then(neko => {msg.channel.send(neko.url);});
+  msg.channel.send(`${title} | Rank: ${rank}`);
+  msg.channel.send(res['top'][`${listNum}`]['image_url']);
+}
+if(/gtanime/.test(msg.content.toLowerCase())){
+  let pageNum = Math.floor((Math.random() * 50) + 1);
+  const res = await fetch(`https://api.jikan.moe/v3/top/anime/${pageNum}`).then(response => response.json());
+  //let listLength = Object.keys(res['top']).length;
+  let listLength = 49;
+  let listNum = Math.floor((Math.random() * listLength));
+  let title = res['top'][`${listNum}`]['title'];
+  let rank = res['top'][`${listNum}`]['rank'];
+  let score = res['top'][`${listNum}`]['score'];
+  if(score === 0){
+    score = "Unscored";
   }
-  if(/nngif/.test(msg.content.toLowerCase())){
-    neko.nsfw.nekoGif().then(neko => {msg.channel.send(neko.url);});
+  if(rank === 0){
+    rank = "Unranked";
   }
-  if(/ngirlgif/.test(msg.content.toLowerCase())){
-    neko.nsfw.girlSoloGif().then(neko => {msg.channel.send(neko.url);});
+  msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
+  msg.channel.send(res['top'][`${listNum}`]['image_url']);
+} 
+if(/ganime/.test(msg.content.toLowerCase())){
+  let pageNum = Math.floor((Math.random() * 357) + 1);
+  const res = await fetch(`https://api.jikan.moe/v3/top/anime/${pageNum}`).then(response => response.json());
+  //let listLength = Object.keys(res['top']).length;
+  let listLength = 49;
+  let listNum = Math.floor((Math.random() * listLength));
+  let title = res['top'][`${listNum}`]['title'];
+  let rank = res['top'][`${listNum}`]['rank'];
+  let score = res['top'][`${listNum}`]['score'];
+  if(score === 0){
+    score = "Unscored";
   }
-  if(/nspank/.test(msg.content.toLowerCase())){
-    neko.nsfw.spank().then(neko => {msg.channel.send(neko.url);});
+  if(rank === 0){
+    rank = "Unranked";
   }
-  if(/nsfwavatar/.test(msg.content.toLowerCase())){
-    neko.nsfw.avatar().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nboobs/.test(msg.content.toLowerCase())){
-    neko.nsfw.boobs().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/ntits/.test(msg.content.toLowerCase())){
-    neko.nsfw.tits().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nkitsune/.test(msg.content.toLowerCase())){
-    neko.nsfw.kitsune().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nero/.test(msg.content.toLowerCase())){
-    neko.nsfw.ero().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nnero/.test(msg.content.toLowerCase())){
-    neko.nsfw.eroNeko().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nyero/.test(msg.content.toLowerCase())){
-    neko.nsfw.eroYuri().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nkero/.test(msg.content.toLowerCase())){
-    neko.nsfw.eroKemonomimi().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nanal/.test(msg.content.toLowerCase())){
-    neko.nsfw.anal().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nclassic/.test(msg.content.toLowerCase())){
-    neko.nsfw.classic().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nwaifu/.test(msg.content.toLowerCase())){
-    neko.sfw.waifu().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/ncatgirl/.test(msg.content.toLowerCase())){
-    neko.sfw.gecg().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nwallpaper/.test(msg.content.toLowerCase())){
-    neko.sfw.wallpaper().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nkiss/.test(msg.content.toLowerCase())){
-    neko.sfw.kiss().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nbaka/.test(msg.content.toLowerCase())){
-    neko.sfw.baka().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nslap/.test(msg.content.toLowerCase())){
-    neko.sfw.slap().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nsmug/.test(msg.content.toLowerCase())){
-    neko.sfw.smug().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/ncuddle/.test(msg.content.toLowerCase())){
-    neko.sfw.cuddle().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nsafeneko/.test(msg.content.toLowerCase())){
-    neko.sfw.neko().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nsafenekogif/.test(msg.content.toLowerCase())){
-    neko.sfw.nekoGif.then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/ntickle/.test(msg.content.toLowerCase())){
-    neko.sfw.tickle().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/nlizard/.test(msg.content.toLowerCase())){
-    neko.sfw.lizard().then(neko => {msg.channel.send(neko.url);});
-  }
-  if(/navatar/.test(msg.content.toLowerCase())){
-    neko.sfw.avatar().then(neko => {msg.channel.send(neko.url);});
-  }
+  msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
+  msg.channel.send(res['top'][`${listNum}`]['image_url']);
+} 
+
+//#endregion
+
+//#region N(eko) Commands
+
+if(/nowo/.test(msg.content.toLowerCase())){
+  let result = msg.content.substr(msg.content.indexOf(" ") + 1);
+  neko.sfw.OwOify({text: `${result}`}).then(neko => {msg.channel.send(neko.owo)});
+}
+if(/nneko/.test(msg.content.toLowerCase())){
+  neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nhgif/.test(msg.content.toLowerCase())){
+  neko.nsfw.randomHentaiGif().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nngif/.test(msg.content.toLowerCase())){
+  neko.nsfw.nekoGif().then(neko => {msg.channel.send(neko.url);});
+}
+if(/ngirlgif/.test(msg.content.toLowerCase())){
+  neko.nsfw.girlSoloGif().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nspank/.test(msg.content.toLowerCase())){
+  neko.nsfw.spank().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nsfwavatar/.test(msg.content.toLowerCase())){
+  neko.nsfw.avatar().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nboobs/.test(msg.content.toLowerCase())){
+  neko.nsfw.boobs().then(neko => {msg.channel.send(neko.url);});
+}
+if(/ntits/.test(msg.content.toLowerCase())){
+  neko.nsfw.tits().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nkitsune/.test(msg.content.toLowerCase())){
+  neko.nsfw.kitsune().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nero/.test(msg.content.toLowerCase())){
+  neko.nsfw.ero().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nnero/.test(msg.content.toLowerCase())){
+  neko.nsfw.eroNeko().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nyero/.test(msg.content.toLowerCase())){
+  neko.nsfw.eroYuri().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nkero/.test(msg.content.toLowerCase())){
+  neko.nsfw.eroKemonomimi().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nanal/.test(msg.content.toLowerCase())){
+  neko.nsfw.anal().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nclassic/.test(msg.content.toLowerCase())){
+  neko.nsfw.classic().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nwaifu/.test(msg.content.toLowerCase())){
+  neko.sfw.waifu().then(neko => {msg.channel.send(neko.url);});
+}
+if(/ncatgirl/.test(msg.content.toLowerCase())){
+  neko.sfw.gecg().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nwallpaper/.test(msg.content.toLowerCase())){
+  neko.sfw.wallpaper().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nkiss/.test(msg.content.toLowerCase())){
+  neko.sfw.kiss().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nbaka/.test(msg.content.toLowerCase())){
+  neko.sfw.baka().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nslap/.test(msg.content.toLowerCase())){
+  neko.sfw.slap().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nsmug/.test(msg.content.toLowerCase())){
+  neko.sfw.smug().then(neko => {msg.channel.send(neko.url);});
+}
+if(/ncuddle/.test(msg.content.toLowerCase())){
+  neko.sfw.cuddle().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nsafeneko/.test(msg.content.toLowerCase())){
+  neko.sfw.neko().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nsafenekogif/.test(msg.content.toLowerCase())){
+  neko.sfw.nekoGif.then(neko => {msg.channel.send(neko.url);});
+}
+if(/ntickle/.test(msg.content.toLowerCase())){
+  neko.sfw.tickle().then(neko => {msg.channel.send(neko.url);});
+}
+if(/nlizard/.test(msg.content.toLowerCase())){
+  neko.sfw.lizard().then(neko => {msg.channel.send(neko.url);});
+}
+if(/navatar/.test(msg.content.toLowerCase())){
+  neko.sfw.avatar().then(neko => {msg.channel.send(neko.url);});
+}
+
+//#endregion
+
+//#region In Progress
+
+/* Not functional
+
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
@@ -432,6 +416,14 @@ client.on("message", async (msg) => {
     definitions.push(`${query} is not a word, genius.`)
     msg.channel.send(definitions[0]);
   }
+
+  if(/gdad/.test(msg.content.toLowerCase())){
+  const { file } = await fetch('https://icanhazdadjoke.com').then(response => response.json());
+  msg.channel.send(file);
+} 
+*/
+
+//#endregion
 
   if (!msg.author.bot) {
     messageFactories
