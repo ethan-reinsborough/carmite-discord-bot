@@ -9,6 +9,7 @@
     "hanime-api": "^1.3.0",
     "hmfull": "^1.2.3",
     "hmtai": "^2.0.4",
+    "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {},

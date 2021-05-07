@@ -5,6 +5,8 @@ const fetch = require('node-fetch');
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
 const HMfull = require("hmfull");
+const nekoClient = require('nekos.life');
+const neko = new nekoClient();
 //const { HAnimeAPI } = require("hanime");
 
 //const api = new HAnimeAPI();
@@ -333,7 +335,11 @@ client.on("message", async (msg) => {
     msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   } 
-
+  if(/gowo/.test(msg.content.toLowerCase())){
+    let result = msg.content.substr(original.indexOf(" ") + 1);
+    let owo = await neko.sfw.OwOify({text: `${result}`});
+    msg.channel.send(owo);
+  }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
