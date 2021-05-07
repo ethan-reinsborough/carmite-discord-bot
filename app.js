@@ -129,7 +129,41 @@ client.on("message", async (msg) => {
       let randPic = Math.floor((Math.random() * pictureList));
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
     } 
+  }
+  if(/granime/.test(msg.content.toLowerCase())){
+    let randomNum = Math.floor((Math.random() * 10000) + 1);
+    
+    const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
+    const res2 = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}`).then(response => response.json());
+    const title = res2['title'];
+    if(title === undefined){
+      msg.channel.send("No results found. Please try again.");
+    }
+    else{
+      msg.channel.send(`${title}`);
+      let pictureList = Object.keys(res['pictures']).length;
+      let randPic = Math.floor((Math.random() * pictureList));
+      msg.channel.send(res['pictures'][`${randPic}`]['large']);
+    } 
   } 
+  if(/grchar/.test(msg.content.toLowerCase())){
+    let pageNum = Math.floor((Math.random() * 2717) + 1);
+    https://api.jikan.moe/v3/top/characters/2717
+    const res = await fetch(`https://api.jikan.moe/v3/top/characters/${pageNum}`).then(response => response.json());
+    let listLength = 49;
+    let listNum = Math.floor((Math.random() * listLength));
+
+    let title = res['top'][`${listNum}`]['title'];
+    let rank = res['top'][`${listNum}`]['rank'];
+
+    if(rank === 0){
+      rank = "Unranked";
+    }
+    msg.channel.send(`${title} | Rank: ${rank}`);
+    msg.channel.send(res['top'][`${listNum}`]['image_url']);
+    
+  }
+  
   if(/ganime/.test(msg.content.toLowerCase())){
     let pageNum = Math.floor((Math.random() * 357) + 1);
     const res = await fetch(`https://api.jikan.moe/v3/top/anime/${pageNum}`).then(response => response.json());
