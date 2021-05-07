@@ -3,6 +3,7 @@
 
 const fetch = require('node-fetch');
 const Discord = require("discord.js");
+const hmtai = require("hmtai");
 require("dotenv").config();
 
 const client = new Discord.Client();
@@ -58,6 +59,10 @@ client.on("message", async (msg) => {
   if(/gdog/.test(msg.content.toLowerCase())){
     const res = await fetch('https://dog.ceo/api/breeds/image/random').then(response => response.json());
     msg.channel.send(res['message']);
+  }
+  if(/ghentai/.test(msg.content.toLowerCase())){
+    
+    msg.channel.send(hmtai.nsfw.hentai());
   }
   if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
