@@ -52,6 +52,9 @@ client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
     msg.channel.send("Current Commands:\ng(imme): advice, anime, tanime(first 50 pages), granime(very random), bored, cat, char, tchar(first 50 pages), grchar(very random), chuck, confidence, dad, dog, dumpy, fox");
   }
+  if (/ghelp/.test(msg.content.toLowerCase())) {
+    msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public");
+  }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
     msg.channel.send(file);
