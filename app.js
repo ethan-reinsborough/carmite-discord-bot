@@ -367,6 +367,9 @@ client.on("message", async (msg) => {
   if(/nkitsune/.test(msg.content.toLowerCase())){
     neko.nsfw.kitsune().then(neko => {msg.channel.send(neko.url);});
   }
+  if(/nhentai/.test(msg.content.toLowerCase())){
+    neko.nsfw.hentai().then(neko => {msg.channel.send(neko.url);});
+  }
   if(/urban/.test(msg.content.toLowerCase())){
     let words = msg.content.toLowerCase().split(' ');
     let query = words.slice(1).join('+');
