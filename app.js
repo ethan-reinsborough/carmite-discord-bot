@@ -179,7 +179,7 @@ client.on("message", async (msg) => {
     }
     msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
-    msg.react('❤️');
+    msg.react("<:christianserver:830284378180681798>");
   } 
 
   if(/urban/.test(msg.content.toLowerCase())){
