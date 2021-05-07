@@ -527,13 +527,11 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
     .catch(() => {
         msg.channel.send(`❌ | You did not answer in time. The correct answer was **${pokemon.name}**!`);
     });
-  
-  };
 }
 
 //#endregion
 
-  if (!msg.author.bot) {
+  if(!msg.author.bot) {
     messageFactories
         .map(f => f(msg.content))
         .filter(response => response != undefined)
