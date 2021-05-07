@@ -132,7 +132,7 @@ client.on("message", async (msg) => {
   } 
   if(/ganime/.test(msg.content.toLowerCase())){
     let pageNum = Math.floor((Math.random() * 357) + 1);
-    const res = await fetch(`https://api.jikan.moe/v3/top/anime/${randomNum}`).then(response => response.json());
+    const res = await fetch(`https://api.jikan.moe/v3/top/anime/${pageNum}`).then(response => response.json());
     //let listLength = Object.keys(res['top']).length;
     let listLength = 49;
     let listNum = Math.floor((Math.random() * listLength));
