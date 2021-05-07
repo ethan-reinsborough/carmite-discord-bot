@@ -139,8 +139,8 @@ client.on("message", async (msg) => {
   if(/gnekoboobs/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.Nekos.nsfw.boobs());
   }
-  if(/gboobs/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.nsfw.boobs());
+  if(/glesbian/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.nsfw.lesbian());
   }
   if(/npat/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.Nekos.sfw.pat());
