@@ -6,6 +6,7 @@ const SnakeGame = require("snakecord");
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
 const HMfull = require("hmfull");
+const { MessageEmbed } = require("discord.js");
 const nekoClient = require('nekos.life');
 const { Spawn } = require("pokecord");
 const neko = new nekoClient();
