@@ -169,8 +169,8 @@ client.on("message", async (msg) => {
   if(/nsmug/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.NekoLove.sfw.punch());
   }
-  if(/gtits/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.nsfw.foxgirl());
+  if(/gspank/.test(msg.content.toLowerCase())){
+    msg.channel.send(HMfull.Nekos.nsfw.spank());
   }
   if(/nwaifu/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.NekoLove.sfw.waifu());
