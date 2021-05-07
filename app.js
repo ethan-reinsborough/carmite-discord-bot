@@ -170,7 +170,7 @@ client.on("message", async (msg) => {
     msg.channel.send(HMfull.NekoLove.sfw.punch());
   }
   if(/gtits/.test(msg.content.toLowerCase())){
-    msg.channel.send(HMfull.Nekos.nsfw.tits());
+    msg.channel.send(HMfull.Nekos.nsfw.foxgirl());
   }
   if(/nwaifu/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.NekoLove.sfw.waifu());
