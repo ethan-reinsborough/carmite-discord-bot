@@ -58,13 +58,13 @@ client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
     msg.channel.send("g(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dad, dog, dumpy, fox");
     msg.channel.send("NSFW g(imme): hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
-    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, ticklelizard, avatar.");
+    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nero, yero, kero, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar.");
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
     msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
   }
   if (/nhelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, ticklelizard, avatar.");
+    msg.channel.send("Neko Help UwU | n: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar.");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -369,13 +369,13 @@ client.on("message", async (msg) => {
   if(/nero/.test(msg.content.toLowerCase())){
     neko.nsfw.ero().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/neron/.test(msg.content.toLowerCase())){
+  if(/nnero/.test(msg.content.toLowerCase())){
     neko.nsfw.eroNeko().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/neroy/.test(msg.content.toLowerCase())){
+  if(/nyero/.test(msg.content.toLowerCase())){
     neko.nsfw.eroYuri().then(neko => {msg.channel.send(neko.url);});
   }
-  if(/nerok/.test(msg.content.toLowerCase())){
+  if(/nkero/.test(msg.content.toLowerCase())){
     neko.nsfw.eroKemonomimi().then(neko => {msg.channel.send(neko.url);});
   }
   if(/nanal/.test(msg.content.toLowerCase())){
