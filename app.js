@@ -160,7 +160,6 @@ client.on("message", async (msg) => {
     }
     msg.channel.send(`${title} | Rank: ${rank}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
-    
   }
   
   if(/ganime/.test(msg.content.toLowerCase())){
@@ -180,6 +179,7 @@ client.on("message", async (msg) => {
     }
     msg.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
+    msg.reactions('❤️');
   } 
 
   if(/urban/.test(msg.content.toLowerCase())){
