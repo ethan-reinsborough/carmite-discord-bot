@@ -146,9 +146,8 @@ client.on("message", async (msg) => {
       msg.channel.send(res['pictures'][`${randPic}`]['large']);
     } 
   } 
-  if(/grchar/.test(msg.content.toLowerCase())){
+  if(/gchar/.test(msg.content.toLowerCase())){
     let pageNum = Math.floor((Math.random() * 2717) + 1);
-    https://api.jikan.moe/v3/top/characters/2717
     const res = await fetch(`https://api.jikan.moe/v3/top/characters/${pageNum}`).then(response => response.json());
     let listLength = 49;
     let listNum = Math.floor((Math.random() * listLength));
