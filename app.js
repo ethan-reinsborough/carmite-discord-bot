@@ -56,7 +56,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("g(imme): advice, anime, tanime(first 50 pages), granime(very random), bored, cat, char, tchar(first 50 pages), grchar(very random), chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("g(imme): advice, anime, tanime(first 50 pages), ranime(very random), bored, cat, char, tchar(first 50 pages), rchar(very random), chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/ghnsfw/.test(msg.content.toLowerCase())) {
     msg.channel.send("g: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits");
