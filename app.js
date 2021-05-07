@@ -175,6 +175,14 @@ client.on("message", async (msg) => {
   if(/nwaifu/.test(msg.content.toLowerCase())){
     msg.channel.send(HMfull.NekoLove.sfw.waifu());
   }
+  if(/ginfiniteporn/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.gif());
+    msg.channel.send("ginfiniteporn");
+  }
+  if(/gendporn/.test(msg.content.toLowerCase())){
+    resetBot(msg.channel);
+    break;
+  }
   if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
     msg.channel.send(adv['affirmation']);
@@ -346,4 +354,11 @@ client.on("message", async (msg) => {
         .forEach(response => msg.channel.send(response));
   } 
 });
+
+function resetBot(channel) {
+  // send channel a message that you're resetting bot [optional]
+  channel.send('Resetting...')
+  .then(msg => client.destroy())
+  .then(() => client.login(process.env.BOT_TOKEN));
+}
 
