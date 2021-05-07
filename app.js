@@ -49,7 +49,7 @@ const messageFactories = [
 
 client.on("message", async (msg) => {
   if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Current Commands:\ng(imme): advice, anime, ganime(first 50 pages), granime(very random), bored, cat, char, gchar(first 50 pages), grchar(very random), chuck, confidence, dad, dog, dumpy, fox");
+    msg.channel.send("Current Commands:\ng(imme): advice, anime, tanime(first 50 pages), granime(very random), bored, cat, char, tchar(first 50 pages), grchar(very random), chuck, confidence, dad, dog, dumpy, fox");
   }
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
@@ -161,7 +161,7 @@ client.on("message", async (msg) => {
     msg.channel.send(`${title} | Rank: ${rank}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   }
-  if(/ggchar/.test(msg.content.toLowerCase())){
+  if(/gtchar/.test(msg.content.toLowerCase())){
     let pageNum = Math.floor((Math.random() * 50) + 1);
     const res = await fetch(`https://api.jikan.moe/v3/top/characters/${pageNum}`).then(response => response.json());
     let listLength = 49;
@@ -176,7 +176,7 @@ client.on("message", async (msg) => {
     msg.channel.send(`${title} | Rank: ${rank}`);
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   }
-  if(/gganime/.test(msg.content.toLowerCase())){
+  if(/gtanime/.test(msg.content.toLowerCase())){
     let pageNum = Math.floor((Math.random() * 50) + 1);
     const res = await fetch(`https://api.jikan.moe/v3/top/anime/${pageNum}`).then(response => response.json());
     //let listLength = Object.keys(res['top']).length;
