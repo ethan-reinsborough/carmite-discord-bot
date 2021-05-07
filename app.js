@@ -336,33 +336,26 @@ client.on("message", async (msg) => {
     msg.channel.send(res['top'][`${listNum}`]['image_url']);
   } 
   //idk
-  if(/nneko/.test(msg.content.toLowerCase())){
+  if(/gnneko/.test(msg.content.toLowerCase())){
     neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
-    break;
   }
-  if(/nhgif/.test(msg.content.toLowerCase())){
+  if(/gnhgif/.test(msg.content.toLowerCase())){
     neko.nsfw.randomHentaiGif.then(neko => {msg.channel.send(neko.url);});
-    break;
   }
-  if(/nngif/.test(msg.content.toLowerCase())){
+  if(/gnngif/.test(msg.content.toLowerCase())){
     neko.nsfw.nekoGif.then(neko => {msg.channel.send(neko.url);});
-    break;
   }
-  if(/ngirlgif/.test(msg.content.toLowerCase())){
+  if(/gngirlgif/.test(msg.content.toLowerCase())){
     neko.nsfw.girlSoloGif.then(neko => {msg.channel.send(neko.url);});
-    break;
   }
-  if(/nspank/.test(msg.content.toLowerCase())){
+  if(/gnspank/.test(msg.content.toLowerCase())){
     neko.nsfw.spank.then(neko => {msg.channel.send(neko.url);});
-    break;
   }
-  if(/navatar/.test(msg.content.toLowerCase())){
+  if(/gnavatar/.test(msg.content.toLowerCase())){
     neko.nsfw.avatar.then(neko => {msg.channel.send(neko.url);});
-    break;
   }
-  if(/nboobs/.test(msg.content.toLowerCase())){
+  if(/gnboobs/.test(msg.content.toLowerCase())){
     neko.nsfw.boobs.then(neko => {msg.channel.send(neko.url);});
-    break;
   }
   if(/gowo/.test(msg.content.toLowerCase())){
     let result = msg.content.substr(msg.content.indexOf(" ") + 1);
