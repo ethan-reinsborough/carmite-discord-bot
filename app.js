@@ -119,6 +119,7 @@ client.on("message", async (msg) => {
   }
   if(/gero/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.ero());
+    msg.channel.send("gero");
   }
   if(/gelves/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.ero());
