@@ -96,6 +96,36 @@ client.on("message", async (msg) => {
   if(/gneko/.test(msg.content.toLowerCase())){
     msg.channel.send(hmtai.nsfw.nsfwNeko());
   }
+  if(/gbdsm/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.bdsm());
+  }
+  if(/gfemdom/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.femdom());
+  }
+  if(/gincest/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.incest());
+  }
+  if(/gero/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.ero());
+  }
+  if(/gelves/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.ero());
+  }
+  if(/gglasses/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.glasses());
+  }
+  if(/guniform/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.uniform());
+  }
+  if(/gbang/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.gangbang());
+  }
+  if(/gmoarthigh/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.zettaiRyouiki());
+  }
+  if(/gpublic/.test(msg.content.toLowerCase())){
+    msg.channel.send(hmtai.nsfw.public());
+  }
   if(/gconfidence/.test(msg.content.toLowerCase())){
     const adv = await fetch('https://www.affirmations.dev/').then(response => response.json());
     msg.channel.send(adv['affirmation']);
