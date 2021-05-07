@@ -7,6 +7,7 @@ const Discord = require("discord.js");
 const hmtai = require("hmtai");
 const HMfull = require("hmfull");
 const nekoClient = require('nekos.life');
+const { Spawn } = require("pokecord");
 const neko = new nekoClient();
 //const { HAnimeAPI } = require("hanime");
 
@@ -500,8 +501,8 @@ if(/gsnake/.test(msg.content.toLowerCase())){
   return snakeGame.newGame(message);
 }
 
+//Random shit idk it's 2 AM why am i still awake
 if(/gpokemon/.test(msg.content.toLowerCase())){
- 
     const pokemon = await Spawn().catch(e => {});
     if (!pokemon) return msg.channel.send("Opps! Something went wrong :(");
     const filter = m => m.author.id === msg.author.id;
