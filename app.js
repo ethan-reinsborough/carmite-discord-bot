@@ -563,9 +563,9 @@ let champions = [
 if(/glol/.test(msg.content.toLowerCase())){
   msg.channel.send("test");
   const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`).then(response => response.json());
-  msg.channel.send(res['data']['0']);
+  msg.channel.send(res['data'][0]);
   //let champList = Object.keys(res.length);
-  msg.channel.send(Object.keys(res['data']).length);
+  //msg.channel.send(Object.keys(res['data']).length);
   let randIndex = Math.floor((Math.random() * champList));
   const filter = m => m.author.id === msg.author.id;
   
