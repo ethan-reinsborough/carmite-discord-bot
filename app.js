@@ -558,7 +558,7 @@ let champions = [
   ["Nidalee", "Aspect of the Cougar", " "]  
 ]
 
-if(/glolguess/.test(msg.content.toLowerCase())){
+if(/glol/.test(msg.content.toLowerCase())){
   let champList = Object.keys(champions).length;
   let randIndex = Math.floor((Math.random() * champList));
   const filter = m => m.author.id === msg.author.id;
@@ -570,7 +570,6 @@ if(/glolguess/.test(msg.content.toLowerCase())){
         .setDescription(`Ultimate: ${champions[randIndex][1]}`)
     await msg.channel.send(embed);
 
-  
   msg.channel.awaitMessages(filter, {
       max: 1,
       error: ["time"],
