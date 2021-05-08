@@ -534,33 +534,10 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
 //#endregion
 
 //#region Guess the Ult
-/*
-let champions = [
-  ["Ashe", 'Enchanted Crystal Arrow', " "],
-  ["Veigar", 'Primordial Burst', " "],
-  ["Rek'Sai", 'Void Rush', " "],
-  ["Seraphine", "Encore", " "],
-  ["Morgana", "Soul Shackles	 ", " "],
-  ["Tristana", "Buster Shot", " "],
-  ["Renekton", "Dominus", " "],
-  ["Jinx", "Super Mega Death Rocket!	 ", " "],
-  ["Diana", "Moonfall", " "],
-  ["Gangplank", "Cannon Barrage ", " "],
-  ["Taric", "Cosmic Radiance	 ", " "],
-  ["Blitzcrank", "Static Field ", " "],
-  ["Brand", "Pyroclasm	", " "],
-  ["Kassadin", "Riftwalk", " "],
-  ["Mordekaiser", "Realm of Death", " "],
-  ["Master Yi", "Highlander", " "],
-  ["Gragas", "Explosive Cask", " "],
-  ["Ekko", "Chronobreak", " "],
-  ["Volibear", "Stormbringer ", " "],
-  ["Wukong", "Cyclone ", " "],
-  ["Nidalee", "Aspect of the Cougar", " "]  
-]
-*/
+
 
 if(/glol/.test(msg.content.toLowerCase())){
+
   const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`).then(response => response.json());
   const keys = Object.keys(res);
   const randIndex = Math.floor(Math.random() * keys.length);
@@ -568,7 +545,7 @@ if(/glol/.test(msg.content.toLowerCase())){
   msg.channel.send(res['data']['Aatrox']["ID"]);
   //let champList = Object.keys(res.length);
   //msg.channel.send(Object.keys(res['data']).length);
-  let randIndex = Math.floor((Math.random() * champList));
+  //let randIndex = Math.floor((Math.random() * champList));
   const filter = m => m.author.id === msg.author.id;
   
   
