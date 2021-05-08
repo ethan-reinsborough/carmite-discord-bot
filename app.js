@@ -571,9 +571,9 @@ if(/glol/.test(msg.content.toLowerCase())){
 
   //const randKey = keys[randIndex];
   msg.channel.send(randKey);
-  const champion = res['data'][randKey]['id'];
-//
-  msg.channel.send(champion);
+ // const champion = res['data'][randKey]['id'];
+
+ // msg.channel.send(champion);
   //let champList = Object.keys(res.length);
   //msg.channel.send(Object.keys(res['data']).length);
   let randIndex = Math.floor((Math.random() * champList));
