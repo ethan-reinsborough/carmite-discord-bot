@@ -561,11 +561,13 @@ let champions = [
 */
 
 if(/glol/.test(msg.content.toLowerCase())){
+
   const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`).then(response => response.json());
   const keys = Object.keys(res['data']);
   const randIndex = Math.floor(Math.random() * keys.length);
 
   const randKey = keys[randIndex];
+  msg.channel.send(randKey);
   const champion = res['data'][randKey]['id'];
 
   msg.channel.send(champion);
