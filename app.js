@@ -534,6 +534,7 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
 //#endregion
 
 //#region Guess the Ult
+/*
 let champions = [
   ["Ashe", 'Enchanted Crystal Arrow', " "],
   ["Veigar", 'Primordial Burst', " "],
@@ -557,13 +558,16 @@ let champions = [
   ["Wukong", "Cyclone ", " "],
   ["Nidalee", "Aspect of the Cougar", " "]  
 ]
+*/
 
 if(/glol/.test(msg.content.toLowerCase())){
-  let champList = Object.keys(champions).length;
+
+  const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`).then(response => response.json());
+  let champList = Object.keys(res['data'].length);
   let randIndex = Math.floor((Math.random() * champList));
   const filter = m => m.author.id === msg.author.id;
 
-
+/*
   const embed = new MessageEmbed()
         .setAuthor("Guess the Champion")
         .setColor("#FFFF00")
@@ -582,7 +586,7 @@ if(/glol/.test(msg.content.toLowerCase())){
   })
   .catch(() => {
       msg.channel.send(`❌ | You did not answer in time. The correct answer was **${champions[randIndex][0]}**!`);
-  });
+  }); */
 }
 //#endregion
 
