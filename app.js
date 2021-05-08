@@ -197,7 +197,6 @@ if(/gshibe/.test(msg.content.toLowerCase())){
   msg.channel.send(file);
 } 
 if(/granime/.test(msg.content.toLowerCase())){
-
   let randomNum = Math.floor((Math.random() * 10000) + 1);
   
   const res = await fetch(`https://api.jikan.moe/v3/anime/${randomNum}/pictures`).then(response => response.json());
@@ -534,6 +533,60 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
 
 //#endregion
 
+//#region Guess the Ult
+let champions = [
+  ["Ashe", 'Enchanted Crystal Arrow', " "],
+  ["Veigar", 'Primordial Burst', " "],
+  ["Rek'Sai", 'Void Rush', " "],
+  ["Seraphine", "Encore", " "],
+  ["Morgana", "Soul Shackles	 ", " "],
+  ["Tristana", "Buster Shot", " "],
+  ["Renekton", "Dominus", " "],
+  ["Jinx", "Super Mega Death Rocket!	 ", " "],
+  ["Diana", "Moonfall", " "],
+  ["Gangplank", "Cannon Barrage ", " "],
+  ["Taric", "Cosmic Radiance	 ", " "],
+  ["Blitzcrank", "Static Field ", " "],
+  ["Brand", "Pyroclasm	", " "],
+  ["Kassadin", "Riftwalk", " "],
+  ["Mordekaiser", "Realm of Death", " "],
+  ["Master Yi", "Highlander", " "],
+  ["Gragas", "Explosive Cask", " "],
+  ["Ekko", "Chronobreak", " "],
+  ["Volibear", "Stormbringer ", " "],
+  ["Wukong", "Cyclone ", " "],
+  ["Nidalee", "Aspect of the Cougar", " "]  
+]
+
+if(/glolguess/.test(msg.content.toLowerCase())){
+  let champList = Object.keys(champions).length;
+  let randIndex = Math.floor((Math.random() * champList));
+  const filter = m => m.author.id === msg.author.id;
+
+
+  const embed = new MessageEmbed()
+        .setAuthor("Guess the Champion")
+        .setColor("#FFFF00")
+        .setDescription(`Ultimate: ${champions[randIndex][1]}`)
+    await msg.channel.send(embed);
+
+  
+  msg.channel.awaitMessages(filter, {
+      max: 1,
+      error: ["time"],
+      time: 15000
+  })
+  .then(collected => {
+      const m = collected.first();
+      if (!m.content || m.content.toLowerCase() !== champions[randIndex][0].toLowerCase()) return msg.channel.send(`❌ | Incorrect guess! The answer was **${champions[randIndex][0]}**.`);
+      return msg.channel.send(`✅ | Correct guess!`);
+  })
+  .catch(() => {
+      msg.channel.send(`❌ | You did not answer in time. The correct answer was **${champions[randIndex][0]}**!`);
+  });
+}
+//#endregion
+
 //#region Interesting Links (Future Additions..?)
 
 //https://www.npmjs.com/package/lewds.api
@@ -547,5 +600,3 @@ if(!msg.author.bot) {
         .forEach(response => msg.channel.send(response));
   } 
 });
-
-
