@@ -537,15 +537,14 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
 
 
 if(/glol/.test(msg.content.toLowerCase())){
-
   const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`).then(response => response.json());
-  const keys = Object.keys(res);
+  const keys = Object.keys(res['data']);
   const randIndex = Math.floor(Math.random() * keys.length);
-
-  msg.channel.send(res['data']['Aatrox']["ID"]);
+  const randKey = keys[randIndex];
+  msg.channel.send(randKey[0]);
   //let champList = Object.keys(res.length);
   //msg.channel.send(Object.keys(res['data']).length);
-  //let randIndex = Math.floor((Math.random() * champList));
+  
   const filter = m => m.author.id === msg.author.id;
   
   
