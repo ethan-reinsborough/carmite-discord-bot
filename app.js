@@ -539,7 +539,7 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
 if(/glol/.test(msg.content.toLowerCase())){
 
   const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`).then(response => response.json());
-  const keys = Object.keys(res['data']);
+  const keys = Object.keys(res['data']['name']);
   const randIndex = Math.floor(Math.random() * keys.length);
   const keith = keys[randIndex];
   msg.channel.send(keith);
@@ -553,7 +553,6 @@ if(/glol/.test(msg.content.toLowerCase())){
     abilityType = "passive";
   } else{
     steve = david['data'][keith]['spells'][ricardo]['name'];
-    msg.channel.send(steve);
     abilityType = "spell";
   }
   
