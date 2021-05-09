@@ -619,12 +619,12 @@ client.on("message", async (msg) => {
 
   //#region 
 
-    if(/catowo/.test(msg.content.toLowerCase())) {
+    if(msg.content.toLowerCase() === "catowo") {
       let input = msg.content.split(' ');
       let interval = setInterval(() => {
       msg.channel.send(input[1]);
       }, 20000);
-      if(input[1] === "stop")
+      if(input[1] === "stop"){
         clearInterval(interval);
       }
     }
