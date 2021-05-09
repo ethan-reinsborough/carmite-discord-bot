@@ -545,7 +545,6 @@ if(/glol/.test(msg.content.toLowerCase())){
   msg.channel.send(keith);
   const david = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${keith}.json`).then(response => response.json());
   const ricardo = Math.floor(Math.random() * 4);
-  msg.channel.send(david['data'][keith]['name']);
   let steve;
   let abilityType;
 
@@ -554,6 +553,7 @@ if(/glol/.test(msg.content.toLowerCase())){
     abilityType = "passive";
   } else{
     steve = david['data'][keith]['spells'][ricardo]['name'];
+    msg.channel.send(steve);
     abilityType = "spell";
   }
   
