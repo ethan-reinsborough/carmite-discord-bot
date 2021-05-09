@@ -741,7 +741,6 @@ client.on("message", async (msg) => {
       const embed2 = new MessageEmbed()
       .setAuthor(`${realName}`)
       .setColor("#16b5ff")
-      .setDescription(`${abilityType}`)
       .setImage(
         `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/champion/${keith}.png`
       );
