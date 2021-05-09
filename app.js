@@ -715,16 +715,15 @@ client.on("message", async (msg) => {
       .setImage(
         `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`
       );
+    await msg.channel.send(embed);
 
-      const embed2 = new MessageEmbed()
+    const embed2 = new MessageEmbed()
       .setAuthor(`${realName}`)
       .setColor("#16b5ff")
       .setDescription(`${abilityType}`)
       .setImage(
         `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/champion/${keith}.png`
       );
-
-    await msg.channel.send(embed);
 
     msg.channel
       .awaitMessages(filter, {
@@ -745,7 +744,7 @@ client.on("message", async (msg) => {
           `❌ | You did not answer in time. The correct answer was **${realName}**!`
         );
       });
-     // msg.channel.send(embed2);
+      msg.channel.send(embed2);
   }
   //#endregion
 
