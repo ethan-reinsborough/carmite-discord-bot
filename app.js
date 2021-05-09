@@ -620,6 +620,7 @@ client.on("message", async (msg) => {
   //#region 
 
   if(/catowo/.test(msg.content.toLowerCase())) {
+    msg.channel.send("Success");
     let infinite = true;
     let query = msg.content.substr(msg.content.indexOf(" ") + 1);
 
@@ -717,14 +718,6 @@ client.on("message", async (msg) => {
       );
     await msg.channel.send(embed);
 
-    const embed2 = new MessageEmbed()
-      .setAuthor(`${realName}`)
-      .setColor("#16b5ff")
-      .setDescription(`${abilityType}`)
-      .setImage(
-        `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/champion/${keith}.png`
-      );
-
     msg.channel
       .awaitMessages(filter, {
         max: 1,
@@ -744,6 +737,14 @@ client.on("message", async (msg) => {
           `❌ | You did not answer in time. The correct answer was **${realName}**!`
         );
       });
+
+      const embed2 = new MessageEmbed()
+      .setAuthor(`${realName}`)
+      .setColor("#16b5ff")
+      .setDescription(`${abilityType}`)
+      .setImage(
+        `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/champion/${keith}.png`
+      );
       msg.channel.send(embed2);
   }
   //#endregion
