@@ -624,12 +624,13 @@ client.on("message", async (msg) => {
       if(input[1] != "stop"){
         interval = setInterval(() => {
           msg.channel.send(input[1]);
-          }, 12000);}
+          }, 12000);
       } else{
         clearInterval(interval)
         interval = null;
       }
     }
+  
 
 
 
