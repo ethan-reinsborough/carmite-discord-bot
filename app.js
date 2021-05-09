@@ -708,7 +708,7 @@ client.on("message", async (msg) => {
     } else {
       steve = david["data"][keith]["spells"][ricardo]["id"];
       abilityType = "spell";
-      abilityName = david["data"][keith]["passive"]["name"];
+      abilityName = david["data"][keith][ricardo]["name"];
     }
 
 
