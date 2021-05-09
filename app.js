@@ -620,14 +620,13 @@ client.on("message", async (msg) => {
   //#region 
 
     if(/catowo/.test(msg.content.toLowerCase())) {
-      let query = msg.content.substr(msg.content.indexOf(" ") + 1);
-      if(query != "stop"){
-        let interval = setInterval(() => {
-          msg.channel.send(query);
-        }, 20000);  
-      } else{
+      let input = msg.content.split(' ');
+      let interval = setInterval(() => {
+      msg.channel.send(input[1]);
+      }, 20000);
+      if(input[1] === "stop")
         clearInterval(interval);
-      }   
+      }
     }
 
 
