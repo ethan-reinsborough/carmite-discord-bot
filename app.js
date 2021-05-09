@@ -634,7 +634,7 @@ client.on("message", async (msg) => {
     task = interval;
     /* cease command */
     clearInterval(task);
-    }
+    
   }
 
   //#endregion
