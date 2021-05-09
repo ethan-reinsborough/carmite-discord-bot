@@ -28,15 +28,9 @@ client.on("ready", () => {
   client.on("message", async (msg) => {
     if(/catowo/.test(msg.content.toLowerCase())) {
       let query = msg.content.substr(msg.content.indexOf(" ") + 1);
-      msg.channel.send(query);
-      const interval = setInterval(function() {
-        message.channel.send(query)
-          .catch(err => {
-            console.error(err);
-            clearInterval(interval);
-          });
-      }, 1000);
-      task = interval;
+      setInterval(() => {
+        msg.channel.send(query);
+      }, 10000);
       if(/catstop/.test(msg.content.toLowerCase())){
         clearInterval(task);
       } 
