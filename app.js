@@ -696,7 +696,7 @@ client.on("message", async (msg) => {
     const david = await fetch(
       `http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${keith}.json`
     ).then((response) => response.json());
-    const ricardo = Math.floor(Math.random() * 4);
+    const ricardo = Math.floor(Math.random() * 5);
     let steve;
     let abilityType;
     let abilityName;
@@ -715,9 +715,8 @@ client.on("message", async (msg) => {
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
-      .setAuthor("Guess the Champion")
+      .setAuthor(`Guess the ${abilityType}`)
       .setColor("#16b5ff")
-      .setDescription(`${abilityType}`)
       .setImage(
         `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`
       );
