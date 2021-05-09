@@ -701,26 +701,26 @@ client.on("message", async (msg) => {
     let abilityID;
     let abilityType;
     let abilityName;
+    let image; 
 
     if (ricardo === 4) {
-      abilityID = indexedChampion["data"][randIndex]["passive"]["id"];
+      abilityName = indexedChampion["data"]["passive"]["name"];
       abilityType = "passive";
-      abilityName = indexedChampion["data"][randIndex]["passive"]["name"];
+      abilityID = indexedChampion["data"]["passive"]["image"]["full"];
+      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}`
     } else {
-      abilityID = indexedChampion["data"][randIndex]["spells"][randAbility]["id"];
+      abilityID = indexedChampion["data"][championNameID]["spells"][randAbility]["id"];
       abilityType = "spell";
-      abilityName = indexedChampion["data"][randIndex]["spells"][randAbility]["name"];
+      abilityName = indexedChampion["data"][championNameID]["spells"][randAbility]["name"];
+      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`
     }
-
-
+    
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
       .setAuthor(`Guess the ${abilityType}`)
       .setColor("#16b5ff")
-      .setImage(
-        `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`
-      );
+      .setImage(image);
       
     await msg.channel.send(embed);
 
