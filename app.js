@@ -715,9 +715,6 @@ client.on("message", async (msg) => {
       image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`;
     }
 
-    msg.channel.send(abilityID + " " + abilityType + " " + abilityName);
-    msg.channel.send(image);
-
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
