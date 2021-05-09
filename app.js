@@ -621,12 +621,12 @@ client.on("message", async (msg) => {
 
     if(/catowo/.test(msg.content.toLowerCase())) {
       let input = msg.content.split(' ');
-      let interval = setInterval(() => {
-      msg.channel.send(input[1]);
-      }, 20000);
       if(input[1] === "stop"){
         clearInterval(interval);
       }
+      let interval = setInterval(() => {
+      msg.channel.send(input[1]);
+      }, 12000);
     }
 
 
