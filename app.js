@@ -691,24 +691,25 @@ client.on("message", async (msg) => {
     ).then((response) => response.json());
     const keys = Object.keys(res["data"]);
     const randIndex = Math.floor(Math.random() * keys.length);
-    const keith = keys[randIndex];
+    const championNameID = keys[randIndex];
     //let realName = res["data"][keith]["name"];
-    const david = await fetch(
-      `http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${keith}.json`
+    const indexedChampion = await fetch(
+      `http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${championNameID}.json`
     ).then((response) => response.json());
-    const ricardo = Math.floor(Math.random() * 5);
-    let steve;
+    const randAbility = Math.floor(Math.random() * 5);
+
+    let abilityID;
     let abilityType;
     let abilityName;
 
     if (ricardo === 4) {
-      steve = david["data"][keith]["passive"]["id"];
+      abilityID = indexedChampion["data"][keith]["passive"]["id"];
       abilityType = "passive";
-      abilityName = david["data"][keith]["passive"]["name"];
+      abilityName = indexedChampion["data"][keith]["passive"]["name"];
     } else {
-      steve = david["data"][keith]["spells"][ricardo]["id"];
+      abilityID = indexedChampion["data"][keith]["spells"][randAbility]["id"];
       abilityType = "spell";
-      abilityName = david["data"][keith]["spells"][ricardo]["name"];
+      abilityName = indexedChampion["data"][keith]["spells"][randAbility]["name"];
     }
 
 
@@ -718,8 +719,9 @@ client.on("message", async (msg) => {
       .setAuthor(`Guess the ${abilityType}`)
       .setColor("#16b5ff")
       .setImage(
-        `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`
+        `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`
       );
+      
     await msg.channel.send(embed);
 
     msg.channel
