@@ -555,11 +555,10 @@ if(/glol/.test(msg.content.toLowerCase())){
     steve = david['data'][keith]['spells'][ricardo]['id'];
     abilityType = "spell";
   }
-  
-  const mrMalley = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`).then(response => response.json());
-
   msg.channel.send(abilityType);
   msg.channel.send(steve);
+
+  const mrMalley = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`).then(response => response.json());
 
   msg.channel.send(mrMalley);
 
