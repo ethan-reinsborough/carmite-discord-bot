@@ -620,12 +620,20 @@ client.on("message", async (msg) => {
   //#region 
 
   if(/catowo/.test(msg.content.toLowerCase())) {
-    msg.channel.send("Success");
-    let infinite = true;
     let query = msg.content.substr(msg.content.indexOf(" ") + 1);
-
-  
-      msg.channel.send(query);
+    if(/stop/.test(msg.content.toLowerCase())){
+      return;
+    }
+    const interval = setInterval(function() {
+      message.channel.send(query)
+        .catch(err => {
+          console.error(err);
+          clearInterval(interval);
+        });
+    }, 1000);
+    task = interval;
+    /* cease command */
+    clearInterval(task);
     }
   }
 
