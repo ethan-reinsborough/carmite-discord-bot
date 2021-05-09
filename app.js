@@ -707,14 +707,17 @@ client.on("message", async (msg) => {
       abilityName = indexedChampion["data"]["passive"]["name"];
       abilityType = "passive";
       abilityID = indexedChampion["data"]["passive"]["image"]["full"];
-      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}`
+      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}`;
     } else {
       abilityID = indexedChampion["data"][championNameID]["spells"][randAbility]["id"];
       abilityType = "spell";
       abilityName = indexedChampion["data"][championNameID]["spells"][randAbility]["name"];
-      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`
+      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`;
     }
-    
+
+    msg.channel.send(abilityID + " " + abilityType + " " + abilityName);
+    msg.channel.send(image);
+
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
