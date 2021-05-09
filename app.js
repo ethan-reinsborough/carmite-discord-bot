@@ -66,7 +66,7 @@ const messageFactories = [
   gamersFactory,
 ];
 //#endregion
-
+let interval = null;
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (msg) => {
   //#region Help Documentation
@@ -621,12 +621,14 @@ client.on("message", async (msg) => {
 
     if(/catowo/.test(msg.content.toLowerCase())) {
       let input = msg.content.split(' ');
-      if(input[1] === "stop"){
-        clearInterval(interval);
+      if(input[1] != "stop"){
+        interval = setInterval(() => {
+          msg.channel.send(input[1]);
+          }, 12000);}
+      } else{
+        clearInterval(interval)
+        interval = null;
       }
-      let interval = setInterval(() => {
-      msg.channel.send(input[1]);
-      }, 12000);
     }
 
 
