@@ -25,6 +25,23 @@ const client = new Discord.Client();
 
 client.on("ready", () => {
   console.log("Bot is ready");
+  client.on("message", async (msg) => {
+    if(/catowo/.test(msg.content.toLowerCase())) {
+      let query = msg.content.substr(msg.content.indexOf(" ") + 1);
+      msg.channel.send(query);
+      const interval = setInterval(function() {
+        message.channel.send(query)
+          .catch(err => {
+            console.error(err);
+            clearInterval(interval);
+          });
+      }, 1000);
+      task = interval;
+      if(/catstop/.test(msg.content.toLowerCase())){
+        clearInterval(task);
+      } 
+    }
+  });
 });
 
 //const riotApiKey = process.env.RIOT_API_KEY;
@@ -619,23 +636,7 @@ client.on("message", async (msg) => {
 
   //#region 
 
-  if(/catowo/.test(msg.content.toLowerCase())) {
-    let query = msg.content.substr(msg.content.indexOf(" ") + 1);
-    msg.channel.send(query);
-    const interval = setInterval(function() {
-      message.channel.send(query)
-        .catch(err => {
-          console.error(err);
-          clearInterval(interval);
-        });
-    }, 1000);
-    task = interval;
-    
-    if(/catstop/.test(msg.content.toLowerCase())){
-      clearInterval(task);
-    }
-    
-  }
+  
 
   //#endregion
 
