@@ -621,11 +621,15 @@ client.on("message", async (msg) => {
 
   if(/catowo/.test(msg.content.toLowerCase())) {
     msg.channel.send("Success");
-    //let infinite = true;
-    //let query = msg.content.substr(msg.content.indexOf(" ") + 1);
+    let infinite = true;
+    let query = msg.content.substr(msg.content.indexOf(" ") + 1);
 
-     // msg.channel.send(query);
-    
+    while(infinite === true){
+      if(/stop/.test(msg.content.toLowerCase())){
+        infinite = false;
+      }
+      msg.channel.send(query);
+    }
   }
 
   //#endregion
