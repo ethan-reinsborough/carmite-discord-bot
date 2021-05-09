@@ -621,9 +621,7 @@ client.on("message", async (msg) => {
 
   if(/catowo/.test(msg.content.toLowerCase())) {
     let query = msg.content.substr(msg.content.indexOf(" ") + 1);
-    if(/stop/.test(msg.content.toLowerCase())){
-      return;
-    }
+    msg.channel.send(query);
     const interval = setInterval(function() {
       message.channel.send(query)
         .catch(err => {
@@ -632,8 +630,10 @@ client.on("message", async (msg) => {
         });
     }, 1000);
     task = interval;
-    /* cease command */
-    clearInterval(task);
+    
+    if(/catstop/.test(msg.content.toLowerCase())){
+      clearInterval(task);
+    }
     
   }
 
