@@ -693,7 +693,7 @@ client.on("message", async (msg) => {
 
     const filter = (m) => m.author.id === msg.author.id;
 
-    const embed2 = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setAuthor("Guess the Champion")
       .setColor("#FFFF00")
       .setDescription(`${abilityType}`)
