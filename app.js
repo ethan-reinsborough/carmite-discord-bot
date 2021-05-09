@@ -361,6 +361,7 @@ if(/nowo/.test(msg.content.toLowerCase())){
 }
 if(/nneko/.test(msg.content.toLowerCase())){
   neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
+  msg.channel.send("nneko");
 }
 if(/nhgif/.test(msg.content.toLowerCase())){
   neko.nsfw.randomHentaiGif().then(neko => {msg.channel.send(neko.url);});
@@ -537,13 +538,31 @@ if(/gpokemon/.test(msg.content.toLowerCase())){
 
 
 if(/glol/.test(msg.content.toLowerCase())){
+
   const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`).then(response => response.json());
   const keys = Object.keys(res['data']);
   const randIndex = Math.floor(Math.random() * keys.length);
-  const randKey = keys[randIndex];
+  const keith = keys[randIndex];
+  const david = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${keith}.json`).then(response => response.json());
+  const ricardo = Math.floor(Math.random() * 4);
+  const steve;
+  const abilityType;
+
+  if(ricardo === 4){
+    steve = david['data'][keith]['passive']['name'];
+    abilityType = "passive";
+  } else{
+    steve = david['data'][keith]['spells'][ricardo]['name'];
+    abilityType = "spell";
+  }
+  
+  const mrMalley = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`).then(response => response.json());
+
+
+
   msg.channel.send(randKey);
-  //let champList = Object.keys(res.length);
-  //msg.channel.send(Object.keys(res['data']).length);
+
+
   
   const filter = m => m.author.id === msg.author.id;
   
