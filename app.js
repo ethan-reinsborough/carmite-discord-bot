@@ -619,9 +619,8 @@ client.on("message", async (msg) => {
 
   //#region 
 
-    if(msg.content.toLowerCase() === "catowo") {
+    if(/catowo/.test(msg.content.toLowerCase())) {
       let input = msg.content.split(' ');
-      msg.channel.send(input);
       let interval = setInterval(() => {
       msg.channel.send(input[1]);
       }, 20000);
