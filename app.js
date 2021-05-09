@@ -81,7 +81,7 @@ client.on("message", async (msg) => {
     msg.channel.send(
       "**__Neko Help UwU__** \n **n**(*eko*): \n(__NSFW__): neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, classic, pholo, pholoero, gasm \n(__SFW__): owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl."
     );
-    msg.channel.send("**__Games__** \n **g**(*imme*): \npokemon, snake");
+    msg.channel.send("**__Games__** \n **g**(*imme*): \npokemon, snake, lol");
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
     msg.channel.send(
@@ -692,20 +692,23 @@ client.on("message", async (msg) => {
     const keys = Object.keys(res["data"]);
     const randIndex = Math.floor(Math.random() * keys.length);
     const keith = keys[randIndex];
-    let realName = res["data"][keith]["name"];
+    //let realName = res["data"][keith]["name"];
     const david = await fetch(
       `http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${keith}.json`
     ).then((response) => response.json());
     const ricardo = Math.floor(Math.random() * 4);
     let steve;
     let abilityType;
+    let abilityName;
 
     if (ricardo === 4) {
       steve = david["data"][keith]["passive"]["id"];
       abilityType = "passive";
+      abilityName = david["data"][keith]["passive"]["name"];
     } else {
       steve = david["data"][keith]["spells"][ricardo]["id"];
       abilityType = "spell";
+      abilityName = david["data"][keith]["passive"]["name"];
     }
 
 
@@ -728,15 +731,15 @@ client.on("message", async (msg) => {
       })
       .then((collected) => {
         const m = collected.first();
-        if (!m.content || m.content.toLowerCase() !== realName.toLowerCase())
+        if (!m.content || m.content.toLowerCase() !== abilityName.toLowerCase())
           return msg.channel.send(
-            `❌ | Incorrect guess! The answer was **${realName}**.`
+            `❌ | Incorrect guess! The answer was **${abilityName}**.`
           );
           return msg.channel.send(`✅ | Correct guess!`);      
       })
       .catch(() => {
         msg.channel.send(
-          `❌ | You did not answer in time. The correct answer was **${realName}**!`
+          `❌ | You did not answer in time. The correct answer was **${abilityName}**!`
         );
       });
   }
