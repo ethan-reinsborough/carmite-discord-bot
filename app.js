@@ -27,21 +27,19 @@ client.on("ready", () => {
   console.log("Bot is ready");
   client.on("message", async (msg) => {
     let infinite;
+    if(/catstop/.test(msg.content.toLowerCase())){
+      infinite = false;
+    }
     if(/catowo/.test(msg.content.toLowerCase())) {
       infinite = true;
       if(infinite === true){
         let query = msg.content.substr(msg.content.indexOf(" ") + 1);
         setInterval(() => {
           msg.channel.send(query);
-        }, 10000);
-        if(/catstop/.test(msg.content.toLowerCase())){
-          clearInterval(task);
-        } 
+        }, 15000);
       }
     }
-    if(/catstop/.test(msg.content.toLowerCase())){
-      infinite = false;
-    }
+    
   });
 });
 
