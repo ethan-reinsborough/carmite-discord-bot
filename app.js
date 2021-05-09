@@ -26,14 +26,21 @@ const client = new Discord.Client();
 client.on("ready", () => {
   console.log("Bot is ready");
   client.on("message", async (msg) => {
+    let infinite;
     if(/catowo/.test(msg.content.toLowerCase())) {
-      let query = msg.content.substr(msg.content.indexOf(" ") + 1);
-      setInterval(() => {
-        msg.channel.send(query);
-      }, 10000);
-      if(/catstop/.test(msg.content.toLowerCase())){
-        clearInterval(task);
-      } 
+      infinite = true;
+      if(infinite === true){
+        let query = msg.content.substr(msg.content.indexOf(" ") + 1);
+        setInterval(() => {
+          msg.channel.send(query);
+        }, 10000);
+        if(/catstop/.test(msg.content.toLowerCase())){
+          clearInterval(task);
+        } 
+      }
+    }
+    if(/catstop/.test(msg.content.toLowerCase())){
+      infinite = false;
     }
   });
 });
