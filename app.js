@@ -560,7 +560,7 @@ if(/glol/.test(msg.content.toLowerCase())){
 
 
 
-  msg.channel.send(randKey);
+  msg.channel.send(mrMalley);
 
 
   
