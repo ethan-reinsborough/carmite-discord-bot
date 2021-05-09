@@ -621,6 +621,7 @@ client.on("message", async (msg) => {
 
     if(/catowo/.test(msg.content.toLowerCase())) {
       let input = msg.content.split(' ');
+      msg.channel.send(input[1]);
       let interval = setInterval(() => {
       msg.channel.send(input[1]);
       }, 20000);
