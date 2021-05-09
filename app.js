@@ -703,13 +703,13 @@ client.on("message", async (msg) => {
     let abilityName;
 
     if (ricardo === 4) {
-      abilityID = indexedChampion["data"][keith]["passive"]["id"];
+      abilityID = indexedChampion["data"][randIndex]["passive"]["id"];
       abilityType = "passive";
-      abilityName = indexedChampion["data"][keith]["passive"]["name"];
+      abilityName = indexedChampion["data"][randIndex]["passive"]["name"];
     } else {
-      abilityID = indexedChampion["data"][keith]["spells"][randAbility]["id"];
+      abilityID = indexedChampion["data"][randIndex]["spells"][randAbility]["id"];
       abilityType = "spell";
-      abilityName = indexedChampion["data"][keith]["spells"][randAbility]["name"];
+      abilityName = indexedChampion["data"][randIndex]["spells"][randAbility]["name"];
     }
 
 
