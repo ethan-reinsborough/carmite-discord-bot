@@ -25,22 +25,6 @@ const client = new Discord.Client();
 
 client.on("ready", () => {
   console.log("Bot is ready");
-  client.on("message", async (msg) => {
-    let infinite;
-    if(/catstop/.test(msg.content.toLowerCase())){
-      infinite = false;
-    }
-    if(/catowo/.test(msg.content.toLowerCase())) {
-      infinite = true;
-      if(infinite === true){
-        let query = msg.content.substr(msg.content.indexOf(" ") + 1);
-        setInterval(() => {
-          msg.channel.send(query);
-        }, 15000);
-      }
-    }
-    
-  });
 });
 
 //const riotApiKey = process.env.RIOT_API_KEY;
@@ -635,7 +619,18 @@ client.on("message", async (msg) => {
 
   //#region 
 
-  
+    if(/catowo/.test(msg.content.toLowerCase())) {
+      let query = msg.content.substr(msg.content.indexOf(" ") + 1);
+      if(query != "stop"){
+        let interval = setInterval(() => {
+          msg.channel.send(query);
+        }, 20000);  
+      } else{
+        clearInterval(interval);
+      }   
+    }
+
+
 
   //#endregion
 
