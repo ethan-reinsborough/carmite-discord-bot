@@ -558,7 +558,8 @@ if(/glol/.test(msg.content.toLowerCase())){
   
   const mrMalley = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`).then(response => response.json());
 
-
+  msg.channel.send(abilityType);
+  msg.channel.send(steve);
 
   msg.channel.send(mrMalley);
 
