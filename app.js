@@ -542,7 +542,7 @@ if(/glol/.test(msg.content.toLowerCase())){
   const keys = Object.keys(res['data']);
   const randIndex = Math.floor(Math.random() * keys.length);
   const keith = keys[randIndex];
-  msg.channel.send(keith);
+  let realName = res['data'][keith]['name'];
   const david = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${keith}.json`).then(response => response.json());
   const ricardo = Math.floor(Math.random() * 4);
   let steve;
@@ -555,23 +555,16 @@ if(/glol/.test(msg.content.toLowerCase())){
     steve = david['data'][keith]['spells'][ricardo]['id'];
     abilityType = "spell";
   }
-  msg.channel.send(abilityType);
-  msg.channel.send(steve);
 
-  //const mrMalley = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`).then(response => response.json());
+  //msg.channel.send(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`);
 
-  msg.channel.send(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`);
-
-
-  
   const filter = m => m.author.id === msg.author.id;
   
-  
-/*
   const embed = new MessageEmbed()
         .setAuthor("Guess the Champion")
         .setColor("#FFFF00")
-        .setDescription(`Ultimate: ${champions[randIndex][1]}`)
+        .setDescription(`${abilityType}`)
+        .setImage(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`)
     await msg.channel.send(embed);
 
   msg.channel.awaitMessages(filter, {
@@ -581,12 +574,12 @@ if(/glol/.test(msg.content.toLowerCase())){
   })
   .then(collected => {
       const m = collected.first();
-      if (!m.content || m.content.toLowerCase() !== champions[randIndex][0].toLowerCase()) return msg.channel.send(`❌ | Incorrect guess! The answer was **${champions[randIndex][0]}**.`);
+      if (!m.content || m.content.toLowerCase() !== realName.toLowerCase()) return msg.channel.send(`❌ | Incorrect guess! The answer was **${realName}**.`);
       return msg.channel.send(`✅ | Correct guess!`);
   })
   .catch(() => {
-      msg.channel.send(`❌ | You did not answer in time. The correct answer was **${champions[randIndex][0]}**!`);
-  }); */
+      msg.channel.send(`❌ | You did not answer in time. The correct answer was **${realName}**!`);
+  }); 
 }
 //#endregion
 
