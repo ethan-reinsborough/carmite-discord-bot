@@ -361,7 +361,6 @@ if(/nowo/.test(msg.content.toLowerCase())){
 }
 if(/nneko/.test(msg.content.toLowerCase())){
   neko.nsfw.neko().then(neko => {msg.channel.send(neko.url);});
-  msg.channel.send("nneko");
 }
 if(/nhgif/.test(msg.content.toLowerCase())){
   neko.nsfw.randomHentaiGif().then(neko => {msg.channel.send(neko.url);});
@@ -546,6 +545,7 @@ if(/glol/.test(msg.content.toLowerCase())){
   msg.channel.send(keith);
   const david = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${keith}.json`).then(response => response.json());
   const ricardo = Math.floor(Math.random() * 4);
+  msg.channel.send(david['data'][keith]['name']);
   let steve;
   let abilityType;
 
