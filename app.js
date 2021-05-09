@@ -737,14 +737,6 @@ client.on("message", async (msg) => {
           `❌ | You did not answer in time. The correct answer was **${realName}**!`
         );
       });
-
-      const embed2 = new MessageEmbed()
-      .setAuthor(`${realName}`)
-      .setColor("#16b5ff")
-      .setImage(
-        `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/champion/${keith}.png`
-      );
-      msg.channel.send(embed2);
   }
   //#endregion
 
