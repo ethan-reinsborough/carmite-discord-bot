@@ -689,17 +689,25 @@ client.on("message", async (msg) => {
       abilityType = "spell";
     }
 
-    //msg.channel.send(`http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`);
 
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
       .setAuthor("Guess the Champion")
-      .setColor("#FFFF00")
+      .setColor("#16b5ff")
       .setDescription(`${abilityType}`)
       .setImage(
         `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${steve}.png`
       );
+
+      const embed2 = new MessageEmbed()
+      .setAuthor(`${realName}`)
+      .setColor("#16b5ff")
+      .setDescription(`${abilityType}`)
+      .setImage(
+        `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/champion/${keith}.png`
+      );
+
     await msg.channel.send(embed);
 
     msg.channel
