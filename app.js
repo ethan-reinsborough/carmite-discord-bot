@@ -549,10 +549,10 @@ if(/glol/.test(msg.content.toLowerCase())){
   let abilityType;
 
   if(ricardo === 4){
-    steve = david['data'][keith]['passive']['name'];
+    steve = david['data'][keith]['passive']['id'];
     abilityType = "passive";
   } else{
-    steve = david['data'][keith]['spells'][ricardo]['name'];
+    steve = david['data'][keith]['spells'][ricardo]['id'];
     abilityType = "spell";
   }
   
