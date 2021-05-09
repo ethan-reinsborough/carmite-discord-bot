@@ -624,10 +624,7 @@ client.on("message", async (msg) => {
     let infinite = true;
     let query = msg.content.substr(msg.content.indexOf(" ") + 1);
 
-    while(infinite === true){
-      if(/stop/.test(msg.content.toLowerCase())){
-        infinite = false;
-      }
+  
       msg.channel.send(query);
     }
   }
