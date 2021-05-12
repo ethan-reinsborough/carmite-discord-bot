@@ -109,10 +109,10 @@ client.on("message", async (msg) => {
       "https://dog.ceo/api/breeds/image/random"
     ).then((response) => response.json());
     msg.channel.send(res["message"]);
-  }/*
+  }
   if (/ghentai/.test(msg.content.toLowerCase())) {
     msg.channel.send(hmtai.nsfw.hentai());
-  }*/
+  }
   if (/gyuri/.test(msg.content.toLowerCase())) {
     msg.channel.send(hmtai.nsfw.yuri());
   }
