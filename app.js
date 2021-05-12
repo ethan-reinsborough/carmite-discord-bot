@@ -97,7 +97,6 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region G(imme) Commands
-
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch(
       "https://aws.random.cat/meow"
@@ -663,7 +662,7 @@ client.on("message", async (msg) => {
 
   //#endregion
 
-  //#region Guess the Ult
+  //#region LoL Functions
 
   if (/glol/.test(msg.content.toLowerCase())) {
     const res = await fetch(
@@ -723,6 +722,16 @@ client.on("message", async (msg) => {
           `❌ | You did not answer in time. The correct answer was **${abilityName}**!`
         );
       });
+  }
+
+  if (/gicon/.test(msg.content.toLowerCase())) {
+    const randIndex = Math.floor(Math.random() * 4970);
+    const embed = new MessageEmbed()
+      .setAuthor(`Random Icon`)
+      .setColor("#16b5ff")
+      .setImage(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${randIndex}.png`);
+      
+    await msg.channel.send(embed);
   }
   //#endregion
 
