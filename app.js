@@ -711,7 +711,7 @@ client.on("message", async (msg) => {
       })
       .then((collected) => {
         const m = collected.first();
-        if (!m.content || m.content.toLowerCase() !== abilityName.toLowerCase())
+        if (!m.content || m.content.toLowerCase() !== abilityName.toLowerCase() || m.content.toLowerCase() !== abilityName.toLowerCase().replace(/'/g, ""))
           return msg.channel.send(
             `❌ | Incorrect guess! The answer was **${abilityName}**.`
           );
@@ -752,7 +752,7 @@ client.on("message", async (msg) => {
       })
       .then((collected) => {
         const m = collected.first();
-        if (!m.content || m.content.toLowerCase() !== indexedItemName.toLowerCase())
+        if (!m.content || m.content.toLowerCase() !== indexedItemName.toLowerCase() || m.content.toLowerCase() !== indexedItemName.toLowerCase().replace(/'/g, ""))
           return msg.channel.send(
             `❌ | Incorrect guess! The answer was **${indexedItemName}**.`
           );
