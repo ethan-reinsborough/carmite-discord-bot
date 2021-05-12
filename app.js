@@ -732,35 +732,16 @@ client.on("message", async (msg) => {
     const randIndex = Math.floor(Math.random() * keys.length);
     const itemID = keys[randIndex];
     msg.channel.send(itemID);
-    /*
-    const indexedChampion = await fetch(
-      `http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${championNameID}.json`
-    ).then((response) => response.json());
-    const randAbility = Math.floor(Math.random() * 5);
 
-    let abilityID;
-    let abilityType;
-    let abilityName;
-    let image; 
-     
-    if (randAbility === 4) {
-      abilityName = indexedChampion["data"][championNameID]["passive"]["name"];
-      abilityType = "passive";
-      abilityID = indexedChampion["data"][championNameID]["passive"]["image"]["full"];
-      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}`;
-    } else {
-      abilityID = indexedChampion["data"][championNameID]["spells"][randAbility]["id"];
-      abilityType = "spell";
-      abilityName = indexedChampion["data"][championNameID]["spells"][randAbility]["name"];
-      image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`;
-    }
-
+    let indexedItemName = res['data'][itemID]['name'];
+    let indexedItemImage = res['data'][itemID]['image']['full'];
+   
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
-      .setAuthor(`Guess the ${abilityType}`)
+      .setAuthor(`Guess the item`)
       .setColor("#16b5ff")
-      .setImage(image);
+      .setImage(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/${indexedItemImage}`);
       
     await msg.channel.send(embed);
 
@@ -772,17 +753,17 @@ client.on("message", async (msg) => {
       })
       .then((collected) => {
         const m = collected.first();
-        if (!m.content || m.content.toLowerCase() !== abilityName.toLowerCase())
+        if (!m.content || m.content.toLowerCase() !== indexedItemName.toLowerCase())
           return msg.channel.send(
-            `❌ | Incorrect guess! The answer was **${abilityName}**.`
+            `❌ | Incorrect guess! The answer was **${indexedItemName}**.`
           );
           return msg.channel.send(`✅ | Correct guess!`);      
       })
       .catch(() => {
         msg.channel.send(
-          `❌ | You did not answer in time. The correct answer was **${abilityName}**!`
+          `❌ | You did not answer in time. The correct answer was **${indexedItemName}**!`
         );
-      });*/
+      });
   }
 
   if (/gicon/.test(msg.content.toLowerCase())) {
