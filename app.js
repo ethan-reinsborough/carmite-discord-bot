@@ -104,7 +104,13 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   }
   if (/ganisong/.test(msg.content.toLowerCase())) {
-    result = randomNum();
+    let randSong = Math.floor((Math.random() * 3000) + 1);
+    const res = await fetch(
+      `https://anusic-api.herokuapp.com/api/v1/anime/${randSong}`
+    ).then((response) => response.json());   
+
+    let result = res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["link"];
+    
     if(result === undefined){
       msg.channel.send("No results found from rngsus 🙏");
     }else{
@@ -807,14 +813,3 @@ client.on("message", async (msg) => {
   }
 });
 
-function randomNum(){
-  let randSong = Math.floor((Math.random() * 3000) + 1);
-  const res = await fetch(
-    `https://anusic-api.herokuapp.com/api/v1/anime/${randSong}`
-  ).then((response) => response.json());
-
-  let result = res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["link"]
-  
-  return result;
-
-}
