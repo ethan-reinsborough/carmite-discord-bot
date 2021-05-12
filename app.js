@@ -619,6 +619,9 @@ client.on("message", async (msg) => {
 
   //#region 
 
+    //Killed infinite porn command for now, Charles is too horny
+
+    /*
     if(/catowo/.test(msg.content.toLowerCase())) {
       let input = msg.content.split(' ');
       if(input[1] != "stop"){
@@ -629,9 +632,8 @@ client.on("message", async (msg) => {
         clearInterval(interval)
         interval = null;
       }
-    }
-  //
-//
+    }*/
+
 
 
   //#endregion
