@@ -65,8 +65,10 @@ const messageFactories = [
   pingEthanFactory,
   gamersFactory,
 ];
-//#endregion
+
 let interval = null;
+//#endregion
+
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (msg) => {
   //#region Help Documentation
@@ -103,25 +105,26 @@ client.on("message", async (msg) => {
     ).then((response) => response.json());
     msg.channel.send(file);
   }
+
   if (/ganisong/.test(msg.content.toLowerCase())) {
+    
     let randSong = Math.floor((Math.random() * 3386) + 1);
     
-    const res2 = await fetch(
+    const animeList = await fetch(
       `https://anusic-api.herokuapp.com/api/v1/anime`
     ).then((response) => response.json()); 
-    let result2 = res2["data"][randSong]["id"];
+
+    let randomAnimeID = animeList["data"][randSong]["id"];
+
     const res = await fetch(
-      `https://anusic-api.herokuapp.com/api/v1/anime/${result2}`
+      `https://anusic-api.herokuapp.com/api/v1/anime/${randomAnimeID}`
     ).then((response) => response.json());   
 
     let result = res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["link"];
-    
-    if(result === undefined){
-      msg.channel.send("No results found from rngsus 🙏");
-    }else{
-      msg.channel.send(result);
-    }   
+  
+    msg.channel.send(result);      
   }
+
   if (/gdog/.test(msg.content.toLowerCase())) {
     const res = await fetch(
       "https://dog.ceo/api/breeds/image/random"
