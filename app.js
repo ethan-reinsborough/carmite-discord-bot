@@ -731,7 +731,6 @@ client.on("message", async (msg) => {
     const keys = Object.keys(res["data"]);
     const randIndex = Math.floor(Math.random() * keys.length);
     const itemID = keys[randIndex];
-    msg.channel.send(itemID);
 
     let indexedItemName = res['data'][itemID]['name'];
     let indexedItemImage = res['data'][itemID]['image']['full'];
