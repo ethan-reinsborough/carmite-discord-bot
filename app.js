@@ -108,8 +108,9 @@ client.on("message", async (msg) => {
     const res = await fetch(
       `https://anusic-api.herokuapp.com/api/v1/anime/${randSong}`
     ).then((response) => response.json());
-    msg.channel.send(randSong);
+    msg.channel.send(res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["format"]);
     let result = res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["link"];
+    
     if(result === undefined){
       msg.channel.send("No results found from rngsus 🙏");
     }else{
