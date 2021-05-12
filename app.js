@@ -618,7 +618,7 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region 
-
+/*
     if(/catowo/.test(msg.content.toLowerCase())) {
       let input = msg.content.split(' ');
       if(input[1] != "stop"){
@@ -630,7 +630,7 @@ client.on("message", async (msg) => {
         interval = null;
       }
     }
-  
+  */
 //
 
 
