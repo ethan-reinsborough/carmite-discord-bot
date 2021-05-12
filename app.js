@@ -734,7 +734,11 @@ client.on("message", async (msg) => {
 
     let indexedItemName = res['data'][itemID]['name'];
     let indexedItemImage = res['data'][itemID]['image']['full'];
-   
+    let indexedItemName2 = indexedItemName;
+    if (indexedItemName.indexOf('\'') >= 0) {
+      indexedItemName2 += " / " + indexedItemName2.toLowerCase().replace(/'/g, "")
+   }
+
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
@@ -754,13 +758,13 @@ client.on("message", async (msg) => {
         const m = collected.first();
         if (!m.content || m.content.toLowerCase() !== indexedItemName.toLowerCase() || m.content.toLowerCase() !== indexedItemName.toLowerCase().replace(/'/g, ""))
           return msg.channel.send(
-            `❌ | Incorrect guess! The answer was **${indexedItemName}**.`
+            `❌ | Incorrect guess! The answer was **${indexedItemName2}**.`
           );
           return msg.channel.send(`✅ | Correct guess!`);      
       })
       .catch(() => {
         msg.channel.send(
-          `❌ | You did not answer in time. The correct answer was **${indexedItemName}**!`
+          `❌ | You did not answer in time. The correct answer was **${indexedItemName2}**!`
         );
       });
   }
