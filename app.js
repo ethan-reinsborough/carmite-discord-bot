@@ -618,20 +618,40 @@ client.on("message", async (msg) => {
 
   //#region 
 
-    //Killed infinite porn command for now, Charles is too horny
+    //Remodified infinite porn command into infinite waifu command
 
-    /*
-    if(/catowo/.test(msg.content.toLowerCase())) {
+    if(/groll/.test(msg.content.toLowerCase())) {
+      msg.content.send("Infinite rolling started.");
       let input = msg.content.split(' ');
       if(input[1] != "stop"){
         interval = setInterval(() => {
-          msg.channel.send(input[1]);
-          }, 12000);
+          setTimeout(() => {
+            msg.channel.send("$w");
+          }, 10000);
+          setTimeout(() => {
+            msg.channel.send("$w");
+          }, 20000);
+          setTimeout(() => {
+            msg.channel.send("$w");
+          }, 30000);
+          setTimeout(() => {
+            msg.channel.send("$w");
+          }, 40000);
+          setTimeout(() => {
+            msg.channel.send("$w");
+          }, 50000);
+          setTimeout(() => {
+            msg.channel.send("$w");
+          }, 60000);
+          setTimeout(() => {
+            msg.channel.send("$w");
+          }, 70000);
+          }, (60 * 60 * 1000));
       } else{
         clearInterval(interval)
         interval = null;
       }
-    }*/
+    }
 
 
 
