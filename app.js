@@ -103,6 +103,13 @@ client.on("message", async (msg) => {
     ).then((response) => response.json());
     msg.channel.send(file);
   }
+  if (/ganisong/.test(msg.content.toLowerCase())) {
+    let randSong = Math.floor((Math.random() * 3000) + 1);
+    const res = await fetch(
+      `https://anusic-api.herokuapp.com/api/v1/anime/${randSong}`
+    ).then((response) => response.json());
+    msg.channel.send(res["data"]["collections"]["themes"]["0"]["sources"]["0"]["link"]);
+  }
   if (/gdog/.test(msg.content.toLowerCase())) {
     const res = await fetch(
       "https://dog.ceo/api/breeds/image/random"
