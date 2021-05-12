@@ -73,7 +73,7 @@ client.on("message", async (msg) => {
 
   if (/ghelp/.test(msg.content.toLowerCase())) {
     msg.channel.send(
-      "**__Gimme Help OwO__** \n**g**(*imme*): \nanime, banime(first 10 pages),tanime(first 50 pages), ranime(very random), bored, cat, char, bchar(first 10 pages), tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox."
+      "**__Gimme Help OwO__** \n**g**(*imme*): \nanime, banime(first 10 pages),tanime(first 50 pages), ranime(very random), bored, cat, char, bchar(first 10 pages), tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox, icon."
     );
     msg.channel.send(
       "(__NSFW__) **g**(*imme*): \nhentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits"
@@ -81,7 +81,7 @@ client.on("message", async (msg) => {
     msg.channel.send(
       "**__Neko Help UwU__** \n **n**(*eko*): \n(__NSFW__): neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, classic, pholo, pholoero, gasm \n(__SFW__): owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl."
     );
-    msg.channel.send("**__Games__** \n **g**(*imme*): \npokemon, snake, lol");
+    msg.channel.send("**__Games__** \n **g**(*imme*): \npokemon, snake, lol, item");
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
     msg.channel.send(
