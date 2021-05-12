@@ -119,6 +119,13 @@ client.on("message", async (msg) => {
     if(result === undefined){
       msg.channel.send("No results found from rngsus 🙏");
     }else{
+      
+    const embed = new MessageEmbed()
+    .setAuthor(`Random OP`)
+    .setColor("#16b5ff")
+    .setImage(result)
+    
+  await msg.channel.send(embed);
       msg.channel.send(result);
     }   
   }
