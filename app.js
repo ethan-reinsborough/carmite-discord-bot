@@ -595,28 +595,6 @@ client.on("message", async (msg) => {
 
   //#endregion
 
-  //#region In Progress
-
-  /* Not functional
-
-  if(/urban/.test(msg.content.toLowerCase())){
-    let words = msg.content.toLowerCase().split(' ');
-    let query = words.slice(1).join('+');
-    msg.channel.send(query);
-    let definitions = await fetch(`https://api.urbandictionary.com/v0/define?term=${query}`)
-          .then(response => response.json()['list'].map(e => e.definition));
-    definitions.push(`${query} is not a word, genius.`)
-    msg.channel.send(definitions[0]);
-  }
-
-  if(/gdad/.test(msg.content.toLowerCase())){
-  const { file } = await fetch('https://icanhazdadjoke.com').then(response => response.json());
-  msg.channel.send(file);
-} 
-*/
-
-  //#endregion
-
   //#region 
 
     //Killed infinite porn command for now, Charles is too horny
@@ -706,9 +684,9 @@ client.on("message", async (msg) => {
     let image; 
      
     if (randAbility === 4) {
-      abilityName = indexedChampion["data"]["passive"]["name"];
+      abilityName = indexedChampion["data"][championNameID]["passive"]["name"];
       abilityType = "passive";
-      abilityID = indexedChampion["data"]["passive"]["image"]["full"];
+      abilityID = indexedChampion["data"][championNameID]["passive"]["image"]["full"];
       image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}`;
     } else {
       abilityID = indexedChampion["data"][championNameID]["spells"][randAbility]["id"];
