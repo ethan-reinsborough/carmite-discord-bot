@@ -104,9 +104,14 @@ client.on("message", async (msg) => {
     msg.channel.send(file);
   }
   if (/ganisong/.test(msg.content.toLowerCase())) {
-    let randSong = Math.floor((Math.random() * 3000) + 1);
+    let randSong = Math.floor((Math.random() * 3386) + 1);
+    
+    const res2 = await fetch(
+      `https://anusic-api.herokuapp.com/api/v1/anime`
+    ).then((response) => response.json()); 
+    let result2 = res2["data"][randSong]["id"];
     const res = await fetch(
-      `https://anusic-api.herokuapp.com/api/v1/anime/${randSong}`
+      `https://anusic-api.herokuapp.com/api/v1/anime/${result2}`
     ).then((response) => response.json());   
 
     let result = res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["link"];
