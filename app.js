@@ -702,7 +702,7 @@ client.on("message", async (msg) => {
     let abilityType;
     let abilityName;
     let image; 
-
+     
     if (randAbility === 4) {
       abilityName = indexedChampion["data"]["passive"]["name"];
       abilityType = "passive";
