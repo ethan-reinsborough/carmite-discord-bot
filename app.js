@@ -619,9 +619,9 @@ client.on("message", async (msg) => {
   //#region 
 
     //Remodified infinite porn command into infinite waifu command
-
+/*
     if(/groll/.test(msg.content.toLowerCase())) {
-      msg.content.send("Infinite rolling started.");
+      msg.channel.send("Infinite rolling started.");
       let input = msg.content.split(' ');
       if(input[1] != "stop"){
         interval = setInterval(() => {
@@ -653,7 +653,7 @@ client.on("message", async (msg) => {
       }
     }
 
-
+*/
 
   //#endregion
 
