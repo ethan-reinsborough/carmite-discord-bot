@@ -101,6 +101,9 @@ client.on("message", async (msg) => {
     msg.channel.send(
       "**__Lewd Help >w<__** \n **l**(*ewd*): \n(__NSFW__): ass, boobs, gifs, hboobs, hentai, athighs, kink, thighs, yuri, threed, furgif, milk, pantsu, random, slime, kiss, hug, pat."
     );
+    msg.channel.send(
+      "**__Reddit Help >A<__** \n **r**(*eddit*): \n(__NSFW__): rgen, rgreset (resets rgen list)"
+    );
     msg.channel.send("**__Games__** \n **g**(*imme*): \npokemon, snake, lol, item");
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
@@ -117,28 +120,6 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region G(imme) Commands
-  if (/rgen/.test(msg.content.toLowerCase())) {
-    let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
-    counter++;
-    if(counter > 24){
-      after = r['data']['after'];
-      counter = -1;
-      page++;
-    }   
-    const embed = new MessageEmbed()
-      .setAuthor(`Genshin NSFW | Page ${page} | Post ${counter}`)
-      .setColor("#d6428c")
-      .setImage(r['data']['children'][counter]['data']['url'])
-      .setDescription(r['data']['children'][counter]['data']['url'])
-    await msg.channel.send(embed);
-  }
-
-  if (/rgreset/.test(msg.content.toLowerCase())) {
-    after = null;
-    counter = -1;
-    msg.channel.send("Genshin NSFW page list has been reset.");
-  }
-
 
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch(
@@ -766,6 +747,32 @@ client.on("message", async (msg) => {
       msg.channel.send(result);
     })
   }
+  //#endregion
+
+  //#region R(eddit) Commands
+
+  if (/rgen/.test(msg.content.toLowerCase())) {
+    let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
+    counter++;
+    if(counter > 24){
+      after = r['data']['after'];
+      counter = -1;
+      page++;
+    }   
+    const embed = new MessageEmbed()
+      .setAuthor(`Genshin NSFW | Page ${page} | Post ${counter}`)
+      .setColor("#d6428c")
+      .setImage(r['data']['children'][counter]['data']['url'])
+      .setDescription(r['data']['children'][counter]['data']['url'])
+    await msg.channel.send(embed);
+  }
+
+  if (/rgreset/.test(msg.content.toLowerCase())) {
+    after = null;
+    counter = -1;
+    msg.channel.send("Genshin NSFW page list has been reset.");
+  }
+
   //#endregion
 
   //#region Interval Stuff (not in use)
