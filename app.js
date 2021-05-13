@@ -85,6 +85,9 @@ client.on("message", async (msg) => {
     msg.channel.send(
       "**__Neko Help UwU__** \n **n**(*eko*): \n(__NSFW__): neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, classic, pholo, pholoero, gasm \n(__SFW__): owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl."
     );
+    msg.channel.send(
+      "**__Lewd Help >w<__** \n **l**(*ewd*): \n(__NSFW__): ass, boobs, gifs, hboobs, hentai, athighs, kink, thighs, yuri, threed, furgif, milk, pantsu, random, slime, kiss, hug, pat."
+    );
     msg.channel.send("**__Games__** \n **g**(*imme*): \npokemon, snake, lol, item");
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
@@ -626,6 +629,107 @@ client.on("message", async (msg) => {
     })
   }
 
+  if (/lass/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("ass").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lboobs/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("boobs").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lgifs/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("gifs").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lhboobs/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("hboobs").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lhentai/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("hentai").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lathighs/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("athighs").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lkink/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("kink").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lthighs/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("thighs").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lyuri/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("yuri").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lthreed/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("threed").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lfurgif/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("furgif").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lpantsu/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("pantsu").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lrandom/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("random").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lslime/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("slime").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lkiss/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("kiss").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lhug/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("hug").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  if (/lpat/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("pat").then(result => {
+      msg.channel.send(result);
+    })
+  }
   //#endregion
 
   //#region Interval Stuff (not in use)
