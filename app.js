@@ -120,9 +120,9 @@ client.on("message", async (msg) => {
     let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
     counter++;
     msg.channel.send(r['data']['children'][counter]['data']['url']);
-    if(counter > 24){
-      after = r['data']['after'];
-    }   
+    //if(counter > 24){
+    //  after = r['data']['after'];
+    //}   
   }
 
 
