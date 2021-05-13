@@ -10,6 +10,8 @@ const { MessageEmbed } = require("discord.js");
 const nekoClient = require("nekos.life");
 const { Spawn } = require("pokecord");
 const neko = new nekoClient();
+const { LewdClient } = require('lewds.api');
+const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 //const { HAnimeAPI } = require("hanime");
 
 const snakeGame = new SnakeGame({
@@ -616,7 +618,17 @@ client.on("message", async (msg) => {
 
   //#endregion
 
-  //#region 
+  //#region L(ewd) Commands
+
+  if (/lmilk/.test(msg.content.toLowerCase())) {
+    lApi.nsfw("milk").then(result => {
+      msg.channel.send(result);
+    })
+  }
+
+  //#endregion
+
+  //#region Interval Stuff (not in use)
 
     //Charles can't use waifu bot :(
     /*
