@@ -115,9 +115,10 @@ client.on("message", async (msg) => {
 
   //#region G(imme) Commands
   if (/rtest/.test(msg.content.toLowerCase())) {
-    const r = "https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all";
- 
-    after = r['data']['after'];
+    const r = await fetch(
+      "https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all"
+    ).then((response) => response.json());
+    //after = r['data']['after'];
     
     msg.channel.send(r['data']['children']['5']['data']['url']);
     //query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
