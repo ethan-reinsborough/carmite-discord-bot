@@ -118,7 +118,8 @@ client.on("message", async (msg) => {
     const r = await fetch(
       "https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all"
     ).then((response) => response.json());
-    //after = r['data']['after'];
+    
+    after = r['data']['after'];
     
     msg.channel.send(r['data']['children']['5']['data']['url']);
     //query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
