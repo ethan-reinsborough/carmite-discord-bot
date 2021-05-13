@@ -14,7 +14,7 @@ const { LewdClient } = require('lewds.api');
 //var snoowrap = require('snoowrap');
 const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 //const { HAnimeAPI } = require("hanime");
-let counter = 23;
+let counter = -1;
 let after = null;
 let page = 1;
 
@@ -122,8 +122,7 @@ client.on("message", async (msg) => {
     counter++;
     if(counter > 24){
       after = r['data']['after'];
-      msg.channel.send(after);
-      counter = 0;
+      counter = -1;
       page++;
     }   
     const embed = new MessageEmbed()
