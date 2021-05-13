@@ -115,7 +115,7 @@ client.on("message", async (msg) => {
 
   //#region G(imme) Commands
   if (/rtest/.test(msg.content.toLowerCase())) {
-    const r = await fetch(
+    let r = await fetch(
       "https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all"
     ).then((response) => response.json());
 
@@ -123,7 +123,7 @@ client.on("message", async (msg) => {
     
     msg.channel.send(r['data']['children']['5']['data']['url']);
     let query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
-    const r = await fetch(
+    r = await fetch(
     `${query}`
      ).then((response) => response.json());
     msg.channel.send("This is same index but next page: " + r['data']['children']['5']['data']['url']);
