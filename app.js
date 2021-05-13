@@ -724,6 +724,7 @@ client.on("message", async (msg) => {
       msg.channel.send(result);
     })
   }
+  //
 
   if (/lpat/.test(msg.content.toLowerCase())) {
     lApi.sfw("pat").then(result => {
