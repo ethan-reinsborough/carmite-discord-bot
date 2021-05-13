@@ -118,7 +118,7 @@ client.on("message", async (msg) => {
   //#region G(imme) Commands
   if (/rgenshin/.test(msg.content.toLowerCase())) {
     let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
-    counter++;
+    //counter++;
     msg.channel.send(r['data']['children']['5']['data']['url']);
     //if(counter > 24){
     //  after = r['data']['after'];
