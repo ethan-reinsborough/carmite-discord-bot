@@ -11,7 +11,7 @@ const nekoClient = require("nekos.life");
 const { Spawn } = require("pokecord");
 const neko = new nekoClient();
 const { LewdClient } = require('lewds.api');
-var snoowrap = require('snoowrap');
+//var snoowrap = require('snoowrap');
 const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 //const { HAnimeAPI } = require("hanime");
 
@@ -32,7 +32,7 @@ client.on("ready", () => {
 
 //const riotApiKey = process.env.RIOT_API_KEY;
 
-
+/*
 const otherRequester = new snoowrap({
   userAgent: "Carmite's App",
   clientId: '1jsoFmjUb2wZVw',
@@ -40,7 +40,7 @@ const otherRequester = new snoowrap({
   username: 'Carmite',
   password: `${process.env.USER_PASS}`
 });
-
+*/
 client.login(process.env.BOT_TOKEN);
 
 //#endregion
@@ -115,7 +115,17 @@ client.on("message", async (msg) => {
 
   //#region G(imme) Commands
   if (/rtest/.test(msg.content.toLowerCase())) {
-    otherRequester.getHot().map(post => post.title).then(msg.channel.send)
+    const r = await fetch(
+      "https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all"
+    ).then((response) => response.json());
+    after = r['data']['after'];
+    
+    msg.channel.send(r['data']['children']['5']['data']['url']);
+    query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
+    const r = await fetch(
+      `${query}`
+    ).then((response) => response.json());
+    msg.channel.send(r['data']['children']['5']['data']['url']);
   }
 
 
