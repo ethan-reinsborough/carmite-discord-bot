@@ -33,9 +33,9 @@ client.on("ready", () => {
   console.log("Bot is ready");
   client.user.setStatus('available')
   client.user.setPresence({
-      game: {
+      activity: {
           name: 'use ghelp',
-          type: "STREAMING",
+          type: 1,
           url: "https://www.twitch.tv/carmitecave"
       }
   });
