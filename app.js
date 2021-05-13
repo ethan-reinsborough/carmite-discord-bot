@@ -133,6 +133,12 @@ client.on("message", async (msg) => {
     await msg.channel.send(embed);
   }
 
+  if (/rgreset/.test(msg.content.toLowerCase())) {
+    after = null;
+    counter = -1;
+    msg.channel.send("Genshin NSFW page list has been reset.");
+  }
+
 
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch(
