@@ -117,7 +117,7 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region G(imme) Commands
-  if (/rgenshin/.test(msg.content.toLowerCase())) {
+  if (/rgen/.test(msg.content.toLowerCase())) {
     let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
     counter++;
     const embed = new MessageEmbed()
