@@ -107,7 +107,7 @@ client.on("message", async (msg) => {
       "**__Neko Help UwU__** \n **n**(*eko*): \n(__NSFW__): neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, c l a s s i c, pholo, pholoero, gasm \n(__SFW__): owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl."
     );
     msg.channel.send(
-      "**__Lewd Help >w<__** \n **l**(*ewd*): \n(__NSFW__): ass, boobs, gifs, hboobs, hentai, athighs, kink, thighs, yuri, threed, furgif, milk, pantsu, random, slime, kiss, hug, pat."
+      "**__Lewd Help >w<__** \n **l**(*ewd*): \n(__NSFW__): ewdass, boobs, gifs, hboobs, hentai, athighs, kink, thighs, yuri, threed, furgif, milk, pantsu, random, slime, kiss, hug, pat."
     );
     msg.channel.send(
       "**__Reddit Help >A<__** \n **r**(*eddit*): \n(__NSFW__): rgen, rgreset (resets rgen list)"
@@ -654,7 +654,7 @@ client.on("message", async (msg) => {
     })
   }
 
-  if (/lass/.test(msg.content.toLowerCase())) {
+  if (/lewdass/.test(msg.content.toLowerCase())) {
     lApi.nsfw("ass").then(result => {
       msg.channel.send(result);
     })
