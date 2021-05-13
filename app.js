@@ -15,7 +15,6 @@ const { LewdClient } = require('lewds.api');
 const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 //const { HAnimeAPI } = require("hanime");
 let counter = 0;
-let after = null;
 
 const snakeGame = new SnakeGame({
   title: "Snake Game",
@@ -117,12 +116,22 @@ client.on("message", async (msg) => {
 
   //#region G(imme) Commands
   if (/rgenshin/.test(msg.content.toLowerCase())) {
-    let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
-    //counter++;
+
+    let r = await fetch(
+      "https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all"
+    ).then((response) => response.json());
+      counter++;
+
+    let after = r['data']['after'];
+    
     msg.channel.send(r['data']['children']['5']['data']['url']);
-    //if(counter > 24){
-    //  after = r['data']['after'];
-    //}   
+    let query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
+    r = await fetch(
+    `${query}`
+     ).then((response) => response.json());
+     
+    msg.channel.send("This is same index but next page: " + r['data']['children']['5']['data']['url']);
+
   }
 
 
