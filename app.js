@@ -80,10 +80,10 @@ client.on("message", async (msg) => {
       "**__Gimme Help OwO__** \n**g**(*imme*): \nanime, banime(first 10 pages),tanime(first 50 pages), ranime(very random), bored, cat, char, bchar(first 10 pages), tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox, icon."
     );
     msg.channel.send(
-      "(__NSFW__) **g**(*imme*): \nhentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits"
+      "(__NSFW__) **g**(*imme*): \nhentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, g l a s s e s, uniform, bang, moarthigh, public, boobs, nekoboobs, tits"
     );
     msg.channel.send(
-      "**__Neko Help UwU__** \n **n**(*eko*): \n(__NSFW__): neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, classic, pholo, pholoero, gasm \n(__SFW__): owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl."
+      "**__Neko Help UwU__** \n **n**(*eko*): \n(__NSFW__): neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, c l a s s i c, pholo, pholoero, gasm \n(__SFW__): owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl."
     );
     msg.channel.send(
       "**__Lewd Help >w<__** \n **l**(*ewd*): \n(__NSFW__): ass, boobs, gifs, hboobs, hentai, athighs, kink, thighs, yuri, threed, furgif, milk, pantsu, random, slime, kiss, hug, pat."
@@ -938,12 +938,6 @@ client.on("message", async (msg) => {
       
     await msg.channel.send(embed);
   }
-  //#endregion
-
-  //#region Interesting Links (Future Additions..?)
-
-  //https://www.npmjs.com/package/lewds.api
-
   //#endregion
 
   if (!msg.author.bot) {
