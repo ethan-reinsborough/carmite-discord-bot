@@ -11,6 +11,7 @@ const nekoClient = require("nekos.life");
 const { Spawn } = require("pokecord");
 const neko = new nekoClient();
 const { LewdClient } = require('lewds.api');
+var snoowrap = require('snoowrap');
 const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 //const { HAnimeAPI } = require("hanime");
 
@@ -30,6 +31,15 @@ client.on("ready", () => {
 });
 
 //const riotApiKey = process.env.RIOT_API_KEY;
+
+
+const otherRequester = new snoowrap({
+  userAgent: "Carmite's App",
+  clientId: '1jsoFmjUb2wZVw',
+  clientSecret: `${process.env.CLIENT_SECRET}`,
+  username: 'Carmite',
+  password: `${process.env.USER_PASS}`
+});
 
 client.login(process.env.BOT_TOKEN);
 
@@ -104,6 +114,11 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region G(imme) Commands
+  if (/rtest/.test(msg.content.toLowerCase())) {
+    otherRequester.getHot().map(post => post.title).then(msg.channel.send)
+  }
+
+
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch(
       "https://aws.random.cat/meow"
@@ -724,7 +739,6 @@ client.on("message", async (msg) => {
       msg.channel.send(result);
     })
   }
-  //
 
   if (/lpat/.test(msg.content.toLowerCase())) {
     lApi.sfw("pat").then(result => {
