@@ -121,9 +121,10 @@ client.on("message", async (msg) => {
     let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
     counter++;
     const embed = new MessageEmbed()
-      .setAuthor(`Genshin NSFW | Post ${counter} | Page ${page}`)
+      .setAuthor(`Genshin NSFW | Page ${page} | Post ${counter}`)
       .setColor("#d6428c")
       .setImage(r['data']['children'][counter]['data']['url'])
+      .setDescription(r['data']['children'][counter]['data']['url'])
     await msg.channel.send(embed);
     if(counter > 24){
       after = r['data']['after'];
