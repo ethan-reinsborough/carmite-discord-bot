@@ -122,11 +122,11 @@ client.on("message", async (msg) => {
     let after = r['data']['after'];
     
     msg.channel.send(r['data']['children']['5']['data']['url']);
-    //query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
-    //const r = await fetch(
-   //   `${query}`
-   // ).then((response) => response.json());
-   // msg.channel.send(r['data']['children']['5']['data']['url']);
+    query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
+    const r = await fetch(
+    `${query}`
+     ).then((response) => response.json());
+    msg.channel.send("This is same index but next page: " + r['data']['children']['5']['data']['url']);
   }
 
 
