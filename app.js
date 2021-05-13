@@ -123,7 +123,7 @@ client.on("message", async (msg) => {
     const embed = new MessageEmbed()
       .setAuthor(`Genshin NSFW | Post ${counter} | Page ${page}`)
       .setColor("#d6428c")
-      .setImage(r['data']['children'][counter]['data']['url']);  
+      .setImage(r['data']['children'][counter]['data']['url'])
     await msg.channel.send(embed);
     if(counter > 24){
       after = r['data']['after'];
