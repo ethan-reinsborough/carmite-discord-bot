@@ -16,6 +16,7 @@ const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 //const { HAnimeAPI } = require("hanime");
 let counter = 0;
 let after = null;
+let page = 1;
 
 const snakeGame = new SnakeGame({
   title: "Snake Game",
@@ -119,9 +120,15 @@ client.on("message", async (msg) => {
   if (/rgenshin/.test(msg.content.toLowerCase())) {
     let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
     counter++;
-    msg.channel.send(r['data']['children'][counter]['data']['url']);
+    const embed = new MessageEmbed()
+      .setAuthor(`Genshin NSFW | Post ${counter} | Page ${page}`)
+      .setColor("#d6428c")
+      .setImage(r['data']['children'][counter]['data']['url']);  
+    await msg.channel.send(embed);
     if(counter > 24){
       after = r['data']['after'];
+      counter = 0;
+      page++;
     }   
   }
 
