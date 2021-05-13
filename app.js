@@ -122,7 +122,7 @@ client.on("message", async (msg) => {
     let after = r['data']['after'];
     
     msg.channel.send(r['data']['children']['5']['data']['url']);
-    query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
+    let query = `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
     const r = await fetch(
     `${query}`
      ).then((response) => response.json());
