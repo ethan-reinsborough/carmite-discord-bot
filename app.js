@@ -714,19 +714,19 @@ client.on("message", async (msg) => {
   }
 
   if (/lkiss/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("kiss").then(result => {
+    lApi.sfw("kiss").then(result => {
       msg.channel.send(result);
     })
   }
 
   if (/lhug/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("hug").then(result => {
+    lApi.sfw("hug").then(result => {
       msg.channel.send(result);
     })
   }
 
   if (/lpat/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("pat").then(result => {
+    lApi.sfw("pat").then(result => {
       msg.channel.send(result);
     })
   }
