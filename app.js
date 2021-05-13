@@ -31,6 +31,14 @@ const client = new Discord.Client();
 
 client.on("ready", () => {
   console.log("Bot is ready");
+  client.user.setStatus('available')
+  client.user.setPresence({
+      game: {
+          name: 'use ghelp',
+          type: "STREAMING",
+          url: "https://www.twitch.tv/carmitecave"
+      }
+  });
 });
 
 //const riotApiKey = process.env.RIOT_API_KEY;
