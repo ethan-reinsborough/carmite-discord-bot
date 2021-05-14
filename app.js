@@ -778,6 +778,7 @@ client.on("message", async (msg) => {
   if (/rgreset/.test(msg.content.toLowerCase())) {
     after = null;
     counter = -1;
+    page = 1;
     msg.channel.send("Genshin NSFW page list has been reset.");
   }
 
