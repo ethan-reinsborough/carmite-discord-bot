@@ -772,7 +772,7 @@ client.on("message", async (msg) => {
       .setColor("#d6428c")
       .setImage(r['data']['children'][counter]['data']['url'])
       .setDescription(r['data']['children'][counter]['data']['url'])
-    await msg.channel.send(embed);
+    msg.channel.send(embed);
   }
 
   if (/rgreset/.test(msg.content.toLowerCase())) {
