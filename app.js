@@ -788,6 +788,7 @@ client.on("message", async (msg) => {
     msg.channel.send("Genshin NSFW page list has been reset.");
   }
 
+  /*
   const filter = (reaction, user) => {
     return reaction.emoji.name === '👍' && user.id === message.author.id;
   };
@@ -797,7 +798,7 @@ client.on("message", async (msg) => {
     .catch(collected => {
       msg.channel.send(`After a minute, only ${collected.size} out of 4 reacted.`);
     });
-
+*/
   /*
 
   msg.channel
