@@ -92,6 +92,21 @@ const messageFactories = [
 let interval = null;
 //#endregion
 
+//#region Testing outside of on(message)
+
+const filter = (reaction, user) => {
+	return reaction.emoji.name === '👍' && user.id === message.author.id;
+};
+
+message.awaitReactions(filter, { max: 4, time: 60000, errors: ['time'] })
+	.then(collected => console.log(collected.size))
+	.catch(collected => {
+		console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+	});
+
+
+//#endregion
+
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (msg) => {
   //#region Help Documentation
@@ -781,6 +796,30 @@ client.on("message", async (msg) => {
     page = 1;
     msg.channel.send("Genshin NSFW page list has been reset.");
   }
+
+  /*
+
+  msg.channel
+      .awaitMessages(filter, {
+        max: 1,
+        error: ["time"],
+        time: 15000,
+      })
+      .then((collected) => {
+        const m = collected.first();
+        if (!m.content || m.content.toLowerCase() !== indexedItemName.toLowerCase() || m.content.toLowerCase() !== indexedItemName.toLowerCase().replace(/'/g, ""))
+          return msg.channel.send(
+            `❌ | Incorrect guess! The answer was **${indexedItemName2}**.`
+          );
+          return msg.channel.send(`✅ | Correct guess!`);      
+      })
+      .catch(() => {
+        msg.channel.send(
+          `❌ | You did not answer in time. The correct answer was **${indexedItemName2}**!`
+        );
+      });
+
+  */
 
   //#endregion
 
