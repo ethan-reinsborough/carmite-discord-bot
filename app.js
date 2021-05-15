@@ -94,15 +94,6 @@ let interval = null;
 
 //#region Testing outside of on(message)
 
-const filter = (reaction, user) => {
-	return reaction.emoji.name === '👍' && user.id === message.author.id;
-};
-
-message.awaitReactions(filter, { max: 4, time: 60000, errors: ['time'] })
-	.then(collected => console.log(collected.size))
-	.catch(collected => {
-		console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
-	});
 
 
 //#endregion
@@ -796,6 +787,16 @@ client.on("message", async (msg) => {
     page = 1;
     msg.channel.send("Genshin NSFW page list has been reset.");
   }
+
+  const filter = (reaction, user) => {
+    return reaction.emoji.name === '👍' && user.id === message.author.id;
+  };
+  
+  msg.awaitReactions(filter, { max: 4, time: 10000, errors: ['time'] })
+    .then(collected => msg.channel.send(collected.size))
+    .catch(collected => {
+      msg.channel.send(`After a minute, only ${collected.size} out of 4 reacted.`);
+    });
 
   /*
 
