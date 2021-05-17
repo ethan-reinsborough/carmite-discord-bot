@@ -778,7 +778,7 @@ client.on("message", async (msg) => {
       page++;
     }   
     const embed = new MessageEmbed()
-      .setAuthor(`Genshin NSFW | Page ${page} | Post ${counter}`)
+      .setAuthor(`Genshin NSFW (Top) | Page ${page} | Post ${counter}`)
       .setColor("#d6428c")
       .setImage(r['data']['children'][counter]['data']['url'])
       .setDescription(r['data']['children'][counter]['data']['url'])
@@ -794,7 +794,7 @@ client.on("message", async (msg) => {
       page2++;
     }   
     const embed = new MessageEmbed()
-      .setAuthor(`Genshin NSFW | Page ${page2} | Post ${counter2}`)
+      .setAuthor(`Genshin NSFW (Hot) | Page ${page2} | Post ${counter2}`)
       .setColor("#d6428c")
       .setImage(r['data']['children'][counter2]['data']['url'])
       .setDescription(r['data']['children'][counter2]['data']['url'])
