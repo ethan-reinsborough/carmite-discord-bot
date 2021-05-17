@@ -18,6 +18,10 @@ let counter = -1;
 let after = null;
 let page = 1;
 
+let counter2 = -1;
+let after2 = null;
+let page2 = 1;
+
 const snakeGame = new SnakeGame({
   title: "Snake Game",
   color: "GREEN",
@@ -765,7 +769,7 @@ client.on("message", async (msg) => {
 
   //#region R(eddit) Commands
 
-  if (/rgen/.test(msg.content.toLowerCase())) {
+  if (/rtgen/.test(msg.content.toLowerCase())) {
     let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
     counter++;
     if(counter > 24){
@@ -781,10 +785,33 @@ client.on("message", async (msg) => {
     msg.channel.send(embed);
   }
 
-  if (/rgreset/.test(msg.content.toLowerCase())) {
+  if (/rhgen/.test(msg.content.toLowerCase())) {
+    let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/hot.json?sort=hot&show=all&t=all&after=${after2}`).then((response) => response.json());
+    counter2++;
+    if(counter2 > 24){
+      after2 = r['data']['after'];
+      counter2 = -1;
+      page2++;
+    }   
+    const embed = new MessageEmbed()
+      .setAuthor(`Genshin NSFW | Page ${page2} | Post ${counter2}`)
+      .setColor("#d6428c")
+      .setImage(r['data']['children'][counter2]['data']['url'])
+      .setDescription(r['data']['children'][counter2]['data']['url'])
+    msg.channel.send(embed);
+  }
+
+  if (/rtgreset/.test(msg.content.toLowerCase())) {
     after = null;
     counter = -1;
     page = 1;
+    msg.channel.send("Genshin NSFW page list has been reset.");
+  }
+
+  if (/rhgreset/.test(msg.content.toLowerCase())) {
+    after = null;
+    counter2 = -1;
+    page2 = 1;
     msg.channel.send("Genshin NSFW page list has been reset.");
   }
 
