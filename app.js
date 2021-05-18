@@ -867,11 +867,11 @@ client.on("message", async (msg) => {
   if (/cowo/.test(msg.content.toLowerCase())) {
     cont = true;
     input = msg.content.split(" ");
-    if (cont === true) {
       interval = setInterval(() => {
+        if (cont === true) {
         msg.channel.send(input[1]);
+        }
       }, 12500);
-    }
   }
 
   if (/cstop/.test(msg.content.toLowerCase())) {
