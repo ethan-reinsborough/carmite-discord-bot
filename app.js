@@ -18,6 +18,8 @@ let counter = -1;
 let after = null;
 let page = 1;
 
+
+let input = null;
 let counter2 = -1;
 let after2 = null;
 let page2 = 1;
@@ -864,7 +866,7 @@ client.on("message", async (msg) => {
 
   if (/cowo/.test(msg.content.toLowerCase())) {
     cont = true;
-    let input = msg.content.split(" ");
+    input = msg.content.split(" ");
     if (cont === true) {
       interval = setInterval(() => {
         msg.channel.send(input[1]);
@@ -877,7 +879,8 @@ client.on("message", async (msg) => {
     cont = false;
     clearInterval(interval);
     interval = null;
-    msg.channel.send(`Interval set to: ${interval}. Loop set to: ${cont}`);
+    input = null;
+    msg.channel.send(`Interval set to: ${interval}. Loop set to: ${cont}. Input is now ${input}`);
   }
   //#endregion
 
