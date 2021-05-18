@@ -32,6 +32,10 @@ let counter5 = -1;
 let after4 = null;
 let page4 = 1;
 
+let counter6 = -1;
+let after6 = null;
+let page6 = 1;
+
 let counter3 = 0;
 
 let cont = false;
@@ -798,6 +802,24 @@ client.on("message", async (msg) => {
       .setColor("#d6428c")
       .setImage(r["data"]["children"][counter]["data"]["url"])
       .setDescription(r["data"]["children"][counter]["data"]["url"]);
+    msg.channel.send(embed);
+  }
+
+  if (/rmday/.test(msg.content.toLowerCase())) {
+    let r = await fetch(
+      `https://www.reddit.com/r/memes/hot.json?sort=top&show=all&t=all&after=${after6}`
+    ).then((response) => response.json());
+    counter6++;
+    if (counter6 > 24) {
+      after6 = r["data"]["after"];
+      counter6 = -1;
+      page6++;
+    }
+    const embed = new MessageEmbed()
+      .setAuthor(`Meme of the Day`)
+      .setColor("#d6428c")
+      .setImage(r["data"]["children"][counter6]["data"]["url"])
+      .setDescription(r["data"]["children"][counter6]["data"]["url"]);
     msg.channel.send(embed);
   }
 
