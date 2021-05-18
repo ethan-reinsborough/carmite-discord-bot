@@ -877,6 +877,7 @@ client.on("message", async (msg) => {
     cont = false;
     clearInterval(interval);
     interval = null;
+    msg.channel.send(`Interval set to: ${interval}. Loop set to: ${cont}`);
   }
   //#endregion
 
