@@ -848,7 +848,7 @@ client.on("message", async (msg) => {
       page4++;
     }
     const embed = new MessageEmbed()
-      .setAuthor(`LoL NSFW (Hot) | Page ${page4} | Post ${counter5}`)
+      .setAuthor(`LoL NSFW (Top) | Page ${page4} | Post ${counter5}`)
       .setColor("#d6428c")
       .setImage(r["data"]["children"][counter5]["data"]["url"])
       .setDescription(r["data"]["children"][counter5]["data"]["url"]);
