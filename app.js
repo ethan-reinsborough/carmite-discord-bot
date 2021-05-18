@@ -867,8 +867,8 @@ client.on("message", async (msg) => {
     let input = msg.content.split(" ");
     if (cont === true) {
       interval = setInterval(() => {
-        msg.channel.send(input);
-      }, 10000);
+        msg.channel.send(input[1]);
+      }, 15000);
     }
   }
 
