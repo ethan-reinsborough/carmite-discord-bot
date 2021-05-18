@@ -862,7 +862,7 @@ client.on("message", async (msg) => {
 
   //Charles can't use waifu bot :(
 
-  if (/gcatowo/.test(msg.content.toLowerCase())) {
+  if (/catowo/.test(msg.content.toLowerCase())) {
     cont = true;
     let input = msg.content.split(" ");
     if (cont === true) {
@@ -872,7 +872,7 @@ client.on("message", async (msg) => {
     }
   }
 
-  if (/gcatstop/.test(msg.content.toLowerCase())) {
+  if (/catstop/.test(msg.content.toLowerCase())) {
     cont = false;
     clearInterval(interval);
     interval = null;
