@@ -24,6 +24,10 @@ let counter2 = -1;
 let after2 = null;
 let page2 = 1;
 
+let counter4 = -1;
+let after3 = null;
+let page3 = 1;
+
 let counter3 = 0;
 
 let cont = false;
@@ -811,6 +815,24 @@ client.on("message", async (msg) => {
     msg.channel.send(embed);
   }
 
+  if (/rhlol/.test(msg.content.toLowerCase())) {
+    let r = await fetch(
+      `https://www.reddit.com/r/Rule34LoL/hot.json?sort=hot&show=all&t=all&after=${after3}`
+    ).then((response) => response.json());
+    counter4++;
+    if (counter4 > 24) {
+      after3 = r["data"]["after"];
+      counter4 = -1;
+      page3++;
+    }
+    const embed = new MessageEmbed()
+      .setAuthor(`LoL NSFW (Hot) | Page ${page3} | Post ${counter3}`)
+      .setColor("#d6428c")
+      .setImage(r["data"]["children"][counter4]["data"]["url"])
+      .setDescription(r["data"]["children"][counter4]["data"]["url"]);
+    msg.channel.send(embed);
+  }
+
   if (/rtgreset/.test(msg.content.toLowerCase())) {
     after = null;
     counter = -1;
@@ -823,6 +845,13 @@ client.on("message", async (msg) => {
     counter2 = -1;
     page2 = 1;
     msg.channel.send("Genshin NSFW hot page list has been reset.");
+  }
+
+  if (/rhlolreset/.test(msg.content.toLowerCase())) {
+    after3 = null;
+    counter4 = -1;
+    page3 = 1;
+    msg.channel.send("LoL NSFW hot page list has been reset.");
   }
 
   /*
@@ -862,9 +891,7 @@ client.on("message", async (msg) => {
 
   //#endregion
 
-  //#region Interval Stuff (not in use)
-
-  //Charles can't use waifu bot :(
+  //#region C(at) Commands
 
   if (/cowo/.test(msg.content.toLowerCase())) {
     cont = true;
@@ -890,6 +917,7 @@ client.on("message", async (msg) => {
   if (/ccheck/.test(msg.content.toLowerCase())) {
     msg.channel.send(`Counter is ${counter3}. If this is greater than 0, Charles is secretly horny.`);
   }
+
   //#endregion
 
   //#region Snakecord
