@@ -10,7 +10,7 @@ const { MessageEmbed } = require("discord.js");
 const nekoClient = require("nekos.life");
 const { Spawn } = require("pokecord");
 const neko = new nekoClient();
-const { LewdClient } = require('lewds.api');
+const { LewdClient } = require("lewds.api");
 //var snoowrap = require('snoowrap');
 const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 //const { HAnimeAPI } = require("hanime");
@@ -21,6 +21,8 @@ let page = 1;
 let counter2 = -1;
 let after2 = null;
 let page2 = 1;
+
+let cont = false;
 
 const snakeGame = new SnakeGame({
   title: "Snake Game",
@@ -35,13 +37,13 @@ const client = new Discord.Client();
 
 client.on("ready", () => {
   console.log("Bot is ready");
-  client.user.setStatus('available')
+  client.user.setStatus("available");
   client.user.setPresence({
-      activity: {
-          name: 'use ghelp',
-          type: 1,
-          url: "https://www.twitch.tv/carmitecave"
-      }
+    activity: {
+      name: "use ghelp",
+      type: 1,
+      url: "https://www.twitch.tv/carmitecave",
+    },
   });
 });
 
@@ -98,8 +100,6 @@ let interval = null;
 
 //#region Testing outside of on(message)
 
-
-
 //#endregion
 
 //Main function, tracks when a user message matches a command (always active)
@@ -122,7 +122,9 @@ client.on("message", async (msg) => {
     msg.channel.send(
       "**__Reddit Help >A<__** \n **r**(*eddit*): \n(__NSFW__): rgen, rgreset (resets rgen list)"
     );
-    msg.channel.send("**__Games__** \n **g**(*imme*): \npokemon, snake, lol, item");
+    msg.channel.send(
+      "**__Games__** \n **g**(*imme*): \npokemon, snake, lol, item"
+    );
   }
   if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
     msg.channel.send(
@@ -140,35 +142,35 @@ client.on("message", async (msg) => {
   //#region G(imme) Commands
 
   if (/gcat/.test(msg.content.toLowerCase())) {
-    const { file } = await fetch(
-      "https://aws.random.cat/meow"
-    ).then((response) => response.json());
+    const { file } = await fetch("https://aws.random.cat/meow").then(
+      (response) => response.json()
+    );
     msg.channel.send(file);
   }
 
   if (/ganisong/.test(msg.content.toLowerCase())) {
-    
-    let randSong = Math.floor((Math.random() * 3386) + 1);
-    
+    let randSong = Math.floor(Math.random() * 3386 + 1);
+
     const animeList = await fetch(
       `https://anusic-api.herokuapp.com/api/v1/anime`
-    ).then((response) => response.json()); 
+    ).then((response) => response.json());
 
     let randomAnimeID = animeList["data"][randSong]["id"];
 
     const res = await fetch(
       `https://anusic-api.herokuapp.com/api/v1/anime/${randomAnimeID}`
-    ).then((response) => response.json());   
+    ).then((response) => response.json());
 
-    let result = res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["link"];
-  
-    msg.channel.send(result);      
+    let result =
+      res["data"]["collections"]["0"]["themes"]["0"]["sources"]["0"]["link"];
+
+    msg.channel.send(result);
   }
 
   if (/gdog/.test(msg.content.toLowerCase())) {
-    const res = await fetch(
-      "https://dog.ceo/api/breeds/image/random"
-    ).then((response) => response.json());
+    const res = await fetch("https://dog.ceo/api/breeds/image/random").then(
+      (response) => response.json()
+    );
     msg.channel.send(res["message"]);
   }
   if (/ghentai/.test(msg.content.toLowerCase())) {
@@ -247,9 +249,9 @@ client.on("message", async (msg) => {
     msg.channel.send(adv["affirmation"]);
   }
   if (/gadvice/.test(msg.content.toLowerCase())) {
-    const adv = await fetch(
-      "https://api.adviceslip.com/advice"
-    ).then((response) => response.json());
+    const adv = await fetch("https://api.adviceslip.com/advice").then(
+      (response) => response.json()
+    );
     msg.channel.send(adv[0]["advice"]);
   }
   if (/gfox/.test(msg.content.toLowerCase())) {
@@ -259,21 +261,21 @@ client.on("message", async (msg) => {
     msg.channel.send(adv["image"]);
   }
   if (/gbored/.test(msg.content.toLowerCase())) {
-    const res = await fetch(
-      "https://www.boredapi.com/api/activity/ "
-    ).then((response) => response.json());
+    const res = await fetch("https://www.boredapi.com/api/activity/ ").then(
+      (response) => response.json()
+    );
     msg.channel.send(res["activity"]);
   }
   if (/gchuck/.test(msg.content.toLowerCase())) {
-    const res = await fetch(
-      "https://api.chucknorris.io/jokes/random"
-    ).then((response) => response.json());
+    const res = await fetch("https://api.chucknorris.io/jokes/random").then(
+      (response) => response.json()
+    );
     msg.channel.send(res["value"]);
   }
   if (/gdumpy/.test(msg.content.toLowerCase())) {
-    const res = await fetch(
-      "https://api.tronalddump.io/random/quote"
-    ).then((response) => response.json());
+    const res = await fetch("https://api.tronalddump.io/random/quote").then(
+      (response) => response.json()
+    );
     msg.channel.send(res["value"]);
   }
   if (/gshibe/.test(msg.content.toLowerCase())) {
@@ -659,145 +661,149 @@ client.on("message", async (msg) => {
   //#region L(ewd) Commands
 
   if (/lmilk/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("milk").then(result => {
+    lApi.nsfw("milk").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lewdass/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("ass").then(result => {
+    lApi.nsfw("ass").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lboobs/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("boobs").then(result => {
+    lApi.nsfw("boobs").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lgifs/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("gifs").then(result => {
+    lApi.nsfw("gifs").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lhboobs/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("hboobs").then(result => {
+    lApi.nsfw("hboobs").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lhentai/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("hentai").then(result => {
+    lApi.nsfw("hentai").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lathighs/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("athighs").then(result => {
+    lApi.nsfw("athighs").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lkink/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("kink").then(result => {
+    lApi.nsfw("kink").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lthighs/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("thighs").then(result => {
+    lApi.nsfw("thighs").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lyuri/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("yuri").then(result => {
+    lApi.nsfw("yuri").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lthreed/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("threed").then(result => {
+    lApi.nsfw("threed").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lfurgif/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("furgif").then(result => {
+    lApi.nsfw("furgif").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lpantsu/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("pantsu").then(result => {
+    lApi.nsfw("pantsu").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lrandom/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("random").then(result => {
+    lApi.nsfw("random").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lslime/.test(msg.content.toLowerCase())) {
-    lApi.nsfw("slime").then(result => {
+    lApi.nsfw("slime").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lkiss/.test(msg.content.toLowerCase())) {
-    lApi.sfw("kiss").then(result => {
+    lApi.sfw("kiss").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lhug/.test(msg.content.toLowerCase())) {
-    lApi.sfw("hug").then(result => {
+    lApi.sfw("hug").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
 
   if (/lpat/.test(msg.content.toLowerCase())) {
-    lApi.sfw("pat").then(result => {
+    lApi.sfw("pat").then((result) => {
       msg.channel.send(result);
-    })
+    });
   }
   //#endregion
 
   //#region R(eddit) Commands
 
   if (/rtgen/.test(msg.content.toLowerCase())) {
-    let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`).then((response) => response.json());
+    let r = await fetch(
+      `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
+    ).then((response) => response.json());
     counter++;
-    if(counter > 24){
-      after = r['data']['after'];
+    if (counter > 24) {
+      after = r["data"]["after"];
       counter = -1;
       page++;
-    }   
+    }
     const embed = new MessageEmbed()
       .setAuthor(`Genshin NSFW (Top) | Page ${page} | Post ${counter}`)
       .setColor("#d6428c")
-      .setImage(r['data']['children'][counter]['data']['url'])
-      .setDescription(r['data']['children'][counter]['data']['url'])
+      .setImage(r["data"]["children"][counter]["data"]["url"])
+      .setDescription(r["data"]["children"][counter]["data"]["url"]);
     msg.channel.send(embed);
   }
 
   if (/rhgen/.test(msg.content.toLowerCase())) {
-    let r = await fetch(`https://www.reddit.com/r/GenshinImpactNSFW/hot.json?sort=hot&show=all&t=all&after=${after2}`).then((response) => response.json());
+    let r = await fetch(
+      `https://www.reddit.com/r/GenshinImpactNSFW/hot.json?sort=hot&show=all&t=all&after=${after2}`
+    ).then((response) => response.json());
     counter2++;
-    if(counter2 > 24){
-      after2 = r['data']['after'];
+    if (counter2 > 24) {
+      after2 = r["data"]["after"];
       counter2 = -1;
       page2++;
-    }   
+    }
     const embed = new MessageEmbed()
       .setAuthor(`Genshin NSFW (Hot) | Page ${page2} | Post ${counter2}`)
       .setColor("#d6428c")
-      .setImage(r['data']['children'][counter2]['data']['url'])
-      .setDescription(r['data']['children'][counter2]['data']['url'])
+      .setImage(r["data"]["children"][counter2]["data"]["url"])
+      .setDescription(r["data"]["children"][counter2]["data"]["url"]);
     msg.channel.send(embed);
   }
 
@@ -805,14 +811,14 @@ client.on("message", async (msg) => {
     after = null;
     counter = -1;
     page = 1;
-    msg.channel.send("Genshin NSFW page list has been reset.");
+    msg.channel.send("Genshin NSFW top page list has been reset.");
   }
 
   if (/rhgreset/.test(msg.content.toLowerCase())) {
     after = null;
     counter2 = -1;
     page2 = 1;
-    msg.channel.send("Genshin NSFW page list has been reset.");
+    msg.channel.send("Genshin NSFW hot page list has been reset.");
   }
 
   /*
@@ -854,40 +860,23 @@ client.on("message", async (msg) => {
 
   //#region Interval Stuff (not in use)
 
-    //Charles can't use waifu bot :(
-    /*
-    if(/groll/.test(msg.content.toLowerCase())) {
-      msg.channel.send("Infinite rolling started.");
-      let input = msg.content.split(' ');
-      if(input[1] != "stop"){
-        interval = setInterval(() => {
-          setTimeout(() => {
-            msg.channel.send("$w");
-          }, 10000);
-          setTimeout(() => {
-            msg.channel.send("$w");
-          }, 20000);
-          setTimeout(() => {
-            msg.channel.send("$w");
-          }, 30000);
-          setTimeout(() => {
-            msg.channel.send("$w");
-          }, 40000);
-          setTimeout(() => {
-            msg.channel.send("$w");
-          }, 50000);
-          setTimeout(() => {
-            msg.channel.send("$w");
-          }, 60000);
-          setTimeout(() => {
-            msg.channel.send("$w");
-          }, 70000);
-          }, (60 * 60 * 1000));
-      } else{
-        clearInterval(interval)
-        interval = null;
-      }
-    }*/
+  //Charles can't use waifu bot :(
+
+  if (/gcatowo/.test(msg.content.toLowerCase())) {
+    cont = true;
+    let input = msg.content.split(" ");
+    if (cont === true) {
+      interval = setInterval(() => {
+        msg.channel.send(input);
+      }, 10000);
+    }
+  }
+
+  if (/gcatstop/.test(msg.content.toLowerCase())) {
+    cont = false;
+    clearInterval(interval);
+    interval = null;
+  }
   //#endregion
 
   //#region Snakecord
@@ -955,17 +944,20 @@ client.on("message", async (msg) => {
     let abilityID;
     let abilityType;
     let abilityName;
-    let image; 
-     
+    let image;
+
     if (randAbility === 4) {
       abilityName = indexedChampion["data"][championNameID]["passive"]["name"];
       abilityType = "passive";
-      abilityID = indexedChampion["data"][championNameID]["passive"]["image"]["full"];
+      abilityID =
+        indexedChampion["data"][championNameID]["passive"]["image"]["full"];
       image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}`;
     } else {
-      abilityID = indexedChampion["data"][championNameID]["spells"][randAbility]["id"];
+      abilityID =
+        indexedChampion["data"][championNameID]["spells"][randAbility]["id"];
       abilityType = "spell";
-      abilityName = indexedChampion["data"][championNameID]["spells"][randAbility]["name"];
+      abilityName =
+        indexedChampion["data"][championNameID]["spells"][randAbility]["name"];
       image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`;
     }
 
@@ -975,7 +967,7 @@ client.on("message", async (msg) => {
       .setAuthor(`Guess the ${abilityType}`)
       .setColor("#16b5ff")
       .setImage(image);
-      
+
     await msg.channel.send(embed);
 
     msg.channel
@@ -986,11 +978,16 @@ client.on("message", async (msg) => {
       })
       .then((collected) => {
         const m = collected.first();
-        if (!m.content || m.content.toLowerCase() !== abilityName.toLowerCase() || m.content.toLowerCase() !== abilityName.toLowerCase().replace(/'/g, ""))
+        if (
+          !m.content ||
+          m.content.toLowerCase() !== abilityName.toLowerCase() ||
+          m.content.toLowerCase() !==
+            abilityName.toLowerCase().replace(/'/g, "")
+        )
           return msg.channel.send(
             `❌ | Incorrect guess! The answer was **${abilityName}**.`
           );
-          return msg.channel.send(`✅ | Correct guess!`);      
+        return msg.channel.send(`✅ | Correct guess!`);
       })
       .catch(() => {
         msg.channel.send(
@@ -1007,20 +1004,23 @@ client.on("message", async (msg) => {
     const randIndex = Math.floor(Math.random() * keys.length);
     const itemID = keys[randIndex];
 
-    let indexedItemName = res['data'][itemID]['name'];
-    let indexedItemImage = res['data'][itemID]['image']['full'];
+    let indexedItemName = res["data"][itemID]["name"];
+    let indexedItemImage = res["data"][itemID]["image"]["full"];
     let indexedItemName2 = indexedItemName;
-    if (indexedItemName.indexOf('\'') >= 0) {
-      indexedItemName2 += " / " + indexedItemName2.toLowerCase().replace(/'/g, "")
-   }
+    if (indexedItemName.indexOf("'") >= 0) {
+      indexedItemName2 +=
+        " / " + indexedItemName2.toLowerCase().replace(/'/g, "");
+    }
 
     const filter = (m) => m.author.id === msg.author.id;
 
     const embed = new MessageEmbed()
       .setAuthor(`Guess the item`)
       .setColor("#16b5ff")
-      .setImage(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/${indexedItemImage}`);
-      
+      .setImage(
+        `http://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/${indexedItemImage}`
+      );
+
     await msg.channel.send(embed);
 
     msg.channel
@@ -1031,11 +1031,16 @@ client.on("message", async (msg) => {
       })
       .then((collected) => {
         const m = collected.first();
-        if (!m.content || m.content.toLowerCase() !== indexedItemName.toLowerCase() || m.content.toLowerCase() !== indexedItemName.toLowerCase().replace(/'/g, ""))
+        if (
+          !m.content ||
+          m.content.toLowerCase() !== indexedItemName.toLowerCase() ||
+          m.content.toLowerCase() !==
+            indexedItemName.toLowerCase().replace(/'/g, "")
+        )
           return msg.channel.send(
             `❌ | Incorrect guess! The answer was **${indexedItemName2}**.`
           );
-          return msg.channel.send(`✅ | Correct guess!`);      
+        return msg.channel.send(`✅ | Correct guess!`);
       })
       .catch(() => {
         msg.channel.send(
@@ -1054,8 +1059,10 @@ client.on("message", async (msg) => {
     const embed = new MessageEmbed()
       .setAuthor(`Random Icon`)
       .setColor("#16b5ff")
-      .setImage(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${iconID}.png`);
-      
+      .setImage(
+        `http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${iconID}.png`
+      );
+
     await msg.channel.send(embed);
   }
   //#endregion
@@ -1067,4 +1074,3 @@ client.on("message", async (msg) => {
       .forEach((response) => msg.channel.send(response));
   }
 });
-
