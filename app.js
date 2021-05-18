@@ -32,6 +32,8 @@ let counter5 = -1;
 let after4 = null;
 let page4 = 1;
 
+let interval2 = null;
+
 let counter6 = -1;
 let after6 = null;
 let page6 = 1;
@@ -788,6 +790,7 @@ client.on("message", async (msg) => {
   //#region R(eddit) Commands
 
   if (/rtgen/.test(msg.content.toLowerCase())) {
+    
     let r = await fetch(
       `https://www.reddit.com/r/GenshinImpactNSFW/top.json?sort=top&show=all&t=all&after=${after}`
     ).then((response) => response.json());
@@ -806,21 +809,23 @@ client.on("message", async (msg) => {
   }
 
   if (/rmday/.test(msg.content.toLowerCase())) {
-    let r = await fetch(
-      `https://www.reddit.com/r/memes/hot.json?sort=top&show=all&t=all&after=${after6}`
-    ).then((response) => response.json());
-    counter6++;
-    if (counter6 > 24) {
-      after6 = r["data"]["after"];
-      counter6 = -1;
-      page6++;
-    }
-    const embed = new MessageEmbed()
-      .setAuthor(`Meme of the Day`)
-      .setColor("#d6428c")
-      .setImage(r["data"]["children"][counter6]["data"]["url"])
-      .setDescription(r["data"]["children"][counter6]["data"]["url"]);
-    msg.channel.send(embed);
+    interval2 = setInterval(() => {
+      let r = await fetch(
+        `https://www.reddit.com/r/memes/hot.json?sort=top&show=all&t=all&after=${after6}`
+      ).then((response) => response.json());
+      counter6++;
+      if (counter6 > 24) {
+        after6 = r["data"]["after"];
+        counter6 = -1;
+        page6++;
+      }
+      const embed = new MessageEmbed()
+        .setAuthor(`Meme of the Day`)
+        .setColor("#d6428c")
+        .setImage(r["data"]["children"][counter6]["data"]["url"])
+        .setDescription(r["data"]["children"][counter6]["data"]["url"]);
+      msg.channel.send(embed);
+    }, 93600000);
   }
 
   if (/rhgen/.test(msg.content.toLowerCase())) {
