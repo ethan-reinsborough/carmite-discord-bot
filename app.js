@@ -24,6 +24,8 @@ let counter2 = -1;
 let after2 = null;
 let page2 = 1;
 
+let counter3 = 0;
+
 let cont = false;
 
 const snakeGame = new SnakeGame({
@@ -870,6 +872,7 @@ client.on("message", async (msg) => {
       interval = setInterval(() => {
         if (cont === true) {
         msg.channel.send(input[1]);
+        counter3++
         }
       }, 12500);
   }
@@ -880,7 +883,12 @@ client.on("message", async (msg) => {
     clearInterval(interval);
     interval = null;
     input = null;
+    counter3 = 0;
     msg.channel.send(`Interval set to: ${interval}. Loop set to: ${cont}. Input is now ${input}`);
+  }
+
+  if (/ccheck/.test(msg.content.toLowerCase())) {
+    msg.channel.send(`Counter is ${counter3}. If this is greater than 0, Charles is secretly horny.`);
   }
   //#endregion
 
