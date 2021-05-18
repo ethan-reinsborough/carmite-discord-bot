@@ -862,17 +862,17 @@ client.on("message", async (msg) => {
 
   //Charles can't use waifu bot :(
 
-  if (/catowo/.test(msg.content.toLowerCase())) {
+  if (/cowo/.test(msg.content.toLowerCase())) {
     cont = true;
     let input = msg.content.split(" ");
     if (cont === true) {
       interval = setInterval(() => {
         msg.channel.send(input[1]);
-      }, 15000);
+      }, 20000);
     }
   }
 
-  if (/catstop/.test(msg.content.toLowerCase())) {
+  if (/cstop/.test(msg.content.toLowerCase())) {
     cont = false;
     clearInterval(interval);
     interval = null;
