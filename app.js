@@ -868,11 +868,12 @@ client.on("message", async (msg) => {
     if (cont === true) {
       interval = setInterval(() => {
         msg.channel.send(input[1]);
-      }, 20000);
+      }, 15000);
     }
   }
 
   if (/cstop/.test(msg.content.toLowerCase())) {
+    msg.channel.send("Stopping cat's command...");
     cont = false;
     clearInterval(interval);
     interval = null;
