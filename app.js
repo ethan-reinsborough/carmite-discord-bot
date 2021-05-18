@@ -28,6 +28,10 @@ let counter4 = -1;
 let after3 = null;
 let page3 = 1;
 
+let counter5 = -1;
+let after4 = null;
+let page4 = 1;
+
 let counter3 = 0;
 
 let cont = false;
@@ -826,10 +830,28 @@ client.on("message", async (msg) => {
       page3++;
     }
     const embed = new MessageEmbed()
-      .setAuthor(`LoL NSFW (Hot) | Page ${page3} | Post ${counter3}`)
+      .setAuthor(`LoL NSFW (Hot) | Page ${page3} | Post ${counter4}`)
       .setColor("#d6428c")
       .setImage(r["data"]["children"][counter4]["data"]["url"])
       .setDescription(r["data"]["children"][counter4]["data"]["url"]);
+    msg.channel.send(embed);
+  }
+
+  if (/rtlol/.test(msg.content.toLowerCase())) {
+    let r = await fetch(
+      `https://www.reddit.com/r/Rule34LoL/top.json?sort=hot&show=all&t=all&after=${after4}`
+    ).then((response) => response.json());
+    counter5++;
+    if (counter5 > 24) {
+      after4 = r["data"]["after"];
+      counter5 = -1;
+      page4++;
+    }
+    const embed = new MessageEmbed()
+      .setAuthor(`LoL NSFW (Hot) | Page ${page4} | Post ${counter5}`)
+      .setColor("#d6428c")
+      .setImage(r["data"]["children"][counter5]["data"]["url"])
+      .setDescription(r["data"]["children"][counter5]["data"]["url"]);
     msg.channel.send(embed);
   }
 
