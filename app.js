@@ -825,7 +825,7 @@ client.on("message", async (msg) => {
         .setImage(r["data"]["children"][counter6]["data"]["url"])
         .setDescription(r["data"]["children"][counter6]["data"]["url"]);
       msg.channel.send(embed);
-    }, 93600000);
+    }, 86400000);
   }
 
   if (/rhgen/.test(msg.content.toLowerCase())) {
