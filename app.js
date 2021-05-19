@@ -807,7 +807,7 @@ client.on("message", async (msg) => {
       .setDescription(r["data"]["children"][counter]["data"]["url"]);
     msg.channel.send(embed);
   }
-
+//
   if (/rmday/.test(msg.content.toLowerCase())) {
     interval2 = setInterval(() => {
       let r = await fetch(
