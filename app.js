@@ -810,7 +810,7 @@ client.on("message", async (msg) => {
 //
   if (/rmday/.test(msg.content.toLowerCase())) {
     interval2 = setInterval(() => {
-      let r = await fetch(
+      let r = fetch(
         `https://www.reddit.com/r/memes/hot.json?sort=top&show=all&t=all&after=${after6}`
       ).then((response) => response.json());
       counter6++;
