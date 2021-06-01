@@ -2,6 +2,7 @@
 "use strict";
 
 const fetch = require("node-fetch");
+const mongoose = require("mongoose");
 const SnakeGame = require("snakecord");
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
@@ -34,6 +35,8 @@ let page4 = 1;
 
 let interval2 = null;
 
+let checkDB = "Not connected";
+
 let counter6 = -1;
 let after6 = null;
 let page6 = 1;
@@ -52,6 +55,14 @@ const snakeGame = new SnakeGame({
 require("dotenv").config();
 
 const client = new Discord.Client();
+
+mongoose.connect(process.env.MONGODB_SRV, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}).then(() => {
+  checkDB = "Connected";
+});
 
 client.on("ready", () => {
   console.log("Bot is ready");
@@ -807,7 +818,7 @@ client.on("message", async (msg) => {
       .setDescription(r["data"]["children"][counter]["data"]["url"]);
     msg.channel.send(embed);
   }
-//
+
   if (/rmday/.test(msg.content.toLowerCase())) {
     interval2 = setInterval(() => {
       let r = fetch(
@@ -965,6 +976,7 @@ client.on("message", async (msg) => {
 
   if (/ccheck/.test(msg.content.toLowerCase())) {
     msg.channel.send(`Counter is ${counter3}. If this is greater than 0, Charles is secretly horny.`);
+    msg.channel.send(checkDB);
   }
 
   //#endregion
