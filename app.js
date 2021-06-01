@@ -42,7 +42,7 @@ let after6 = null;
 let page6 = 1;
 
 let counter3 = 0;
-
+//
 let cont = false;
 
 const snakeGame = new SnakeGame({
