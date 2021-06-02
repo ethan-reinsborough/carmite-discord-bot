@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const SnakeGame = require("snakecord");
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
+const Gamba = require("../models/gamba.js");
 const HMfull = require("hmfull");
 const { MessageEmbed } = require("discord.js");
 const nekoClient = require("nekos.life");
@@ -77,13 +78,7 @@ mongoose.connect(process.env.MONGODB_SRV, {
 });
 
 
-//Add to different file later on
 
-const gambaSchema = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  userID: String,
-  money: String
-});
 
 client.login(process.env.BOT_TOKEN);
 
@@ -171,7 +166,7 @@ client.on("message", async (msg) => {
   if (/gmoney/.test(msg.content.toLowerCase())) {
     msg.channel.send(msg.author.id);
 
-    const newGamba = new gambaSchema({
+    const newGamba = new Gamba({
       _id: mongoose.Types.ObjectId(),
       userID: msg.author.id,
       money: "100"
