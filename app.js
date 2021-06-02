@@ -55,7 +55,7 @@ const snakeGame = new SnakeGame({
 require("dotenv").config();
 
 const client = new Discord.Client();
-
+///
 
 client.on("ready", () => {
   console.log("Bot is ready");
