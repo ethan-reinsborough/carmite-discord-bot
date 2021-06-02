@@ -42,7 +42,6 @@ let after6 = null;
 let page6 = 1;
 
 let counter3 = 0;
-//
 let cont = false;
 
 const snakeGame = new SnakeGame({
@@ -56,13 +55,6 @@ require("dotenv").config();
 
 const client = new Discord.Client();
 
-mongoose.connect(process.env.MONGODB_SRV, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-}).then(() => {
-  checkDB = "Connected";
-});
 
 client.on("ready", () => {
   console.log("Bot is ready");
@@ -74,6 +66,14 @@ client.on("ready", () => {
       url: "https://www.twitch.tv/carmitecave",
     },
   });
+});
+
+mongoose.connect(process.env.MONGODB_SRV, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}).then(() => {
+  checkDB = "Connected";
 });
 
 //const riotApiKey = process.env.RIOT_API_KEY;
