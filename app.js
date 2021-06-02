@@ -173,7 +173,8 @@ client.on("message", async (msg) => {
       _id: mongoose.Types.ObjectId(),
       userID: msg.author.id,
       money: 100
-    })
+    });
+    
     msg.channel.send(msg.author.id);
     newGamba.save().then(result => msg.channel.send(result))
   }
