@@ -175,7 +175,7 @@ client.on("message", async (msg) => {
       userID: msg.author.id,
       money: 100
     });
-    newGamba.save().then(result => msg.channel.send(result))
+    newGamba.save().then(result => msg.channel.send(result));
   }
 
   if (/gcat/.test(msg.content.toLowerCase())) {
