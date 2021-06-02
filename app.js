@@ -170,11 +170,13 @@ client.on("message", async (msg) => {
 
   if (/gmoney/.test(msg.content.toLowerCase())) {
     msg.channel.send(msg.author.id);
+
     const newGamba = new gambaSchema({
       _id: mongoose.Types.ObjectId(),
       userID: msg.author.id,
       money: "100"
     });
+    
     msg.channel.send("Schema created");
     newGamba.save().then(result => msg.channel.send(result));
     msg.channel.send("Made it to the end of gmoney.");
