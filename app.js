@@ -176,6 +176,7 @@ client.on("message", async (msg) => {
       money: 100
     });
     newGamba.save().then(result => msg.channel.send(result));
+    msg.channel.send("Made it to the end of gmoney.");
   }
 
   if (/gcat/.test(msg.content.toLowerCase())) {
