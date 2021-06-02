@@ -76,17 +76,15 @@ mongoose.connect(process.env.MONGODB_SRV, {
   checkDB = "Connected";
 });
 
-//const riotApiKey = process.env.RIOT_API_KEY;
 
-/*
-const otherRequester = new snoowrap({
-  userAgent: "Carmite's App",
-  clientId: '1jsoFmjUb2wZVw',
-  clientSecret: `${process.env.CLIENT_SECRET}`,
-  username: 'Carmite',
-  password: `${process.env.USER_PASS}`
-});
-*/
+//Add to different file later on
+
+const gambaSchema = mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
+  userID: String,
+  money: Number
+})
+
 client.login(process.env.BOT_TOKEN);
 
 //#endregion
@@ -169,6 +167,16 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region G(imme) Commands
+
+  if (/gmoney/.test(msg.content.toLowerCase())) {
+    const newGamba = new gambaSchema({
+      _id: mongoose.Types.ObjectId(),
+      userID: msg.author.id,
+      money: 100
+    })
+    msg.channel.send(msg.author.id);
+    newGamba.save().then(result => msg.channel.send(result))
+  }
 
   if (/gcat/.test(msg.content.toLowerCase())) {
     const { file } = await fetch("https://aws.random.cat/meow").then(
