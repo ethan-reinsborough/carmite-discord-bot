@@ -82,7 +82,7 @@ mongoose.connect(process.env.MONGODB_SRV, {
 const gambaSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   userID: String,
-  money: Number
+  money: String
 })
 
 client.login(process.env.BOT_TOKEN);
@@ -173,7 +173,7 @@ client.on("message", async (msg) => {
     const newGamba = new gambaSchema({
       _id: mongoose.Types.ObjectId(),
       userID: msg.author.id,
-      money: 100
+      money: "100"
     });
     msg.channel.send("Schema created");
     newGamba.save().then(result => msg.channel.send(result));
