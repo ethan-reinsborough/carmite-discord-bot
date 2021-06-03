@@ -3,10 +3,10 @@ module.exports = {
   description: "Gives a random image of a cat.",
   aliases: ["cat"],
   usage: "[cat]",
-  execute(msg, args) {
+  execute(message) {
     const { file } = await fetch("https://aws.random.cat/meow").then(
       (response) => response.json()
     );
-    msg.channel.send(file);
+    message.channel.send(file);
   },
 };
