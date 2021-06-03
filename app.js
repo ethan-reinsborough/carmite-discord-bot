@@ -126,6 +126,7 @@ client.on("message", async (message) => {
 	}
 
 	try {
+    message.channel.send(args);
 		command.execute(message, args);
 	} catch (error) {
 		console.error(error);
