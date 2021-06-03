@@ -3,9 +3,9 @@ module.exports = {
   description: "Gives a random image of a cat.",
   aliases: ["cat"],
   usage: "[cat]",
-  execute(message) {
-    const { file } = fetch("https://aws.random.cat/meow").then(
-     (response) => response.json()
+  async execute(message) {
+    const { file } = await fetch("https://aws.random.cat/meow").then(
+      (response) => response.json()
     );
     message.channel.send(file);
   },
