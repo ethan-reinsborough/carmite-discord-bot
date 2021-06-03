@@ -1,5 +1,5 @@
 module.exports = {
-  name: "Random Cat",
+  name: "cat",
   description: "Gives a random image of a cat.",
   aliases: ["cat"],
   usage: "[cat]",
