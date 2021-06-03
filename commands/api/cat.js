@@ -4,9 +4,9 @@ module.exports = {
   aliases: ["cat"],
   usage: "[cat]",
   execute(message) {
-    //const { file } = fetch("https://aws.random.cat/meow").then(
-     // (response) => response.json()
-    //);
-    message.channel.send("Meow");
+    const { file } = fetch("https://aws.random.cat/meow").then(
+     (response) => response.json()
+    );
+    message.channel.send(file);
   },
 };
