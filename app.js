@@ -111,7 +111,7 @@ client.on("message", async (message) => {
 	if (command.permissions) {
 		const authorPerms = message.channel.permissionsFor(message.author);
 		if (!authorPerms || !authorPerms.has(command.permissions)) {
-			return message.reply('You can not do this!');
+			return message.reply("You can't do this!");
 		}
 	}
 
@@ -131,43 +131,7 @@ client.on("message", async (message) => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
-
 /*
-  //#region Help Documentation
-
-  if (/ghelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send(
-      "**__Gimme Help OwO__** \n**g**(*imme*): \nanime, banime(first 10 pages),tanime(first 50 pages), ranime(very random), bored, cat, char, bchar(first 10 pages), tchar(first 50 pages), rchar(very random), chuck, confidence, dog, dumpy, fox, icon."
-    );
-    msg.channel.send(
-      "(__NSFW__) **g**(*imme*): \nhentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, g l a s s e s, uniform, bang, moarthigh, public, boobs, nekoboobs, tits"
-    );
-    msg.channel.send(
-      "**__Neko Help UwU__** \n **n**(*eko*): \n(__NSFW__): neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, nekoero, yero, kero, anal, c l a s s i c, pholo, pholoero, gasm \n(__SFW__): owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar, poke, hug, feed, holo, goose, foxgirl."
-    );
-    msg.channel.send(
-      "**__Lewd Help >w<__** \n **l**(*ewd*): \n(__NSFW__): ewdass, boobs, gifs, hboobs, hentai, athighs, kink, thighs, yuri, threed, furgif, milk, pantsu, random, slime, kiss, hug, pat."
-    );
-    msg.channel.send(
-      "**__Reddit Help >A<__** \n **r**(*eddit*): \n(__NSFW__): rgen, rgreset (resets rgen list)"
-    );
-    msg.channel.send(
-      "**__Games__** \n **g**(*imme*): \npokemon, snake, lol, item"
-    );
-  }
-  if (/ghelpnsfw/.test(msg.content.toLowerCase())) {
-    msg.channel.send(
-      "**g**: hentai, yuri, pantsu, thighs, tentacles, nsfwallpaper, ass, boobjob, nsfwgif, ahegao, doujin, neko, bdsm, femdom, incest, ero, elves, glasses, uniform, bang, moarthigh, public, boobs, nekoboobs, tits"
-    );
-  }
-  if (/nhelp/.test(msg.content.toLowerCase())) {
-    msg.channel.send(
-      "Neko Help UwU | **n**: (NSFW) neko, hgif, ngif, girlgif, spank, sfwavatar, boobs, tits, kitsune, ero, eron, eroy, erok, anal, classic | (SFW) owo, waifu, catgirl, wallpaper, kiss, baka, slap, smug, cuddle, safeneko, safenekogif, tickle, lizard, avatar."
-    );
-  }
-
-  //#endregion
-
   //#region G(imme) Commands
 
   if (/gmoney/.test(msg.content.toLowerCase())) {
@@ -181,13 +145,6 @@ client.on("message", async (message) => {
       newGamba.save().then(result => msg.channel.send(result));
       msg.channel.send("Success");
     }
-  }
-
-  if (/gcat/.test(msg.content.toLowerCase())) {
-    const { file } = await fetch("https://aws.random.cat/meow").then(
-      (response) => response.json()
-    );
-    msg.channel.send(file);
   }
 
   if (/ganisong/.test(msg.content.toLowerCase())) {
