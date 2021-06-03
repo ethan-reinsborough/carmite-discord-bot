@@ -1,88 +1,54 @@
-//#region Startup
+//#region Imports
 "use strict";
-
 const fetch = require("node-fetch");
+const fs = require("fs");
 const mongoose = require("mongoose");
-const SnakeGame = require("snakecord");
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
-const Gamba = require("./gamba.js");
+const Gamba = require("./models/gamba.js");
 const HMfull = require("hmfull");
 const { MessageEmbed } = require("discord.js");
 const nekoClient = require("nekos.life");
 const { Spawn } = require("pokecord");
 const neko = new nekoClient();
 const { LewdClient } = require("lewds.api");
-//var snoowrap = require('snoowrap');
 const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
-//const { HAnimeAPI } = require("hanime");
-let counter = -1;
-let after = null;
-let page = 1;
-
-
-let input = null;
-let counter2 = -1;
-let after2 = null;
-let page2 = 1;
-
-let counter4 = -1;
-let after3 = null;
-let page3 = 1;
-
-let counter5 = -1;
-let after4 = null;
-let page4 = 1;
-
-let interval2 = null;
-
-let checkDB = "Not connected";
-
-let counter6 = -1;
-let after6 = null;
-let page6 = 1;
-
-let counter3 = 0;
-let cont = false;
-
-const snakeGame = new SnakeGame({
-  title: "Snake Game",
-  color: "GREEN",
-  timestamp: false,
-  gameOverTitle: "Game Over",
-});
-//const api = new HAnimeAPI();
+const prefix = ";";
 require("dotenv").config();
 
 const client = new Discord.Client();
-///
+client.commands = new Discord.Collection();
+const commandFolders = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const folder of commandFolders) {
+	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const command = require(`./commands/${folder}/${file}`);
+		client.commands.set(command.name, command);
+	}
+}
+//#endregion
+
+mongoose.connect(process.env.MONGODB_SRV, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
 
 client.on("ready", () => {
   console.log("Bot is ready");
   client.user.setStatus("available");
   client.user.setPresence({
     activity: {
-      name: "use ghelp",
+      name: "use ;help",
       type: 1,
       url: "https://www.twitch.tv/carmitecave",
     },
   });
 });
 
-mongoose.connect(process.env.MONGODB_SRV, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-}).then(() => {
-  checkDB = "Connected";
-});
-
-
-
-
 client.login(process.env.BOT_TOKEN);
 
-//#endregion
 
 //#region Factory Implementation
 
@@ -126,6 +92,22 @@ let interval = null;
 
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (msg) => {
+  if (!msg.content.startsWith(prefix) || message.author.bot) return;
+
+	const args = msg.content.slice(prefix.length).trim().split(/ +/);
+	const commandName = args.shift().toLowerCase();
+
+	if (!client.commands.has(commandName)) return;
+
+  const command = client.commands.get(commandName);
+
+	try {
+		command.execute(msg, args);
+	} catch (error) {
+		message.reply('There was an error trying to execute that command!');
+	}
+
+/*
   //#region Help Documentation
 
   if (/ghelp/.test(msg.content.toLowerCase())) {
@@ -805,7 +787,7 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region R(eddit) Commands
-
+/*
   if (/rtgen/.test(msg.content.toLowerCase())) {
     
     let r = await fetch(
@@ -919,7 +901,7 @@ client.on("message", async (msg) => {
     page3 = 1;
     msg.channel.send("LoL NSFW hot page list has been reset.");
   }
-
+*/
   /*
   const filter = (reaction, user) => {
     return reaction.emoji.name === '👍' && user.id === message.author.id;
@@ -958,7 +940,7 @@ client.on("message", async (msg) => {
   //#endregion
 
   //#region C(at) Commands
-
+/*
   if (/cowo/.test(msg.content.toLowerCase())) {
     cont = true;
     input = msg.content.split(" ");
@@ -1181,4 +1163,5 @@ client.on("message", async (msg) => {
       .filter((response) => response != undefined)
       .forEach((response) => msg.channel.send(response));
   }
+  */
 });
