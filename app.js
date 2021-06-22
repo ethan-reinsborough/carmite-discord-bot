@@ -94,6 +94,9 @@ let interval = null;
 
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
+  if(message.startsWith("<:christianserver:830284378180681798>")){
+    message.channel.send("<@!461140829889626123>");
+  }
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
