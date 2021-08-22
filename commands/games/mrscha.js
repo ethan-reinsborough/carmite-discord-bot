@@ -10,7 +10,7 @@ module.exports = {
           .setAuthor(`Mrs Cha Test`)
           .setColor("#16b5ff")
           .setDescription('Test')
-          .setImage('https://imgur.com/a/JITbioK');
+          .setImage('https://i.imgur.com/QZUVE1P.png');
     
         await message.channel.send(embed);
         /*
