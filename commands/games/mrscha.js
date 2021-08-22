@@ -27,7 +27,7 @@ module.exports = {
             username = m.content;
             const embed = new MessageEmbed()
             .setColor("#16b5ff")
-            .setAuthor(`Nice to meet you ${username}! Your journey is about to begin.`);
+            .setAuthor(`Nice to meet you ${username}! Your journey is about to start!`);
             message.channel.send(embed);
           })
           .catch(() => {
@@ -35,6 +35,11 @@ module.exports = {
               `❌ | You did not answer in time.`
             );
           });
+          const embed = new MessageEmbed()
+          .setDescription("Welcome to the quiet neighborhood of Bottville. You moved here alone after your parents kicked you out for wasting all your time on League of Legends. Your aunt Mrs. Cha pitied you and decided to shelter your poor ass. This is where your story begins.")
+          .setColor("#16b5ff")
+          .setImage('https://i.imgur.com/Nn0W2wz.png')
+          message.channel.send(embed);
     },
   };
   
