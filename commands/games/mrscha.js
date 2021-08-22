@@ -25,7 +25,10 @@ module.exports = {
           .then((collected) => {
             const m = collected.first();
             username = m.content;
-            message.channel.send(`Nice to meet you ${username}!`);
+            const embed = new MessageEmbed()
+            .setColor("#16b5ff")
+            .setAuthor(`Nice to meet you ${username}! Your journey is about to begin.`);
+            message.channel.send(embed);
           })
           .catch(() => {
             message.channel.send(
