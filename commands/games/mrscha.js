@@ -3,7 +3,7 @@ module.exports = {
     description: "Oh god why did I make this.",
     async execute(message) {
         //const filter = (m) => m.author.id === msg.author.id;
-
+        message.channel.send("HI");
         const embed = new MessageEmbed()
           .setAuthor(`Mrs Cha Test`)
           .setColor("#16b5ff");
