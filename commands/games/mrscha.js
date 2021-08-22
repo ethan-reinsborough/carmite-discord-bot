@@ -2,12 +2,12 @@ module.exports = {
     name: "mrscha",
     description: "Oh god why did I make this.",
     async execute(message) {
-        const filter = (m) => m.author.id === msg.author.id;
+        //const filter = (m) => m.author.id === msg.author.id;
 
         const embed = new MessageEmbed()
           .setAuthor(`Mrs Cha Test`)
           .setColor("#16b5ff")
-          .setDescription('Test')
+          .setDescription('Test');
           //.setImage(image);
     
         await message.channel.send(embed);
