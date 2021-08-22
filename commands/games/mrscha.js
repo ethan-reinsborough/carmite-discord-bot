@@ -20,12 +20,12 @@ module.exports = {
           .awaitMessages(filter, {
             max: 1,
             error: ["time"],
-            time: 99999,
+            time: 30000,
           })
           .then((collected) => {
             const m = collected.first();
             username = m.content;
-            return msg.channel.send(`Nice to meet you ${username}!`);
+            msg.channel.send(`Nice to meet you ${username}!`);
           })
           .catch(() => {
             msg.channel.send(
