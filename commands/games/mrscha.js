@@ -6,9 +6,9 @@ module.exports = {
 
         const embed = new MessageEmbed()
           .setAuthor(`Mrs Cha Test`)
-          .setColor("#16b5ff")
-          .setDescription('Test')
-          .setImage('https://imgur.com/a/JITbioK');
+          .setColor("#16b5ff");
+          //.setDescription('Test')
+          //.setImage('https://imgur.com/a/JITbioK');
     
         await message.channel.send(embed);
         /*
