@@ -25,10 +25,10 @@ module.exports = {
           .then((collected) => {
             const m = collected.first();
             username = m.content;
-            msg.channel.send(`Nice to meet you ${username}!`);
+            message.channel.send(`Nice to meet you ${username}!`);
           })
           .catch(() => {
-            msg.channel.send(
+            message.channel.send(
               `❌ | You did not answer in time.`
             );
           });
