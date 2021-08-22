@@ -10,7 +10,7 @@ module.exports = {
           //.setDescription('Test')
           //.setImage('https://imgur.com/a/JITbioK');
     
-        await message.channel.send(embed);
+        message.channel.send(embed);
         /*
         msg.channel
           .awaitMessages(filter, {
