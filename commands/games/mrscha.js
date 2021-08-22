@@ -9,8 +9,8 @@ module.exports = {
         const embed = new MessageEmbed()
           .setAuthor(`Mrs Cha Test`)
           .setColor("#16b5ff")
-          .setDescription('Test')
-          .setImage('https://i.imgur.com/QZUVE1P.png');
+          .setImage('https://i.imgur.com/QZUVE1P.png')
+          .setDescription('does this go below');
     
         await message.channel.send(embed);
         /*
