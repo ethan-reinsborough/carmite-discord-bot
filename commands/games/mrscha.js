@@ -3,7 +3,7 @@ module.exports = {
     name: "mrscha",
     description: "Oh god why did I make this.",
     async execute(message) {
-        const filter = (m) => m.author.id === msg.author.id;
+        const filter = (m) => m.author.id === message.author.id;
         var username;
         /*
         const embed = new MessageEmbed()
