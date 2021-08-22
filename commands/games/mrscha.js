@@ -13,10 +13,10 @@ module.exports = {
         */
           const embed = new MessageEmbed()
           .setColor("#16b5ff")
-          .setImage('https://i.imgur.com/QZUVE1P.png')
+          .setImage('https://i.imgur.com/fFEByVV.jpg')
         await message.channel.send(embed);
         
-        msg.channel
+        message.channel
           .awaitMessages(filter, {
             max: 1,
             error: ["time"],
