@@ -39,7 +39,7 @@ module.exports = {
           .setDescription("Welcome to the quiet neighborhood of Bottville. You moved here alone after your parents kicked you out for wasting all your time on League of Legends. Your aunt Mrs. Cha pitied you and decided to shelter your poor ass. This is where your story begins.")
           .setColor("#16b5ff")
           .setImage('https://i.imgur.com/Nn0W2wz.png')
-          message.channel.send(embed);
+         await message.channel.send(embed);
     },
   };
   
