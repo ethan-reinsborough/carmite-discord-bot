@@ -30,7 +30,9 @@ for (const folder of commandFolders) {
 }
 //#endregion
 
-global.VAR = 1;
+global.counter = 0;
+global.after = "";
+global.page = 1;
 
 mongoose.connect(process.env.MONGODB_SRV, {
   useNewUrlParser: true,
