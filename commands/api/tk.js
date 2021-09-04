@@ -1,4 +1,6 @@
 
+    const { MessageEmbed } = require("discord.js");
+    
     module.exports = {
         name: "tk",
         description: "Shows the Top Knit(s) (TAHM KENCH HAHA)",
@@ -6,7 +8,6 @@
             let r = await fetch(
                 `https://www.reddit.com/r/knitting/top.json?sort=top&show=all&t=all&after=${global.after}`
               ).then((response) => response.json());
-              message.channel.send(r);
               global.counter++;
               if (global.counter > 24) {
                 global.after = r["data"]["after"];
