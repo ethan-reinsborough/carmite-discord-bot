@@ -30,6 +30,8 @@ for (const folder of commandFolders) {
 }
 //#endregion
 
+var VAR = 1;
+
 mongoose.connect(process.env.MONGODB_SRV, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
