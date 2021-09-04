@@ -5,10 +5,10 @@ module.exports = {
     description: "LOOP THAT COMMAND BOI",
     async execute(message) {
         cont = true;
-        input = msg.content.split(" ");
+        input = message.content.split(" ");
           interval = setInterval(() => {
             if (cont === true) {
-            msg.channel.send(input[1]);
+            message.channel.send(input[1]);
             counter3++
             }
           }, 12500);
