@@ -1,7 +1,7 @@
 let interval = null;
 let cont = false;
 module.exports = {
-    name: "loop start",
+    name: "ls",
     description: "LOOP THAT COMMAND BOI",
     async execute(message) {
         cont = true;

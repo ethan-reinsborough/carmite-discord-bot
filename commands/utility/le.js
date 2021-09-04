@@ -1,7 +1,7 @@
 
   
   module.exports = {
-    name: "loop end",
+    name: "le",
     description: "PLS NO MORE",
     async execute(message) {
         msg.channel.send("Stopping the nightmare...");
