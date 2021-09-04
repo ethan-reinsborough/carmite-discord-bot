@@ -9,7 +9,6 @@
     clearInterval(interval);
     interval = null;
     input = null;
-    counter3 = 0;
     message.channel.send(`Interval set to: ${interval}. Loop set to: ${cont}. Input is now ${input}`);
     },
   };

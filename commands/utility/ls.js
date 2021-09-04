@@ -9,7 +9,6 @@ module.exports = {
           interval = setInterval(() => {
             if (cont === true) {
             message.channel.send(input[1]);
-            counter3++
             }
           }, 12500);
     },
