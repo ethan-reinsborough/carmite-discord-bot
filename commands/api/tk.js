@@ -14,9 +14,10 @@
                 global.counter = -1;
                 global.page++;
               }
+              var randomColor = Math.floor(Math.random()*16777215).toString(16);
               const embed = new MessageEmbed()
                 .setAuthor(`Knitting (Top) | Page ${global.page} | Post ${global.counter}`)
-                .setColor("#d6428c")
+                .setColor(randomColor)
                 .setImage(r["data"]["children"][global.counter]["data"]["url"])
                 .setDescription(r["data"]["children"][global.counter]["data"]["url"]);
                 message.channel.send(embed);
