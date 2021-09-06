@@ -15,7 +15,7 @@ module.exports = {
 
         for(var x = 0; x < 9; x++){
             for(var y = 0; y < 9; y++){
-                if(matrix[x][y] == 0){
+                if(matrix[x][y] == 8){
                     message.channel.send("this should print 9 times");
                     visualMatrix += "\n";
                 }
