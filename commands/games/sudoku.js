@@ -18,7 +18,13 @@ module.exports = {
                 if(y == 0){
                     visualMatrix += "\n";
                 }
-                var rndNum = Math.floor(Math.random() * 6) + 1;
+                var isEmptySquare = Math.floor(Math.random() * 9) + 1;
+                if(isEmptySquare > 4){
+                    var rndNum = Math.floor(Math.random() * 9) + 1;
+                }
+                else{
+                    var rndNum = ".";
+                }
                 matrix[x][y] += rndNum;
                 visualMatrix += rndNum;
             }
