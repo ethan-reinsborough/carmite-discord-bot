@@ -14,7 +14,7 @@ module.exports = {
         }
 
         for(var x = 0; x < 9; x++){
-            var numberPool = [1,2,3,4,6,7,8,9];
+            var numberPool = [1,2,3,4,5,6,7,8,9];
             shuffleArray(numberPool);
             for(var y = 0; y < 9; y++){
                 if(y == 0){
@@ -28,7 +28,7 @@ module.exports = {
                 }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
                 if(isEmptySquare > 4){
-                    var rndNum = numberPool[y-1];
+                    var rndNum = numberPool[y];
                 }
                 else{
                     var rndNum = ".";
