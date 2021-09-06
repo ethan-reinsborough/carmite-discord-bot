@@ -18,6 +18,7 @@ module.exports = {
                 if(matrix[x][y] == 0){
                     visualMatrix += "\n";
                 }
+                visualMatrix += Math.floor(Math.random() * 6) + 1;
                 visualMatrix += matrix[x][y];
             }
         }
