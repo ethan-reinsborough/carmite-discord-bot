@@ -27,12 +27,12 @@ module.exports = {
                     visualMatrix += "------------------------------------\n"
                 }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
-                if(isEmptySquare > 4){
+                //if(isEmptySquare > 4){
                     var rndNum = numberPool[y];
-                }
+                /*}
                 else{
                     var rndNum = ".";
-                }
+                }*/
                 matrix[x][y] += rndNum;
                 visualMatrix += ` ${rndNum} `;
             }
