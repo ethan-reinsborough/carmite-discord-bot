@@ -5,20 +5,26 @@ module.exports = {
     description: "GL GAMER",
     async execute(message) {
         const filter = (m) => m.author.id === message.author.id;
-
+        var visualMatrix = "";
         //Matrix generation
         var matrix = new Array(9);
 
         for (var i = 0; i < matrix.length; i++){
             matrix[i] = new Array(9);
         }
-        matrix[0][0] = 1;
-        matrix[2][0] = 3;
 
+        for(var x = 0; x < 9; x++){
+            for(var y = 0; y < 9; y++){
+                if(matrix[x][y] == 0){
+                    visualMatrix += "\n";
+                }
+                visualMatrix += matrix[x][y];
+            }
+        }
           const embed = new MessageEmbed()
           .setColor("#16b5ff")
           .setTitle("Sudoku")
-          .setDescription(`${matrix}`)
+          .setDescription(`${visualMatrix}`)
         await message.channel.send(embed);
         /*
         message.channel
