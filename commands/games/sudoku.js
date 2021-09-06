@@ -35,7 +35,7 @@ module.exports = {
                 visualMatrix += ` ${rndNum} `;
             }
         }
-        var visualMatrix = "\n------------------------------------\n";
+        visualMatrix += "\n------------------------------------\n";
         visualMatrix += "\n```";
           const embed = new MessageEmbed()
           .setColor("#16b5ff")
