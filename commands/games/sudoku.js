@@ -21,8 +21,8 @@ module.exports = {
                 if(y == 3 || y == 6){
                     visualMatrix += " | ";
                 }
-                if(x == 3 || x == 6){
-                    visualMatrix += "\n";
+                if(x == 3 && y == 0 || x == 6 && y == 0){
+                    visualMatrix += "\n------------------------------------\n"
                 }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
                 if(isEmptySquare > 4){
