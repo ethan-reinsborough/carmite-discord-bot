@@ -14,6 +14,9 @@ module.exports = {
         }
 
         for(var x = 0; x < 9; x++){
+            var numberPool = [1,2,3,4,6,7,8,9];
+            shuffleArray(numberPool);
+            message.channel.send(numberPool);
             for(var y = 0; y < 9; y++){
                 if(y == 0){
                     visualMatrix += "\n";
@@ -66,3 +69,9 @@ module.exports = {
     },
   };
   
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
