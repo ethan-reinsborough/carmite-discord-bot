@@ -18,8 +18,11 @@ module.exports = {
                 if(y == 0){
                     visualMatrix += "\n";
                 }
-                if(y == 3 || y == 5 || y == 7){
+                if(y == 3 || y == 6){
                     visualMatrix += " | ";
+                }
+                if(x == 3 || x == 6){
+                    visualMatrix += "\n------------------------------------\n";
                 }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
                 if(isEmptySquare > 4){
@@ -32,6 +35,7 @@ module.exports = {
                 visualMatrix += ` ${rndNum} `;
             }
         }
+        var visualMatrix = "\n------------------------------------\n";
         visualMatrix += "\n```";
           const embed = new MessageEmbed()
           .setColor("#16b5ff")
