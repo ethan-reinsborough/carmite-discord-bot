@@ -16,7 +16,7 @@ module.exports = {
         for(var x = 0; x < 9; x++){
             for(var y = 0; y < 9; y++){
                 if(y == 0){
-                    visualMatrix += "\n---------\n";
+                    visualMatrix += "```\n---------\n";
                 }
                 if(y == 3 || y == 5 || y == 7){
                     visualMatrix += " | ";
@@ -29,9 +29,10 @@ module.exports = {
                     var rndNum = ".";
                 }
                 matrix[x][y] += rndNum;
-                visualMatrix += rndNum;
+                visualMatrix += ` ${rndNum} `;
             }
         }
+        visualMatrix += "\n```";
           const embed = new MessageEmbed()
           .setColor("#16b5ff")
           .setTitle("Sudoku")
