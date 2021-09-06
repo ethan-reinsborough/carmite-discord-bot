@@ -21,10 +21,9 @@ module.exports = {
                 if(y == 3 || y == 6){
                     visualMatrix += " | ";
                 }
-                /*
                 if(x == 3 || x == 6){
-                    visualMatrix += "\n------------------------------------\n";
-                }*/
+                    visualMatrix += "\n";
+                }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
                 if(isEmptySquare > 4){
                     var rndNum = Math.floor(Math.random() * 9) + 1;
