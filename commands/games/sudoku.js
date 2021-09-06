@@ -27,8 +27,8 @@ module.exports = {
                     visualMatrix += "------------------------------------\n"
                 }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
-                if(isEmptySquare > 5){
-                    var rndNum = numberPool[y];
+                if(isEmptySquare > 4){
+                    var rndNum = numberPool[y-1];
                 }
                 else{
                     var rndNum = ".";
