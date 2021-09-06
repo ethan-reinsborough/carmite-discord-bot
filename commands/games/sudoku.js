@@ -93,9 +93,9 @@ module.exports = {
                 if(x == 3 && y == 0 || x == 6 && y == 0){
                     visualMatrix += "------------------------------------\n"
                 }
-                var rndNum = numberPool[y];
-                matrix[x][y] += rndNum;
-                visualMatrix += ` ${rndNum} `;
+                //var rndNum = numberPool[y];
+                //matrix[x][y] += rndNum;
+                visualMatrix += ` ${matrix[x][y]} `;
             }
         }
         visualMatrix += "\n------------------------------------\n";
