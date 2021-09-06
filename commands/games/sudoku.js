@@ -16,7 +16,6 @@ module.exports = {
         for(var x = 0; x < 9; x++){
             var numberPool = [1,2,3,4,6,7,8,9];
             shuffleArray(numberPool);
-            message.channel.send(numberPool);
             for(var y = 0; y < 9; y++){
                 if(y == 0){
                     visualMatrix += "\n";
@@ -29,7 +28,7 @@ module.exports = {
                 }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
                 if(isEmptySquare > 5){
-                    var rndNum = Math.floor(Math.random() * 9) + 1;
+                    var rndNum = numberPool[y];
                 }
                 else{
                     var rndNum = ".";
