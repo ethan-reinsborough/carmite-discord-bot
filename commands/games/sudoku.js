@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "sudoku",
-    description: "GL GAMER",
+    description: "old man activity",
     async execute(message) {
         const filter = (m) => m.author.id === message.author.id;
         var visualMatrix = "```\n------------------------------------\n";
@@ -22,7 +22,7 @@ module.exports = {
                     visualMatrix += " | ";
                 }
                 if(x == 3 && y == 0 || x == 6 && y == 0){
-                    visualMatrix += "\n------------------------------------\n"
+                    visualMatrix += "------------------------------------\n"
                 }
                 var isEmptySquare = Math.floor(Math.random() * 9) + 1;
                 if(isEmptySquare > 4){
