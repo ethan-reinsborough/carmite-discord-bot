@@ -12,6 +12,7 @@ module.exports = {
         for (var i = 0; i < matrix.length; i++){
             matrix[i] = new Array(9);
         }
+        matrix[0][0] = 1;
 
           const embed = new MessageEmbed()
           .setColor("#16b5ff")
