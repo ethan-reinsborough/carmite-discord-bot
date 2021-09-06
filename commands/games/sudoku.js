@@ -5,7 +5,7 @@ module.exports = {
     description: "GL GAMER",
     async execute(message) {
         const filter = (m) => m.author.id === message.author.id;
-        var visualMatrix = "---------\n";
+        var visualMatrix = "```\n------------------------------------\n";
         //Matrix generation
         var matrix = new Array(9);
 
@@ -16,7 +16,7 @@ module.exports = {
         for(var x = 0; x < 9; x++){
             for(var y = 0; y < 9; y++){
                 if(y == 0){
-                    visualMatrix += "```\n---------\n";
+                    visualMatrix += "\n";
                 }
                 if(y == 3 || y == 5 || y == 7){
                     visualMatrix += " | ";
