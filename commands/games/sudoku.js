@@ -21,7 +21,6 @@ module.exports = {
                 matrix[x][y] = rndNum;
             }
         }
-        message.channel.send("Before candidacy check: " + matrix);
         for(var x = 0; x < 9; x++){
             for(var y = 0; y < 9; y++){
                 //Row check
@@ -37,6 +36,7 @@ module.exports = {
                 //3x3 check
 
                 //1st box
+                /*
                 if(x <= 2 && y <= 2){
                     var searchArray = [0,1,2];
                     for(var j = 0; j < searchArray.length; j++){
@@ -46,7 +46,7 @@ module.exports = {
                             }
                         }
                     }
-                }
+                }*/
                 //2nd box
                 if(x <= 2 && y > 2 && y < 6){
                     
