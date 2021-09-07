@@ -31,10 +31,13 @@ module.exports = {
                 }*/
                     var searchArray = [0,1,2,3,4,5,6,7,8,9];
                     searchArray.splice(y,1);
-                    if(matrix[x][y] == matrix[x][searchArray[y]]){
-                        matrix[x][y] = ".";
-                    }
-                    
+                    for(l = 0; l < 9; l++){
+                        for(p = 0; p < 9; p++){
+                            if(matrix[l][y] == matrix[l][searchArray[p]]){
+                                matrix[x][y] = ".";
+                            }
+                        }   
+                    }          
 
                 //Column check
                 /*
