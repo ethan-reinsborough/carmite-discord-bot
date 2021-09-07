@@ -40,7 +40,6 @@ module.exports = {
                 message.channel.send(x);
                 var searchArray = [0,1,2,3,4,5,6,7,8,9];
                 searchArray.splice(x,1);
-                message.channel.send(searchArray);
                 
                 if(matrix[x][y] == matrix[searchArray[0]][y] || matrix[x][y] == matrix[searchArray[1]][y] || matrix[x][y] == matrix[searchArray[2]][y] ||
                     matrix[x][y] == matrix[searchArray[3]][y] || matrix[x][y] == matrix[searchArray[4]][y] || matrix[x][y] == matrix[searchArray[5]][y] ||
