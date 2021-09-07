@@ -33,7 +33,7 @@ module.exports = {
                     searchArray.splice(y,1);
                     for(l = 0; l < 9; l++){
                         for(p = 0; p < 9; p++){
-                            if(matrix[l][y] == matrix[l][searchArray[p]]){
+                            if(matrix[x][y] == matrix[l][searchArray[p]]){
                                 matrix[x][y] = ".";
                             }
                         }   
