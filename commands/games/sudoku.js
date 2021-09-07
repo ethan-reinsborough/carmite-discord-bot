@@ -40,11 +40,12 @@ module.exports = {
                 
                 var searchArray = [0,1,2,3,4,5,6,7,8,9];
                 searchArray.splice(y,1);
-                for(p = 0; p < 9; p++){
-                    if(matrix[x][y] == matrix[searchArray[p]][y]){
-                        matrix[x][y] = ".";
-                    }
-                }   
+                
+                if(matrix[x][y] == matrix[searchArray[0][y]] || matrix[x][y] == matrix[searchArray[1][y]] || matrix[x][y] == matrix[searchArray[2][y]] ||
+                    matrix[x][y] == matrix[searchArray[3][y]] || matrix[x][y] == matrix[searchArray[4][y]] || matrix[x][y] == matrix[searchArray[5][y]] ||
+                    matrix[x][y] == matrix[searchArray[6][y]] || matrix[x][y] == matrix[searchArray[7][y]]){
+                    matrix[x][y] == ".";
+                }
 
 
                 //3x3 check
