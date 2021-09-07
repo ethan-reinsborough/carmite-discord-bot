@@ -24,12 +24,12 @@ module.exports = {
         for(var x = 0; x < 9; x++){
             for(var y = 0; y < 9; y++){
                 //Row check
-                if(matrix[x][y] == matrix[x][0] || matrix[x][y] == matrix[x][1] || matrix[x][y] == matrix[x][2] || matrix[x][y] == matrix[x][3] || matrix[x][y] == matrix[x][4] 
+                if(matrix[x][y] == matrix[x][1] || matrix[x][y] == matrix[x][2] || matrix[x][y] == matrix[x][3] || matrix[x][y] == matrix[x][4] 
                     || matrix[x][y] == matrix[x][5] || matrix[x][y] == matrix[x][6] || matrix[x][y] == matrix[x][7] || matrix[x][y] == matrix[x][8]){
                         matrix[x][y] = ".";
                 }
                 //Column check
-                if(matrix[x][y] == matrix[0][y] || matrix[x][y] == matrix[1][y] || matrix[x][y] == matrix[2][y] || matrix[x][y] == matrix[3][y] || matrix[x][y] == matrix[4][y] 
+                if(matrix[x][y] == matrix[1][y] || matrix[x][y] == matrix[2][y] || matrix[x][y] == matrix[3][y] || matrix[x][y] == matrix[4][y] 
                     || matrix[x][y] == matrix[5][y] || matrix[x][y] == matrix[6][y] || matrix[x][y] == matrix[7][y] || matrix[x][y] == matrix[8][y]){
                         matrix[x][y] = "."; 
                     }
