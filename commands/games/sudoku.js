@@ -16,6 +16,7 @@ module.exports = {
         for(var x = 0; x < 9; x++){
             var numberPool = [1,2,3,4,5,6,7,8,9];
             shuffleArray(numberPool);
+            message.channel.send(numberPool);
             for(var y = 0; y < 9; y++){               
                 var rndNum = numberPool[y];
                 matrix[x][y] += rndNum;
