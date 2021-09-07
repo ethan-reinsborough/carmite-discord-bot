@@ -39,11 +39,11 @@ module.exports = {
                 //Column check
                 
                 var searchArray = [0,1,2,3,4,5,6,7,8,9];
-                searchArray.splice(x,1);
+                searchArray.splice(y,1);
                 
-                if(matrix[x][y] == matrix[searchArray[0][y]] || matrix[x][y] == matrix[searchArray[1][y]] || matrix[x][y] == matrix[searchArray[2][y]] ||
-                    matrix[x][y] == matrix[searchArray[3][y]] || matrix[x][y] == matrix[searchArray[4][y]] || matrix[x][y] == matrix[searchArray[5][y]] ||
-                    matrix[x][y] == matrix[searchArray[6][y]] || matrix[x][y] == matrix[searchArray[7][y]]){
+                if(matrix[x][y] == matrix[searchArray[0]][y] || matrix[x][y] == matrix[searchArray[0]][y] || matrix[x][y] == matrix[searchArray[0]][y] ||
+                    matrix[x][y] == matrix[searchArray[0]][y] || matrix[x][y] == matrix[searchArray[0]][y] || matrix[x][y] == matrix[searchArray[0]][y] ||
+                    matrix[x][y] == matrix[searchArray[0]][y] || matrix[x][y] == matrix[searchArray[0]][y]){
                     matrix[x][y] == ".";
                 }
 
