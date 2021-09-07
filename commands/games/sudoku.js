@@ -29,11 +29,13 @@ module.exports = {
                     || matrix[x][y] == matrix[x][5] || matrix[x][y] == matrix[x][6] || matrix[x][y] == matrix[x][7] || matrix[x][y] == matrix[x][8]){
                         matrix[x][y] = ".";
                 }*/
+                //if 1,1 == 2,1 then . it
+
                     var searchArray = [0,1,2,3,4,5,6,7,8,9];
                     searchArray.splice(y,1);
                     for(l = 0; l < 9; l++){
                         for(p = 0; p < 9; p++){
-                            if(matrix[x][y] == matrix[l][searchArray[p]]){
+                            if(matrix[x][y] == matrix[l][searchArray[p]] && matrix[x][y] != "."){
                                 matrix[x][y] = ".";
                             }
                         }   
