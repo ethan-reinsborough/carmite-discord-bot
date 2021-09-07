@@ -23,14 +23,9 @@ module.exports = {
         }
         for(var x = 0; x < 9; x++){
             for(var y = 0; y < 9; y++){
-                //Row check
-                /*
-                if(matrix[x][y] == matrix[x][1] || matrix[x][y] == matrix[x][2] || matrix[x][y] == matrix[x][3] || matrix[x][y] == matrix[x][4] 
-                    || matrix[x][y] == matrix[x][5] || matrix[x][y] == matrix[x][6] || matrix[x][y] == matrix[x][7] || matrix[x][y] == matrix[x][8]){
-                        matrix[x][y] = ".";
-                }*/
+       
                 //if 1,1 == 2,1 then . it
-
+                /*
                     var searchArray = [0,1,2,3,4,5,6,7,8,9];
                     searchArray.splice(y,1);
                     for(l = 0; l < 9; l++){
@@ -40,13 +35,18 @@ module.exports = {
                             }
                         }   
                     }          
-
+                    */
                 //Column check
-                /*
-                if(matrix[x][y] == matrix[1][y] || matrix[x][y] == matrix[2][y] || matrix[x][y] == matrix[3][y] || matrix[x][y] == matrix[4][y] 
-                    || matrix[x][y] == matrix[5][y] || matrix[x][y] == matrix[6][y] || matrix[x][y] == matrix[7][y] || matrix[x][y] == matrix[8][y]){
-                        matrix[x][y] = "."; 
-                    }*/
+                
+                var searchArray = [0,1,2,3,4,5,6,7,8,9];
+                searchArray.splice(y,1);
+                for(p = 0; p < 9; p++){
+                    if(matrix[x][y] == matrix[searchArray[p]][y]){
+                        matrix[x][y] = ".";
+                    }
+                }   
+
+
                 //3x3 check
 
                 //1st box
