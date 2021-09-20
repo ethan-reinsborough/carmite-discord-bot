@@ -1,7 +1,8 @@
 
   
-  const { MessageEmbed } = require("discord.js");
+  const { MessageEmbed, Message } = require("discord.js");
   const { Spawn } = require("pokecord");
+
   module.exports = {
       name: "pk",
       description: "Shows the Top Knit(s) (TAHM KENCH HAHA)",
@@ -17,6 +18,7 @@
               .setImage(pokemon.imageURL);
         
             await msg.channel.send(embed);
+            msg.channel.send("THIS SHOULD BE THE IMAGE MFKER: " + pokemon.imageURL);
         
             msg.channel
               .awaitMessages(filter, {
