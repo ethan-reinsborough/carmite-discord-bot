@@ -95,7 +95,7 @@ let interval = null;
 //#region Testing outside of on(message)
 
 //#endregion
-
+//
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
 
