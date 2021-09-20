@@ -7,6 +7,7 @@
     message.channel.send("Stopping the nightmare...");
     clearInterval(global.interval);
     global.interval = null;
+    global.cont = false;
     },
   };
   
