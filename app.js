@@ -99,7 +99,7 @@ let interval = null;
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
 
-  if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
