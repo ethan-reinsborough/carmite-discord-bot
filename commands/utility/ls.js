@@ -4,10 +4,10 @@ module.exports = {
     name: "ls",
     description: "LOOP THAT COMMAND BOI",
     async execute(message) {
-        cont = true;
+        global.cont = true;
         input = message.content.split(" ");
-          interval = setInterval(() => {
-            if (cont === true) {
+          global.interval = setInterval(() => {
+            if (global.cont === true) {
             message.channel.send(input[1]);
             }
           }, 12500);

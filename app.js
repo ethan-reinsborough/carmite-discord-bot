@@ -33,6 +33,8 @@ for (const folder of commandFolders) {
 global.counter = 0;
 global.after = "";
 global.page = 1;
+global.interval = null;
+global.cont = false;
 
 mongoose.connect(process.env.MONGODB_SRV, {
   useNewUrlParser: true,
