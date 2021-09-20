@@ -1,9 +1,9 @@
 
   
   const { MessageEmbed } = require("discord.js");
-  const { Spawn } = require("pokecord");
+
   module.exports = {
-      name: "pk",
+      name: "lol",
       description: "Shows the Top Knit(s) (TAHM KENCH HAHA)",
       async execute(msg) {
         
