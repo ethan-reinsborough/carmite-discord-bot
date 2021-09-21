@@ -99,7 +99,7 @@ let interval = null;
 //#endregion
 
 //Main function, tracks when a user message matches a command (always active)
-client.on("message", async (message) => {
+//client.on("message", async (message) => {
 
   if (!message.content.startsWith(prefix)) return;
 
