@@ -29,7 +29,7 @@ module.exports = {
                 input[i] = "<:giants:913452364265058314>"
             }
             if(input[i] == "g"){
-                input[i] = "<:gloves~1:913452308493381632>"
+                input[i] = "<:gloves:913452308493381632>"
             }
             if(input[i] == "c"){
                 input[i] = "<:cloak:913452327590064138>"
