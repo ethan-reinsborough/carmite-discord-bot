@@ -35,7 +35,7 @@ module.exports = {
                 input[i] = "<:cloak:913452327590064138>"
             }
         } 
-        message.channel.send(input);
+        message.delete();
         var opt1 = input[1];
         var opt2 = input[2];
         message.channel.send("<@!180787488950976523>").then(sentEmbed => {
