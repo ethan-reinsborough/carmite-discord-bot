@@ -11,28 +11,28 @@ module.exports = {
 
         for (let i = 0; i <= input.length; i++) {
             if(input[i] == "s"){
-                input[i] = "<@!913452398876446741>"
+                input[i] = "<:sword:913452398876446741>"
             }
             if(input[i] == "t"){
-                input[i] = "<@!913452295612694610>"
+                input[i] = "<:tear:913452295612694610>"
             }
             if(input[i] == "r"){
-                input[i] = "<@!913452341225730119>"
+                input[i] = "<:rod:913452341225730119>"
             }
             if(input[i] == "v"){
-                input[i] = "<@!9134523879251231129>"
+                input[i] = "<:vest:9134523879251231129>"
             }
             if(input[i] == "b"){
-                input[i] = "<@!913452318173851698>"
+                input[i] = "<:bow:913452318173851698>"
             }
             if(input[i] == "gb"){
-                input[i] = "<@!913452364265058314>"
+                input[i] = "<:giants:913452364265058314>"
             }
             if(input[i] == "g"){
-                input[i] = "<@!913452308493381632>"
+                input[i] = "<:gloves~1:913452308493381632>"
             }
             if(input[i] == "c"){
-                input[i] = "<@!913452327590064138>"
+                input[i] = "<:cloak:913452327590064138>"
             }
         } 
         message.channel.send(input);
