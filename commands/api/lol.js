@@ -4,7 +4,7 @@
 
   module.exports = {
       name: "lol",
-      description: "Shows the Top Knit(s) (TAHM KENCH HAHA)",
+      description: "League ability guessing game",
       async execute(msg) {
         
 const res = await fetch(
