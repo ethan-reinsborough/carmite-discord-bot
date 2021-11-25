@@ -1,6 +1,6 @@
 module.exports = {
     name: "e",
-    description: "e/a tft duo mode command for items",
+    description: "ethan/ayumi tft duo mode command for items",
     async execute(message) {
         input = message.content.split(" ");
 
@@ -35,7 +35,7 @@ module.exports = {
                 input[i] = "<@!913452327590064138>"
             }
         } 
-
+        message.channel.send(input);
         var opt1 = input[1];
         var opt2 = input[2];
         message.channel.send("<@!180787488950976523>").then(sentEmbed => {
