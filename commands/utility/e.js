@@ -38,6 +38,7 @@ module.exports = {
         message.delete();
         var opt1 = input[1];
         var opt2 = input[2];
+        message.channel.send(opt2);
         message.channel.send("<@!180787488950976523>").then(sentMessage => {
             sentMessage.react(opt1);
             sentMessage.react(opt2);
