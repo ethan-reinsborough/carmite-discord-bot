@@ -1,5 +1,5 @@
 module.exports = {
-    name: "bestchar",
+    name: "bchar",
     description: "Gives a random anime character from the top 500 results.",
     async execute(message) {
         let pageNum = Math.floor(Math.random() * 10 + 1);

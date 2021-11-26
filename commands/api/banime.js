@@ -1,8 +1,8 @@
 module.exports = {
-  name: "topanime",
-  description: "Gives a random anime from the top 2500 results.",
+  name: "banime",
+  description: "Gives a random anime from the top 500 results.",
   async execute(message) {
-    let pageNum = Math.floor(Math.random() * 50 + 1);
+    let pageNum = Math.floor(Math.random() * 10 + 1);
     const res = await fetch(
       `https://api.jikan.moe/v3/top/anime/${pageNum}`
     ).then((response) => response.json());
