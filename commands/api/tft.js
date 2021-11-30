@@ -57,9 +57,9 @@ module.exports = {
                     matchType = match["info"]["tft_game_type"];
                     matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
                     message.channel.send(matchStats);
-                    messsage.channel.send(matchType)
-                    printMatch += `\nMode:${matchType}, ${matchStats}`;
+                    printMatch += `\n${matchStats}`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
+                    message.channel.send("keys length:" + keys);
                     var traits = "";
                     for(let z = 0; z < keys.length; z++){
                         if(match["info"]["participants"][y]["traits"][z]["tier_total"] > 1 || match["info"]["participants"][y]["traits"][z]["name"] == "Set6_Socialite"){
