@@ -62,8 +62,24 @@ module.exports = {
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     matchType = match["info"]["tft_game_type"];
-                    message.channel.send(matchType);
-                    matchStats = `Placement: ${match["info"]["participants"][y]["placement"]} Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
+                    var placement = match["info"]["participants"][y]["placement"];
+                    if(matchType == "pairs"){
+                        matchType = "Double Up";
+                        if(placement == 1 || placement == 2){
+                            placement = "🏆 First 🏆";
+                        } 
+                        if(placement == 3 || placement == 4){
+                            placement = "🥈 Second 🥈";
+                        }
+                        if(placement == 5 || placement == 6){
+                            placement = "🥉 Third 🥉";
+                        }
+                        else{
+                            placement = "😞 Fourth 😞";
+                        }
+                    }
+                    printMatch += `\nMode: ${matchType}\n`
+                    matchStats = `Placement: ${placement} Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
                     printMatch += `\n${matchStats}\n`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
                     var traits = "";
