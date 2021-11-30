@@ -58,7 +58,6 @@ module.exports = {
                     message.channel.send(matchStats);
                     printMatch += `\n${matchStats}`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
-                    message.channel.send("keys length:" + keys);
                     var traits = "";
                     for(let z = 0; z < keys.length; z++){
                         if(match["info"]["participants"][y]["traits"][z]["tier_total"] > 1 || match["info"]["participants"][y]["traits"][z]["name"] == "Set6_Socialite"){
