@@ -25,12 +25,11 @@ module.exports = {
           );
         
         var header = `${input[1]}: ${rankedStats["tier"]} ${rankedStats["rank"]} ${rankedStats["leaguePoints"]}`;
-
+        message.channel.send(header);
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
         var content = "";
-        message.channel.send(matches);
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
             var printMatch = "\n---------------------------------------------------------------------------------------\n";
