@@ -4,12 +4,12 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "tft",
-    description: "Experimental command to show tft match history in discord.",
+    description: "Usage -> ;tft <summoner name> <number of matches to show>.",
     async execute(message) {
         input = message.content.split(" ");
 
         if(input[1] == null || input[2] == null){
-            message.channel.send("Usage: tft <summoner name> <number of matches>");
+            message.channel.send("Usage: tft <summoner name> <number of matches to show>");
             return;
         }
 
