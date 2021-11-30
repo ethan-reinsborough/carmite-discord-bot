@@ -83,9 +83,8 @@ module.exports = {
                 }
             }
             printMatch += "\n---------------------------------------------------------------------------------------\n";
-            content += printMatch;
+            message.channel.send(printMatch);
           }            
           message.channel.send(header);
-          message.channel.send(content);
     },
   };
