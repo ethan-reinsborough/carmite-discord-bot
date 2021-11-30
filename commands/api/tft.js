@@ -32,7 +32,7 @@ module.exports = {
         );
         message.channel.send(rankedStats);
         var rankedDisplay = ``;
-        if(rankedStats != undefined || rankedStats != null){
+        if(rankedStats != undefined && rankedStats != null){
             rankedDisplay += `${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
         } else{
             rankedDisplay = "Unranked";
