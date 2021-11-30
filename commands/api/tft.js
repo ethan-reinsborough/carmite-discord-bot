@@ -51,9 +51,8 @@ module.exports = {
             var matchType = "";
             message.channel.send(players);
             for(let y = 0; y < 7; y++){
-                message.channel.send(puuid);
                 //If the player matches the summoner who calls command, get their match details
-                if(match["info"]["participants"][y]["puuid"] == puuid){
+                if(parseInt(match["info"]["participants"][y]["puuid"]) == parseInt(puuid)){
                     matchType = match["info"]["tft_game_type"];
                     matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][i]["total_damage_to_players"]}`;
                     printMatch += `\nMode:${matchType}, ${matchStats}`;
