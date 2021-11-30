@@ -16,6 +16,7 @@ module.exports = {
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
+          //good
           message.channel.send(summoner["id"]);
         var id = summoner["id"];
         var puuid = summoner["puuid"];
@@ -24,7 +25,7 @@ module.exports = {
             (response) => response.json()
           );
         
-        var header = `${input[1]}: ${rankedStats["tier"]} ${rankedStats["rank"]} ${rankedStats["leaguePoints"]}`;
+        var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]}`;
         message.channel.send(header);
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
