@@ -31,6 +31,7 @@ module.exports = {
             (response) => response.json()
         );
         var content = "";
+        message.channel.send(matches);
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
             var printMatch = "\n---------------------------------------------------------------------------------------\n";
