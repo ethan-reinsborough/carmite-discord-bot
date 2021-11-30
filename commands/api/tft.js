@@ -13,20 +13,20 @@ module.exports = {
             return;
         }
 
-        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}`).then(
+        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
 
         var id = summoner["id"];
         var puuid = summoner["puuid"];
 
-        const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}`).then(
+        const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
         
         var header = `${input[1]}: ${rankedStats["tier"]} ${rankedStats["rank"]} ${rankedStats["leaguePoints"]}`;
 
-        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10`).then(
+        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
         var content = "";
@@ -34,12 +34,12 @@ module.exports = {
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
             var printMatch = "\n---------------------------------------------------------------------------------------\n";
-            var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}`).then(
+            var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
             var players = "Players: ";
             for(let x = 0; x < 9; x++){
-                var p = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${match["metadata"]["participants"][i]}`).then(
+                var p = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${match["metadata"]["participants"][i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
               if(x < 8){
