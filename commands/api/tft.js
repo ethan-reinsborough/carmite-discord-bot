@@ -29,10 +29,16 @@ module.exports = {
 
         const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
-          );
+        );
         
-        var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
-        message.channel.send(header);
+        var randomColor = Math.floor(Math.random()*16777215).toString(16);
+        const embed = new MessageEmbed()
+        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${summoner["profileIconId"]}.png`)
+        .setAuthor(`${summoner["name"]}`)
+        .setTitle(`${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`)
+        .setColor(randomColor);
+        await message.channel.send(embed);
+
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=${input[2]}&api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
@@ -46,7 +52,6 @@ module.exports = {
               );
             var players = "Players: ";
             for(let x = 0; x < 8; x++){
-
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
               if(x < 7){
