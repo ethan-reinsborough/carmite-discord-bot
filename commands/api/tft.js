@@ -30,8 +30,10 @@ module.exports = {
         const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         ).catch((error) => {rankedDisplay = "Unranked"});
-        if(rankedDisplay != "Unranked"){
+        if(rankedStats != []){
             rankedDisplay = `${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
+        }else{
+            rankedDisplay = "Unranked"
         }
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
         const embed = new MessageEmbed()
