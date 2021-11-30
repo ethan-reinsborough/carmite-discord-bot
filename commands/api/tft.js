@@ -37,6 +37,7 @@ module.exports = {
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
+            message.channel.send(match["metadata"]["data_version"]);
             var players = "Players: ";
             for(let x = 0; x < 9; x++){
                 message.channel.send(match["metadata"]["participants"][`${x}`]);
