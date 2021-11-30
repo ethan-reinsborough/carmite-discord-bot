@@ -53,7 +53,7 @@ module.exports = {
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     matchType = match["info"]["tft_game_type"];
-                    matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][i]["total_damage_to_players"]}`;
+                    matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
                     printMatch += `\nMode:${matchType}, ${matchStats}`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
                     var traits = "";
