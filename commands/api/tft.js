@@ -30,12 +30,17 @@ module.exports = {
         const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
-        
+        var rankedDisplay = ``;
+        if(rankedStats[0]["tier"] != undefined || rankedStats[0]["tier"] != null){
+            rankedDisplay += `${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
+        } else{
+            rankedDisplay = "Unranked";
+        }
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
         const embed = new MessageEmbed()
         .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${summoner["profileIconId"]}.png`)
         .setAuthor(`${summoner["name"]}`)
-        .setTitle(`${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`)
+        .setTitle(`${rankedDisplay}`)
         .setColor(randomColor)
         .setFooter(`${input[2]} most recent match(es):`)
         await message.channel.send(embed);
