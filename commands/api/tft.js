@@ -40,7 +40,6 @@ module.exports = {
 
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
-                message.channel.send(p);
               if(x < 8){
                 players += p["name"] +", ";
               }else{
