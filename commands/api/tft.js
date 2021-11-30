@@ -40,7 +40,7 @@ module.exports = {
 
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
-              if(x < 8){
+              if(x < 7){
                 players += p["name"] +", ";
               }else{
                 players += p["name"];
@@ -49,10 +49,10 @@ module.exports = {
             printMatch += players;
             var matchStats = "";
             var matchType = "";
-            message.channel.send(players);
             for(let y = 0; y < 7; y++){
                 //If the player matches the summoner who calls command, get their match details
                 if(parseInt(match["info"]["participants"][y]["puuid"]) == parseInt(puuid)){
+                    message.channel.send("Match found!");
                     matchType = match["info"]["tft_game_type"];
                     matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][i]["total_damage_to_players"]}`;
                     printMatch += `\nMode:${matchType}, ${matchStats}`;
@@ -85,6 +85,5 @@ module.exports = {
             printMatch += "\n---------------------------------------------------------------------------------------\n";
             message.channel.send(printMatch);
           }            
-          message.channel.send(header);
     },
   };
