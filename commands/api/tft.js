@@ -25,7 +25,7 @@ module.exports = {
             (response) => response.json()
           );
         
-        var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]}`;
+        var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
         message.channel.send(header);
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
@@ -39,7 +39,7 @@ module.exports = {
               );
             var players = "Players: ";
             for(let x = 0; x < 9; x++){
-                var p = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${match["metadata"]["participants"][i]}?api_key=${process.env.RIOT_API_KEY}`).then(
+                var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
               if(x < 8){
