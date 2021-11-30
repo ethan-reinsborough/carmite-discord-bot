@@ -65,18 +65,7 @@ module.exports = {
                     var placement = match["info"]["participants"][y]["placement"];
                     if(matchType == "pairs"){
                         matchType = "Double Up";
-                        if(placement == 1 || placement == 2){
-                            placement = "🏆 First 🏆";
-                        } 
-                        if(placement == 3 || placement == 4){
-                            placement = "🥈 Second 🥈";
-                        }
-                        if(placement == 5 || placement == 6){
-                            placement = "🥉 Third 🥉";
-                        }
-                        if(placement == 7 || placement == 8){
-                            placement = "😞 Fourth 😞";
-                        }
+                        placement = GetDoubleUpPlacement(placement);
                     }
                     printMatch += `\nMode: ${matchType}\n`
                     matchStats = `Placement: ${placement} Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
@@ -112,3 +101,18 @@ module.exports = {
           }           
     },
   };
+
+  function GetDoubleUpPlacement(placement) {
+    if(placement == 1 || placement == 2){
+        return "🏆 First 🏆";
+    } 
+    if(placement == 3 || placement == 4){
+        return "🥈 Second 🥈";
+    }
+    if(placement == 5 || placement == 6){
+        return "🥉 Third 🥉";
+    }
+    if(placement == 7 || placement == 8){
+        return "😞 Fourth 😞";
+    }
+  }
