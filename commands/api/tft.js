@@ -44,15 +44,15 @@ module.exports = {
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
-            var players = "Players: ";
+            var players = "**Players**: ";
             for(let x = 0; x < 8; x++){
 
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
               if(x < 7){
-                players += p["name"] +", ";
+                players += `*{p["name"]}*` +", ";
               }else{
-                players += p["name"];
+                players += `*{p["name"]}*`
               }
             }
             printMatch += players;
@@ -62,13 +62,13 @@ module.exports = {
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     matchType = match["info"]["tft_game_type"];
-                    matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
+                    matchStats = `**Placement:** ${match["info"]["participants"][y]["placement"]} **Level:** ${match["info"]["participants"][y]["level"]}, **Players eliminated:** ${match["info"]["participants"][y]["players_eliminated"]}, **Total DMG to players:** ${match["info"]["participants"][y]["total_damage_to_players"]}`;
                     printMatch += `\n${matchStats}\n`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
                     var traits = "";
                     for(let z = 0; z < keys.length; z++){
                         if(match["info"]["participants"][y]["traits"][z]["tier_total"] > 1 || match["info"]["participants"][y]["traits"][z]["name"] == "Set6_Socialite"){
-                            traits += `${match["info"]["participants"][y]["traits"][z]["name"]}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} units  `;
+                            traits += `**${match["info"]["participants"][y]["traits"][z]["name"]}:** ${match["info"]["participants"][y]["traits"][z]["num_units"]} units  `;
                         }
                     } 
                     printMatch += `\n${traits}\n`
