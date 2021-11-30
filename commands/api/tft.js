@@ -29,10 +29,10 @@ module.exports = {
             (response) => response.json()
         );
         var content = "";
-        message.channel.send("```");
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
-            var printMatch = "```\n--------------------------------------------------------------------------------------------------------------------------------------\n";
+            var printMatch = "";
+            printMatch += "\n--------------------------------------------------------------------------------------------------------------------------------------\n";
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
@@ -55,8 +55,7 @@ module.exports = {
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     matchType = match["info"]["tft_game_type"];
                     matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
-                    message.channel.send(matchStats);
-                    printMatch += `\n${matchStats}`;
+                    printMatch += `\n${matchStats}\n`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
                     var traits = "";
                     for(let z = 0; z < keys.length; z++){
@@ -84,9 +83,8 @@ module.exports = {
                     printMatch += `\n${units}\n`                  
                 }
             }
-            var printMatch = "\n--------------------------------------------------------------------------------------------------------------------------------------\n";
+            printMatch += "\n--------------------------------------------------------------------------------------------------------------------------------------\n";
             message.channel.send(printMatch);
-          }     
-          message.channel.send("```");       
+          }           
     },
   };
