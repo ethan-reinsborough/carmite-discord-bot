@@ -25,14 +25,13 @@ module.exports = {
         
         var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
         message.channel.send(header);
-        message.channel.send(puuid);
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10&api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
         var content = "";
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
-            var printMatch = "\n---------------------------------------------------------------------------------------\n";
+            var printMatch = "\n--------------------------------------------------------------------------------------------------------------------------------------\n";
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
@@ -52,9 +51,7 @@ module.exports = {
             var matchType = "";
             for(let y = 0; y < 7; y++){
                 //If the player matches the summoner who calls command, get their match details
-                message.channel.send(match["info"]["participants"][y]["puuid"]);
                 if(parseInt(match["info"]["participants"][y]["puuid"]) == parseInt(puuid)){
-                    message.channel.send("Match found!");
                     matchType = match["info"]["tft_game_type"];
                     matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][i]["total_damage_to_players"]}`;
                     printMatch += `\nMode:${matchType}, ${matchStats}`;
@@ -84,7 +81,7 @@ module.exports = {
                     printMatch += `\n${units}\n`                  
                 }
             }
-            printMatch += "\n---------------------------------------------------------------------------------------\n";
+            var printMatch = "\n--------------------------------------------------------------------------------------------------------------------------------------\n";
             message.channel.send(printMatch);
           }            
     },
