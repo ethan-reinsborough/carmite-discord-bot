@@ -37,7 +37,7 @@ module.exports = {
         .setAuthor(`${summoner["name"]}`)
         .setTitle(`${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`)
         .setColor(randomColor)
-        .setFooter(`${input[2]} most recent matches:`)
+        .setFooter(`${input[2]} most recent match(es):`)
         await message.channel.send(embed);
 
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=${input[2]}&api_key=${process.env.RIOT_API_KEY}`).then(
