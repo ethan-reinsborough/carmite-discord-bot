@@ -25,6 +25,7 @@ module.exports = {
         
         var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
         message.channel.send(header);
+        message.channel.send(puuid);
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10&api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
@@ -51,6 +52,7 @@ module.exports = {
             var matchType = "";
             for(let y = 0; y < 7; y++){
                 //If the player matches the summoner who calls command, get their match details
+                message.channel.send(match["info"]["participants"][y]["puuid"]);
                 if(parseInt(match["info"]["participants"][y]["puuid"]) == parseInt(puuid)){
                     message.channel.send("Match found!");
                     matchType = match["info"]["tft_game_type"];
