@@ -36,7 +36,7 @@ module.exports = {
                 (response) => response.json()
               );
             var players = "Players: ";
-            for(let x = 0; x < 9; x++){
+            for(let x = 0; x < 8; x++){
 
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
