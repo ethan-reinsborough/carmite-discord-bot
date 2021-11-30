@@ -13,6 +13,14 @@ module.exports = {
             return;
         }
 
+        //Name checking for cringe accent users
+        if(input[1] == "Ayumi"){
+            input[1] = "Ayumí"
+        }
+        if(input[1] == "Polaris"){
+            input[1] = "Polariś"
+        }
+
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
