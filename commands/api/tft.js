@@ -42,7 +42,6 @@ module.exports = {
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=${input[2]}&api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
-        var content = "";
           //Get each match in matches
           for (let i = 0; i < parseInt(input[2]); i++) {
             var printMatch = "";
