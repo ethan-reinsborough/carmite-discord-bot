@@ -1,5 +1,7 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
-    name: "bestchar",
+    name: "bchar",
     description: "Gives a random anime character from the top 500 results.",
     async execute(message) {
         let pageNum = Math.floor(Math.random() * 10 + 1);
@@ -15,8 +17,12 @@ module.exports = {
         if (rank === 0) {
           rank = "Unranked";
         }
-        message.channel.send(`${title} | Rank: ${rank}`);
-        message.channel.send(res["top"][`${listNum}`]["image_url"]);
+
+        var randomColor = Math.floor(Math.random()*16777215).toString(16);
+        const embed = new MessageEmbed()
+          .setAuthor(`${title} | Rank: ${rank}`)
+          .setColor(randomColor)
+          .setImage(res["top"][`${listNum}`]["image_url"])
+          message.channel.send(embed);
     },
   };
-  

@@ -1,8 +1,10 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
-  name: "topanime",
-  description: "Gives a random anime from the top 2500 results.",
+  name: "banime",
+  description: "Gives a random anime from the top 500 results.",
   async execute(message) {
-    let pageNum = Math.floor(Math.random() * 50 + 1);
+    let pageNum = Math.floor(Math.random() * 10 + 1);
     const res = await fetch(
       `https://api.jikan.moe/v3/top/anime/${pageNum}`
     ).then((response) => response.json());
@@ -17,7 +19,12 @@ module.exports = {
     if (rank === 0) {
       rank = "Unranked";
     }
-    message.channel.send(`${title} | Rank: ${rank} | Score: ${score}`);
-    message.channel.send(res["top"][`${listNum}`]["image_url"]);
+
+    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+        const embed = new MessageEmbed()
+          .setAuthor(`${title} | Rank: ${rank} | Score: ${score}`)
+          .setColor(randomColor)
+          .setImage(res["top"][`${listNum}`]["image_url"])
+          message.channel.send(embed);
   },
 };

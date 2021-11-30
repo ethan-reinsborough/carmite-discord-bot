@@ -1,5 +1,5 @@
 
-  
+  //Currently broken due to image API
   const { MessageEmbed, Message } = require("discord.js");
   const { Spawn } = require("pokecord");
   module.exports = {
