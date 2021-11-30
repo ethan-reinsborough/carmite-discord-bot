@@ -8,8 +8,8 @@ module.exports = {
     async execute(message) {
         input = message.content.split(" ");
 
-        if(input[1] == null){
-            message.channel.send("Usage: tft <summoner name>");
+        if(input[1] == null || input[2] == null){
+            message.channel.send("Usage: tft <summoner name> <number of matches>");
             return;
         }
 
@@ -25,14 +25,14 @@ module.exports = {
         
         var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
         message.channel.send(header);
-        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10&api_key=${process.env.RIOT_API_KEY}`).then(
+        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=${input[2]}&api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
         var content = "";
           //Get each match in matches
-          for (let i = 0; i < 9; i++) {
+          for (let i = 1; i < parseInt(input[2]); i++) {
             var printMatch = "";
-            printMatch += "```fix\n--------------------------------------------------------------------------------------------------------------------------------------\n";
+            printMatch += "```fix\n";
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
@@ -82,7 +82,7 @@ module.exports = {
                     printMatch += `\n${units}\n`                  
                 }
             }
-            printMatch += "\n--------------------------------------------------------------------------------------------------------------------------------------```";
+            printMatch += "```";
             message.channel.send(printMatch);
           }           
     },
