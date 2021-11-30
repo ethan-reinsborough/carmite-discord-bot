@@ -27,11 +27,10 @@ module.exports = {
         
         var header = `${input[1]}: ${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
         message.channel.send(header);
-        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10?api_key=${process.env.RIOT_API_KEY}`).then(
+        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=10&api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
         var content = "";
-        message.channel.send(matches);
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
             var printMatch = "\n---------------------------------------------------------------------------------------\n";
@@ -41,7 +40,7 @@ module.exports = {
             message.channel.send(match["metadata"]["data_version"]);
             var players = "Players: ";
             for(let x = 0; x < 9; x++){
-                message.channel.send(match["metadata"]["participants"][`${x}`]);
+                message.channel.send(match["metadata"]["participants"][x]);
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
