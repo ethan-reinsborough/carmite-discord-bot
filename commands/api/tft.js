@@ -56,6 +56,8 @@ module.exports = {
                     message.channel.send("Match found!");
                     matchType = match["info"]["tft_game_type"];
                     matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
+                    message.channel.send(matchStats);
+                    messsage.channel.send(matchType)
                     printMatch += `\nMode:${matchType}, ${matchStats}`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
                     var traits = "";
