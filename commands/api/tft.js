@@ -30,7 +30,7 @@ module.exports = {
         );
         var content = "";
           //Get each match in matches
-          for (let i = 1; i < parseInt(input[2]); i++) {
+          for (let i = 0; i < parseInt(input[2]); i++) {
             var printMatch = "";
             printMatch += "```fix\n";
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
@@ -60,7 +60,7 @@ module.exports = {
                     var traits = "";
                     for(let z = 0; z < keys.length; z++){
                         if(match["info"]["participants"][y]["traits"][z]["tier_total"] > 1 || match["info"]["participants"][y]["traits"][z]["name"] == "Set6_Socialite"){
-                            traits += ` | ${match["info"]["participants"][y]["traits"][z]["name"]}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} units | `;
+                            traits += `${match["info"]["participants"][y]["traits"][z]["name"]}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} units  `;
                         }
                     } 
                     printMatch += `\n${traits}\n`
@@ -77,7 +77,7 @@ module.exports = {
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 3){
                             star = "⭐⭐⭐"
                         }
-                        units += ` | ${match["info"]["participants"][y]["units"][w]["character_id"]} ${star} | `;
+                        units += `${match["info"]["participants"][y]["units"][w]["character_id"]} ${star}  `;
                     } 
                     printMatch += `\n${units}\n`                  
                 }
