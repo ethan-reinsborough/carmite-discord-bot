@@ -8,8 +8,8 @@ module.exports = {
     async execute(message) {
         input = message.content.split(" ");
 
-        if(input[1] == null || input[2] == null || parseInt(input[2]) > 5 || isNaN(input[2])){
-            message.channel.send("Usage: tft <summoner name> <number of matches to show (1-5)>");
+        if(input[1] == null || input[2] == null || parseInt(input[2]) > 10 || isNaN(input[2])){
+            message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)>");
             return;
         }
 
