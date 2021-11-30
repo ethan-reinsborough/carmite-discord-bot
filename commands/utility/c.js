@@ -1,5 +1,5 @@
 module.exports = {
-    name: "e",
+    name: "c",
     description: "ethan/ayumi tft duo mode command for items",
     async execute(message) {
         input = message.content.split(" ");
