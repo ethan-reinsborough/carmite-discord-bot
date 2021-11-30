@@ -32,7 +32,7 @@ module.exports = {
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
             var printMatch = "";
-            printMatch += "\n--------------------------------------------------------------------------------------------------------------------------------------\n";
+            printMatch += "```fix\n--------------------------------------------------------------------------------------------------------------------------------------\n";
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
@@ -63,7 +63,6 @@ module.exports = {
                             traits += ` | ${match["info"]["participants"][y]["traits"][z]["name"]}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} units | `;
                         }
                     } 
-                    message.channel.send(traits);
                     printMatch += `\n${traits}\n`
                     const unitKeys = Object.keys(match["info"]["participants"][y]["units"]);
                     var units = "";
@@ -83,7 +82,7 @@ module.exports = {
                     printMatch += `\n${units}\n`                  
                 }
             }
-            printMatch += "\n--------------------------------------------------------------------------------------------------------------------------------------\n";
+            printMatch += "\n--------------------------------------------------------------------------------------------------------------------------------------```";
             message.channel.send(printMatch);
           }           
     },
