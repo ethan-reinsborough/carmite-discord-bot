@@ -39,7 +39,7 @@ module.exports = {
               );
             var players = "Players: ";
             for(let x = 0; x < 9; x++){
-                message.channel.send(match["metadata"]["participants"][0]);
+                message.channel.send(match["metadata"]["participants"][`${x}`]);
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
