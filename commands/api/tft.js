@@ -42,9 +42,9 @@ module.exports = {
                 (response) => response.json());
                 message.channel.send(p);
               if(x < 8){
-                players += p["summonerName"] +", ";
+                players += p["name"] +", ";
               }else{
-                players += p["summonerName"];
+                players += p["name"];
               }
             }
             printMatch += players;
