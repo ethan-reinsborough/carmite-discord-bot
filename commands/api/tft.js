@@ -96,7 +96,7 @@ module.exports = {
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 3){
                             star = "⭐⭐⭐"
                         }
-                        units += `${match["info"]["participants"][y]["units"][w]["character_id"]} ${star}  `;
+                        units += `${match["info"]["participants"][y]["units"][w]["character_id"].replace("TFT_6", "")} ${star}  `;
                     } 
                     printMatch += `\n${units}\n`                  
                 }
