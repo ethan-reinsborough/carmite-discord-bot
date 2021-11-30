@@ -16,7 +16,7 @@ module.exports = {
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
-
+          message.channel.send(summoner["id"]);
         var id = summoner["id"];
         var puuid = summoner["puuid"];
 
