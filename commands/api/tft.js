@@ -36,7 +36,8 @@ module.exports = {
         .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${summoner["profileIconId"]}.png`)
         .setAuthor(`${summoner["name"]}`)
         .setTitle(`${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`)
-        .setColor(randomColor);
+        .setColor(randomColor)
+        .setFooter(`${input[2]} most recent matches:`)
         await message.channel.send(embed);
 
         const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=${input[2]}&api_key=${process.env.RIOT_API_KEY}`).then(
