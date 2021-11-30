@@ -13,7 +13,7 @@ module.exports = {
             return;
         }
 
-        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input}`).then(
+        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}`).then(
             (response) => response.json()
           );
 
