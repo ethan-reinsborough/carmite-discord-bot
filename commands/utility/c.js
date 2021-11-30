@@ -20,7 +20,7 @@ module.exports = {
                 input[i] = "<:rod:913452341225730119>"
             }
             if(input[i] == "v"){
-                input[i] = "🦺"
+                input[i] = "<:cvest:915130817943048213>"
             }
             if(input[i] == "b"){
                 input[i] = "<:bow:913452318173851698>"
