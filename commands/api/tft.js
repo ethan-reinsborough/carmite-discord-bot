@@ -30,6 +30,7 @@ module.exports = {
             (response) => response.json()
         );
         var content = "";
+        message.channel.send(matches);
           //Get each match in matches
           for (let i = 0; i < 9; i++) {
             var printMatch = "\n---------------------------------------------------------------------------------------\n";
@@ -50,6 +51,7 @@ module.exports = {
             printMatch += players;
             var matchStats = "";
             var matchType = "";
+            message.channel.send(players);
             for(let y = 0; y < 9; y++){
                 //If the player matches the summoner who calls command, get their match details
                 if(match["info"]["participants"][y]["puuid"] == puuid){
