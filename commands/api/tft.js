@@ -21,7 +21,7 @@ module.exports = {
             input[1] = "Polariś"
         }
 
-        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}?api_key=${process.env.RIOT_API_KEY}`).then(
+        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
         var id = summoner["id"];
