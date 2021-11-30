@@ -16,8 +16,6 @@ module.exports = {
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${input[1]}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
-          //good
-          message.channel.send(summoner["id"]);
         var id = summoner["id"];
         var puuid = summoner["puuid"];
 
@@ -37,13 +35,12 @@ module.exports = {
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
-            message.channel.send(match["metadata"]["data_version"]);
             var players = "Players: ";
             for(let x = 0; x < 9; x++){
-                message.channel.send(match["metadata"]["participants"][x]);
+
                 var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
-                (response) => response.json()
-              );
+                (response) => response.json());
+                message.channel.send(p);
               if(x < 8){
                 players += p["summonerName"] +", ";
               }else{
