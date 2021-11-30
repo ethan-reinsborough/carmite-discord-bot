@@ -74,7 +74,7 @@ module.exports = {
                         if(placement == 5 || placement == 6){
                             placement = "🥉 Third 🥉";
                         }
-                        else{
+                        if(placement == 7 || placement == 8){
                             placement = "😞 Fourth 😞";
                         }
                     }
