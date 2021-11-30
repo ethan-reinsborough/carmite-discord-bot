@@ -1,5 +1,5 @@
 const apiKey = process.env.RIOT_API_KEY;
-
+const fetch = require("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
