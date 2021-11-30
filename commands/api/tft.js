@@ -50,7 +50,8 @@ module.exports = {
             var matchStats = "";
             var matchType = "";
             message.channel.send(players);
-            for(let y = 0; y < 9; y++){
+            for(let y = 0; y < 8; y++){
+                message.channel.send(match["info"]["participants"][y]["puuid"]);
                 //If the player matches the summoner who calls command, get their match details
                 if(match["info"]["participants"][y]["puuid"] == puuid){
                     matchType = match["info"]["tft_game_type"];
