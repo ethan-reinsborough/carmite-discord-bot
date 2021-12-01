@@ -18,7 +18,7 @@ module.exports = {
         .send(data, { split: true })
         .then(() => {
           if (message.channel.type === "dm") return;
-          message.reply("I've sent you a DM with all my commands!");
+          message.reply("OwO Senpai! I've noticed your ~~bulge~~ message and sent you a DM with all my commands~! uwu");
         })
         .catch((error) => {
           console.error(
