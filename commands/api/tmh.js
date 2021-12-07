@@ -85,6 +85,7 @@ module.exports = {
                         if ((match["info"]["participants"][y]["placement"] == 1 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 2 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))) {
                             duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                                 (response) => response.json());
+                                message.channel.send(duo["name"]);
                         }
                     }
                     if (doublePlacement == "#d4d4d4") {
