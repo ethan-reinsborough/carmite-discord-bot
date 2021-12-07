@@ -83,7 +83,6 @@ module.exports = {
                     }
                     if (doublePlacement == "#ffcb3d") {
                         if ((match["info"]["participants"][y]["placement"] == 1 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 2 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))) {
-                            message.channel.send(match["info"]["participants"][y]["puuid"]);
                             duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                                 (response) => response.json());
                         }
@@ -188,13 +187,14 @@ module.exports = {
                         xcord += 140;
                     }                  
                 }
+                var doublePlacement = "";
             }
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
                         .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
-                        .setFooter(duo["name"])
+                        .setFooter((duo["name"]).trim())
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
           }           
