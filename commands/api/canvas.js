@@ -16,6 +16,6 @@ module.exports = {
 	// Use the helpful Attachment class structure to process the file for you
 	const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
 
-	interaction.reply({ files: [attachment] });
+	message.channel.send({ files: [attachment] });
     },
   };
