@@ -16,7 +16,7 @@ module.exports = {
         }
 
         //Initialize the canvas and context
-        const canvas = Canvas.createCanvas(700, 300)
+        const canvas = Canvas.createCanvas(700, 500)
         const context = canvas.getContext('2d')
 
         //Name checking for cringe accent users
@@ -79,16 +79,16 @@ module.exports = {
                     //Reset the background to avoid overlap from previous matches
                     const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
                     context.drawImage(background, 0, 0, canvas.width, canvas.height);
-                    context.strokeRect(0, 0, 140, 150);
-                    context.strokeRect(140, 0, 140, 150);
-                    context.strokeRect(280, 0, 140, 150);
-                    context.strokeRect(420, 0, 140, 150);
-                    context.strokeRect(560, 0, 140, 150);
-                    context.strokeRect(0, 150, 140, 150);
-                    context.strokeRect(140, 150, 140, 150);
-                    context.strokeRect(280, 150, 140, 150);
-                    context.strokeRect(420, 150, 140, 150);
-                    context.strokeRect(560, 150, 140, 150);
+                    context.strokeRect(0, 200, 140, 350);
+                    context.strokeRect(140, 200, 140, 150);
+                    context.strokeRect(280, 200, 140, 150);
+                    context.strokeRect(420, 200, 140, 150);
+                    context.strokeRect(560, 200, 140, 150);
+                    context.strokeRect(0, 350, 140, 150);
+                    context.strokeRect(140, 350, 140, 150);
+                    context.strokeRect(280, 350, 140, 150);
+                    context.strokeRect(420, 350, 140, 150);
+                    context.strokeRect(560, 350, 140, 150);
                     var placement = match["info"]["participants"][y]["placement"];
                     matchType = match["info"]["tft_game_type"];
                     if(matchType == "pairs"){
@@ -122,10 +122,10 @@ module.exports = {
                             starcheck = 3
                             star = await Canvas.loadImage("https://raw.communitydragon.org/pbe/game/assets/ux/tft/notificationicons/goldstar.png");
                         }
-                        var ycord = 5;
+                        var ycord = 205;
                         //If the loop moves onto the 6th element, display images in the next row
                         if(w > 4){
-                            ycord = 155;
+                            ycord = 355;
                         }
                         if(w == 5){
                             xcord = 5;
