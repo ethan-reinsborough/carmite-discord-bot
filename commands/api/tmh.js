@@ -106,7 +106,7 @@ module.exports = {
                     printMatch += `\n${traits}\n`
                     const unitKeys = Object.keys(match["info"]["participants"][y]["units"]);
                     var units = "";
-                    var xcord = 0;
+                    var xcord = 5;
                     for(let w = 0; w < unitKeys.length; w++){
                         var star = "";
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 1){
@@ -118,7 +118,7 @@ module.exports = {
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 3){
                             star = 3
                         }
-                        var ycord = 0;
+                        var ycord = 5;
                         if(w > 4){
                             ycord = 155;
                         }
