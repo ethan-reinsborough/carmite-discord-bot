@@ -15,7 +15,10 @@ module.exports = {
 
 	// Use the helpful Attachment class structure to process the file for you
 	const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
-
-	message.channel.send({ files: [attachment] });
+  const embed = new MessageEmbed()
+  .setAuthor(`Test`)
+  .setImage(attachment)
+  message.channel.send(embed);
+	//message.channel.send({ files: [attachment] });
     },
   };
