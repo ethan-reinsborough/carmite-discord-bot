@@ -75,7 +75,6 @@ module.exports = {
             var matchType = "";
             var placement = "";
             for(let y = 0; y < 7; y++){
-                var placement = match["info"]["participants"][y]["placement"];
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     //Reset the background to avoid overlap from previous matches
@@ -91,6 +90,7 @@ module.exports = {
                     context.strokeRect(280, 150, 140, 150);
                     context.strokeRect(420, 150, 140, 150);
                     context.strokeRect(560, 150, 140, 150);
+                    var placement = match["info"]["participants"][y]["placement"];
                     matchType = match["info"]["tft_game_type"];
                     if(matchType == "pairs"){
                         matchType = "Double Up";
