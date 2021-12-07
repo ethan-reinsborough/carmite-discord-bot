@@ -197,12 +197,16 @@ module.exports = {
                 }
                 
             }
+            var footerVar = "ur mom";
+            if(matchType -= "Double Up"){
+                footerVar = (duo["name"]).trim()
+            }
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
                         .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
-                        .setFooter((duo["name"]).trim())
+                        .setFooter(footerVar)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
             var doublePlacement = "";
