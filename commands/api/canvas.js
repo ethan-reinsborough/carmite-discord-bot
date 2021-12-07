@@ -8,13 +8,18 @@ module.exports = {
     async execute(message) {
         const canvas = Canvas.createCanvas(700, 300)
         const context = canvas.getContext('2d')    // Load the background image and draw it to the canvas
-        const background = await Canvas.loadImage("https://i.imgur.com/ebv8tyw.png");
+        const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
         context.drawImage(background, 0, 0, canvas.width, canvas.height);
         context.strokeRect(0, 0, 140, 150);
         context.strokeRect(140, 0, 140, 150);
         context.strokeRect(280, 0, 140, 150);
         context.strokeRect(420, 0, 140, 150);
         context.strokeRect(560, 0, 140, 150);
+        context.strokeRect(0, 0, 140, 150);
+        context.strokeRect(140, 150, 140, 150);
+        context.strokeRect(280, 150, 140, 150);
+        context.strokeRect(420, 150, 140, 150);
+        context.strokeRect(560, 150, 140, 150);
         var zyra = await Canvas.loadImage("https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/tft6_zyra_mobile.tft_set6.png");
         context.drawImage(zyra, 5, 5, 130, 140);
         context.drawImage(zyra, 145, 5, 130, 140);
