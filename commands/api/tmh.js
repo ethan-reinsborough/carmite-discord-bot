@@ -176,7 +176,7 @@ module.exports = {
     }
   }
   function timeConverter(UNIX_timestamp){
-    var a = new Date(UNIX_timestamp * 1000);
+    var a = new Date(UNIX_timestamp);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var year = a.getFullYear();
     var month = months[a.getMonth()];
@@ -184,6 +184,6 @@ module.exports = {
     var hour = a.getHours();
     var min = a.getMinutes();
     var sec = a.getSeconds();
-    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    var time = a.getFullYear() + '-' + a.getMonth + '-' + a.getDate;
     return time;
   }
