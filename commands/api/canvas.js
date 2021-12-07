@@ -7,11 +7,10 @@ module.exports = {
     description: "Test",
     async execute(message) {
         const canvas = Canvas.createCanvas(700, 250)
-        const ctx = canvas.getContext('2d')    // Load the background image and draw it to the canvas
+        const context = canvas.getContext('2d')    // Load the background image and draw it to the canvas
         const background = await Canvas.loadImage("https://i.imgur.com/ruMzelh.jpeg");
         let x = 0
         let y = 0
-        ctx.drawImage(background, x, y)
         context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 	// Use the helpful Attachment class structure to process the file for you
