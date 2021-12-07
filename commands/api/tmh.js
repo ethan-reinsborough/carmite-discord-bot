@@ -15,6 +15,21 @@ module.exports = {
             return;
         }
 
+        const canvas = Canvas.createCanvas(700, 300)
+                        const context = canvas.getContext('2d')    // Load the background image and draw it to the canvas
+                        const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
+                        context.drawImage(background, 0, 0, canvas.width, canvas.height);
+                        context.strokeRect(0, 0, 140, 150);
+                        context.strokeRect(140, 0, 140, 150);
+                        context.strokeRect(280, 0, 140, 150);
+                        context.strokeRect(420, 0, 140, 150);
+                        context.strokeRect(560, 0, 140, 150);
+                        context.strokeRect(0, 150, 140, 150);
+                        context.strokeRect(140, 150, 140, 150);
+                        context.strokeRect(280, 150, 140, 150);
+                        context.strokeRect(420, 150, 140, 150);
+                        context.strokeRect(560, 150, 140, 150);
+
         //Name checking for cringe accent users
         if(input[1] == "Ayumi"){
             input[1] = "Ayumí"
@@ -103,10 +118,6 @@ module.exports = {
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 3){
                             star = 3
                         }
-                        const canvas = Canvas.createCanvas(700, 300)
-                        const context = canvas.getContext('2d')    // Load the background image and draw it to the canvas
-                        const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
-                        context.drawImage(background, 0, 0, canvas.width, canvas.height);
                         var ycord = 0;
                         if(w > 4){
                             ycord = 155;
@@ -114,16 +125,6 @@ module.exports = {
                         if(w == 5){
                             xcord = 5;
                         }
-                        context.strokeRect(0, 0, 140, 150);
-                        context.strokeRect(140, 0, 140, 150);
-                        context.strokeRect(280, 0, 140, 150);
-                        context.strokeRect(420, 0, 140, 150);
-                        context.strokeRect(560, 0, 140, 150);
-                        context.strokeRect(0, 150, 140, 150);
-                        context.strokeRect(140, 150, 140, 150);
-                        context.strokeRect(280, 150, 140, 150);
-                        context.strokeRect(420, 150, 140, 150);
-                        context.strokeRect(560, 150, 140, 150);
                         var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
                         var champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                         context.drawImage(champImage, xcord, ycord, 130, 140);
