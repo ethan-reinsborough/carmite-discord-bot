@@ -131,12 +131,12 @@ module.exports = {
                         var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
                         var champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                         context.drawImage(champImage, xcord, ycord, 130, 140);
-                        if(star > 1){
-                            if(star == 2){
+                        if(starcheck > 1){
+                            if(starcheck == 2){
                                 context.drawImage(star, xcord+40, ycord+140, 25, 25);
                                 context.drawImage(star, xcord+85, ycord+140, 25, 25);
                             }
-                            if(star == 3){
+                            if(starcheck == 3){
                                 context.drawImage(star, xcord, ycord+140, 25, 25);
                                 context.drawImage(star, xcord+40, ycord+140, 25, 25);
                                 context.drawImage(star, xcord+80, ycord+140, 25, 25);
@@ -152,7 +152,6 @@ module.exports = {
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
-                        .setAuthor(`Test`)
                         .setDescription(printMatch)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
