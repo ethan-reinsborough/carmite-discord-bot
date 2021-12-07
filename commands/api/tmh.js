@@ -26,7 +26,6 @@ module.exports = {
         if(input[1] == "Polaris"){
             input[1] = "Polariś"
         }
-        message.channel.send("IS THE CANVAS BEING RECYCLED????")
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
@@ -56,7 +55,7 @@ module.exports = {
           //Get each match in matches
           for (let i = 0; i < parseInt(input[2]); i++) {
             var printMatch = "";
-
+            message.channel.send(matches[i]);
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
