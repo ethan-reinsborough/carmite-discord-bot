@@ -156,6 +156,7 @@ module.exports = {
                         .setImage('attachment://profile-image.png')
                         .setTimestamp(timeConverter(match["info"]["game_datetime"]))
                         message.channel.send(embed);
+                        message.channel.send(timeConverter(match["info"]["game_datetime"]));
             //message.channel.send(printMatch);
           }           
     },
@@ -184,6 +185,6 @@ module.exports = {
     var hour = a.getHours();
     var min = a.getMinutes();
     var sec = a.getSeconds();
-    var time = a.getFullYear() + '-' + a.getMonth + '-' + a.getDate;
+    var time = new Date(`${a.getFullYear() + '-' + a.getMonth + '-' + a.getDate}`)
     return time;
   }
