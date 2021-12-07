@@ -75,6 +75,7 @@ module.exports = {
             var placement = "";
             var duo = "";
             for(let y = 0; y < 7; y++){
+                /*
                 if (match["info"]["tft_game_type"] == "pairs") {
                     //Incredibly monkey code way of determining your duo in double up using hex codes to add to the chaos
                     if (String(match["info"]["participants"][y]["puuid"]) == String(puuid)) {
@@ -113,7 +114,7 @@ module.exports = {
                                 message.channel.send(duo["name"]);
                         }
                     }
-                }
+                }*/
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     //Reset the background to avoid overlap from previous matches
@@ -197,19 +198,14 @@ module.exports = {
                 }
                 
             }
-            var footerVar = "ur mom";
-            if(matchType -= "Double Up"){
-                footerVar = (duo["name"]).trim()
-            }
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
                         .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
-                        .setFooter(footerVar)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
-            var doublePlacement = "";
+            //var doublePlacement = "";
           }           
     },
   };
