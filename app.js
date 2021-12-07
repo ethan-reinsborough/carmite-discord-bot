@@ -56,7 +56,6 @@ client.on("ready", () => {
 
 client.login(process.env.BOT_TOKEN);
 
-//Update
 //#region Factory Implementation
 
 /* Disabled as requested by users
