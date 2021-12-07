@@ -133,13 +133,13 @@ module.exports = {
                         context.drawImage(champImage, xcord, ycord, 130, 140);
                         if(starcheck > 1){
                             if(starcheck == 2){
-                                context.drawImage(star, xcord+40, ycord+140, 25, 25);
-                                context.drawImage(star, xcord+85, ycord+140, 25, 25);
+                                context.drawImage(star, xcord+55, ycord+120, 25, 25);
+                                context.drawImage(star, xcord+75, ycord+120, 25, 25);
                             }
                             if(starcheck == 3){
-                                context.drawImage(star, xcord, ycord+140, 25, 25);
-                                context.drawImage(star, xcord+40, ycord+140, 25, 25);
-                                context.drawImage(star, xcord+80, ycord+140, 25, 25);
+                                context.drawImage(star, xcord, ycord+120, 25, 25);
+                                context.drawImage(star, xcord+40, ycord+120, 25, 25);
+                                context.drawImage(star, xcord+80, ycord+120, 25, 25);
                             }
                         }
                         xcord += 140;
