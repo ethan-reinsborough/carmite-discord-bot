@@ -15,7 +15,7 @@ module.exports = {
         context.strokeRect(280, 0, 140, 150);
         context.strokeRect(420, 0, 140, 150);
         context.strokeRect(560, 0, 140, 150);
-        context.strokeRect(0, 0, 140, 150);
+        context.strokeRect(0, 150, 140, 150);
         context.strokeRect(140, 150, 140, 150);
         context.strokeRect(280, 150, 140, 150);
         context.strokeRect(420, 150, 140, 150);
