@@ -8,13 +8,13 @@ module.exports = {
     async execute(message) {
         const canvas = Canvas.createCanvas(700, 500)
         const context = canvas.getContext('2d')    // Load the background image and draw it to the canvas
-        const background = await Canvas.loadImage("https://i.imgur.com/ruMzelh.jpeg");
+        const background = await Canvas.loadImage("https://i.imgur.com/ebv8tyw.png");
         context.drawImage(background, 0, 0, canvas.width, canvas.height);
-        context.strokeRect(0, 0, canvas.width, canvas.height);
-        context.strokeRect(140, 0, canvas.width, canvas.height);
-        context.strokeRect(280, 0, canvas.width, canvas.height);
-        context.strokeRect(420, 0, canvas.width, canvas.height);
-        context.strokeRect(560, 0, canvas.width, canvas.height);
+        context.strokeRect(0, 0, 140, 250);
+        context.strokeRect(140, 0, 140, 250);
+        context.strokeRect(280, 0, 140, 250);
+        context.strokeRect(420, 0, 140, 250);
+        context.strokeRect(560, 0, 140, 250);
 	// Use the helpful Attachment class structure to process the file for you
 	const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
   const embed = new MessageEmbed()
