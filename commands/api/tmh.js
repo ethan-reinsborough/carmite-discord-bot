@@ -183,7 +183,7 @@ module.exports = {
     return time;
   }
 
-function drawBg(context) {
+async function drawBg(context) {
     const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
     context.drawImage(background, 0, 0, canvas.width, canvas.height);
     context.strokeRect(0, 0, 140, 150);
