@@ -13,7 +13,7 @@ module.exports = {
         ctx.drawImage(background, x, y)
         const embed = new MessageEmbed()
           .setAuthor("Test")
-          .setImage(canvas.toBuffer())
+          .setImage(canvas.toDataURL())
           message.channel.send(embed);
     },
   };
