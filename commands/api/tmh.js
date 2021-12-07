@@ -154,6 +154,7 @@ module.exports = {
                         .attachFiles(attachment)
                         .setDescription(printMatch)
                         .setImage('attachment://profile-image.png')
+                        .setTimestamp(timeConverter(match["info"]["game_datetime"]))
                         message.channel.send(embed);
             //message.channel.send(printMatch);
           }           
@@ -173,4 +174,17 @@ module.exports = {
     if(placement == 7 || placement == 8){
         return "😞 Fourth 😞";
     }
+
+    function timeConverter(UNIX_timestamp){
+        var a = new Date(UNIX_timestamp * 1000);
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var sec = a.getSeconds();
+        var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+        return time;
+      }
   }
