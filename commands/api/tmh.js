@@ -197,7 +197,7 @@ module.exports = {
                         .setFooter((duo["name"]).trim())
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
-                        var doublePlacement = "";
+            var doublePlacement = "";
           }           
     },
   };
