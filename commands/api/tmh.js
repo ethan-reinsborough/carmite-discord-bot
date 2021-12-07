@@ -43,7 +43,7 @@ module.exports = {
         }
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
         const embed = new MessageEmbed()
-        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${summoner["profileIconId"]}.png`)
+        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.23.1/profileicon/${summoner["profileIconId"]}.png`)
         .setAuthor(`${summoner["name"]}`)
         .setTitle(`${rankedDisplay}`)
         .setColor(randomColor)
