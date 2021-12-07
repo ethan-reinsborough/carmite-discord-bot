@@ -84,6 +84,7 @@ module.exports = {
                 if(doublePlacement == "#ffcb3d"){
                     if((match["info"]["participants"][y]["placement"] == 1 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 2 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))){
                         message.channel.send("This should mean my duo is in here!");
+                        message.channel.send(match["info"]["participants"][y]["puuid"]);
                         duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                             (response) => response.json());
                        message.channel.send(duo);
