@@ -162,6 +162,7 @@ module.exports = {
                         .attachFiles(attachment)
                         .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
+                        .setFooter(placement)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
           }           
