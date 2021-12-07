@@ -1,5 +1,6 @@
 const Canvas = require('canvas');
 const { MessageEmbed } = require("discord.js");
+const { MessageAttachment } = require('discord.js');
 
 module.exports = {
     name: "canvas",
@@ -11,9 +12,11 @@ module.exports = {
         let x = 0
         let y = 0
         ctx.drawImage(background, x, y)
-        const embed = new MessageEmbed()
-          .setAuthor("Test")
-          .setImage(canvas.toDataURL())
-          message.channel.send(embed);
+        context.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+	// Use the helpful Attachment class structure to process the file for you
+	const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
+
+	interaction.reply({ files: [attachment] });
     },
   };
