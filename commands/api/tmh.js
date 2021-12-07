@@ -109,14 +109,17 @@ module.exports = {
                     var xcord = 5;
                     for(let w = 0; w < unitKeys.length; w++){
                         var star = "";
+                        var starcheck = 0;
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 1){
-                            star = 1
+                            starcheck = 1
                         }
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 2){
-                            star = 2
+                            starcheck = 2
+                            star = await Canvas.loadImage("https://raw.communitydragon.org/pbe/game/assets/ux/tft/notificationicons/silverstar.png");
                         }
                         if(match["info"]["participants"][y]["units"][w]["tier"] == 3){
-                            star = 3
+                            starcheck = 3
+                            star = await Canvas.loadImage("https://raw.communitydragon.org/pbe/game/assets/ux/tft/notificationicons/goldstar.png");
                         }
                         var ycord = 5;
                         if(w > 4){
@@ -128,6 +131,17 @@ module.exports = {
                         var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
                         var champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                         context.drawImage(champImage, xcord, ycord, 130, 140);
+                        if(star > 1){
+                            if(star == 2){
+                                context.drawImage(star, xcord+40, ycord+140, 25, 25);
+                                context.drawImage(star, xcord+85, ycord+140, 25, 25);
+                            }
+                            if(star == 3){
+                                context.drawImage(star, xcord, ycord+140, 25, 25);
+                                context.drawImage(star, xcord+40, ycord+140, 25, 25);
+                                context.drawImage(star, xcord+80, ycord+140, 25, 25);
+                            }
+                        }
                         xcord += 140;
                         // Use the helpful Attachment class structure to process the file for you
                         
