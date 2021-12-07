@@ -14,10 +14,10 @@ module.exports = {
         context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 	// Use the helpful Attachment class structure to process the file for you
-	const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
+	//const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
   const embed = new MessageEmbed()
   .setAuthor(`Test`)
-  .setImage(attachment)
+  .setImage(canvas.toBuffer())
   message.channel.send(embed);
 	//message.channel.send({ files: [attachment] });
     },
