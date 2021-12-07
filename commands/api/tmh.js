@@ -85,6 +85,7 @@ module.exports = {
                         if ((match["info"]["participants"][y]["placement"] == 1 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 2 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))) {
                             duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                                 (response) => response.json());
+                                message.channel.send("1");
                                 message.channel.send(duo["name"]);
                         }
                     }
@@ -92,18 +93,24 @@ module.exports = {
                         if ((match["info"]["participants"][y]["placement"] == 3 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 4 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))) {
                             duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                                 (response) => response.json());
+                                message.channel.send("2");
+                                message.channel.send(duo["name"]);
                         }
                     }
                     if (doublePlacement == "#945e1c") {
                         if ((match["info"]["participants"][y]["placement"] == 5 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 6 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))) {
                             duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                                 (response) => response.json());
+                                message.channel.send("3");
+                                message.channel.send(duo["name"]);
                         }
                     }
                     if (doublePlacement == "#000000") {
                         if ((match["info"]["participants"][y]["placement"] == 7 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 8 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))) {
                             duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                                 (response) => response.json());
+                                message.channel.send("4");
+                                message.channel.send(duo["name"]);
                         }
                     }
                 }
