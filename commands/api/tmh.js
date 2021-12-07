@@ -205,7 +205,6 @@ module.exports = {
                         .setDescription(printMatch)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
-            //var doublePlacement = "";
           }           
     },
   };
