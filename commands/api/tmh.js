@@ -70,11 +70,39 @@ module.exports = {
                 players += p["name"];
               }
             }
-            printMatch += players;
             var matchStats = "";
             var matchType = "";
             var placement = "";
             for(let y = 0; y < 7; y++){
+                var duo = "";
+                if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
+                    var duo = match["info"]["participants"][y]["placement"];
+                    var doublePlacement = GetDoubleUpPlacement(duo);
+                }
+                if(doublePlacement == "#ffcb3d"){
+                    if((match["info"]["participants"][y]["placement"] == 1 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 2 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))){
+                        duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
+                            (response) => response.json());
+                    }
+                }
+                if(doublePlacement == "#d4d4d4"){
+                    if((match["info"]["participants"][y]["placement"] == 3 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 4 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))){
+                        duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
+                            (response) => response.json());
+                    }
+                }
+                if(doublePlacement == "#945e1c"){
+                    if((match["info"]["participants"][y]["placement"] == 5 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 6 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))){
+                        duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
+                            (response) => response.json());
+                    }
+                }
+                if(doublePlacement == "#000000"){
+                    if((match["info"]["participants"][y]["placement"] == 7 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid)) || (match["info"]["participants"][y]["placement"] == 8 && String(match["info"]["participants"][y]["puuid"]) !== String(puuid))){
+                        duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
+                            (response) => response.json());
+                    }
+                }
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     //Reset the background to avoid overlap from previous matches
@@ -162,7 +190,7 @@ module.exports = {
                         .attachFiles(attachment)
                         .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
-                        .setFooter(placement)
+                        .setFooter(duo)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
           }           
