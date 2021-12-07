@@ -187,7 +187,7 @@ module.exports = {
                         xcord += 140;
                     }                  
                 }
-                var doublePlacement = "";
+                
             }
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
@@ -197,6 +197,7 @@ module.exports = {
                         .setFooter((duo["name"]).trim())
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
+                        var doublePlacement = "";
           }           
     },
   };
