@@ -15,6 +15,12 @@ module.exports = {
         context.strokeRect(280, 0, 140, 150);
         context.strokeRect(420, 0, 140, 150);
         context.strokeRect(560, 0, 140, 150);
+        var zyra = await Canvas.loadImage("https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/tft6_zyra_mobile.tft_set6.png");
+        context.drawImage(zyra, 0, 0, 130, 140);
+        context.drawImage(zyra, 140, 0, 130, 140);
+        context.drawImage(zyra, 280, 0, 130, 140);
+        context.drawImage(zyra, 420, 0, 130, 140);
+        context.drawImage(zyra, 560, 0, 130, 140);
 	// Use the helpful Attachment class structure to process the file for you
 	const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
   const embed = new MessageEmbed()
