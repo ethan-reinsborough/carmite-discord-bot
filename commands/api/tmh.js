@@ -104,7 +104,7 @@ module.exports = {
                             traits += `${match["info"]["participants"][y]["traits"][z]["name"].replace("Set6_", "")}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} unit(s)  `;
                         }
                     } 
-                    //
+                    //UPDATE
                     printMatch += `\n${traits}\n`
                     const unitKeys = Object.keys(match["info"]["participants"][y]["units"]);
                     var units = "";
