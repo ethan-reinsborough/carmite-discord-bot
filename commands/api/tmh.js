@@ -43,7 +43,7 @@ module.exports = {
         }
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
         const embed = new MessageEmbed()
-        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.23.1/profileicon/${summoner["profileIconId"]}.png`)
+        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.23.1/img/profileicon/${summoner["profileIconId"]}.png`)
         .setAuthor(`${summoner["name"]}`)
         .setTitle(`${rankedDisplay}`)
         .setColor(randomColor)
@@ -77,7 +77,18 @@ module.exports = {
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     //Reset the background to avoid overlap from previous matches
-                    drawBg(context);
+                    const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
+                    context.drawImage(background, 0, 0, canvas.width, canvas.height);
+                    context.strokeRect(0, 0, 140, 150);
+                    context.strokeRect(140, 0, 140, 150);
+                    context.strokeRect(280, 0, 140, 150);
+                    context.strokeRect(420, 0, 140, 150);
+                    context.strokeRect(560, 0, 140, 150);
+                    context.strokeRect(0, 150, 140, 150);
+                    context.strokeRect(140, 150, 140, 150);
+                    context.strokeRect(280, 150, 140, 150);
+                    context.strokeRect(420, 150, 140, 150);
+                    context.strokeRect(560, 150, 140, 150);
                     matchType = match["info"]["tft_game_type"];
                     var placement = match["info"]["participants"][y]["placement"];
                     if(matchType == "pairs"){
@@ -182,18 +193,3 @@ module.exports = {
     var time = new Date(`${a.getFullYear() + '-' + a.getMonth + '-' + a.getDate}`)
     return time;
   }
-
-async function drawBg(context) {
-    const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
-    context.drawImage(background, 0, 0, canvas.width, canvas.height);
-    context.strokeRect(0, 0, 140, 150);
-    context.strokeRect(140, 0, 140, 150);
-    context.strokeRect(280, 0, 140, 150);
-    context.strokeRect(420, 0, 140, 150);
-    context.strokeRect(560, 0, 140, 150);
-    context.strokeRect(0, 150, 140, 150);
-    context.strokeRect(140, 150, 140, 150);
-    context.strokeRect(280, 150, 140, 150);
-    context.strokeRect(420, 150, 140, 150);
-    context.strokeRect(560, 150, 140, 150);
-}
