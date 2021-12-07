@@ -86,6 +86,7 @@ module.exports = {
                         message.channel.send("This should mean my duo is in here!");
                         duo = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["info"]["participants"][y]["puuid"]}?api_key=${process.env.RIOT_API_KEY}`).then(
                             (response) => response.json());
+                       message.channel.send(duo);
                     }
                 }
                 if(doublePlacement == "#d4d4d4"){
