@@ -154,9 +154,9 @@ module.exports = {
                         .attachFiles(attachment)
                         .setDescription(printMatch)
                         .setImage('attachment://profile-image.png')
-                        .setTimestamp(timeConverter(match["info"]["game_datetime"]))
+                        //.setTimestamp(timeConverter(match["info"]["game_datetime"]))
                         message.channel.send(embed);
-                        message.channel.send(timeConverter(match["info"]["game_datetime"]));
+                        //message.channel.send(timeConverter(match["info"]["game_datetime"]));
             //message.channel.send(printMatch);
           }           
     },
