@@ -73,7 +73,9 @@ module.exports = {
             printMatch += players;
             var matchStats = "";
             var matchType = "";
+            var placement = "";
             for(let y = 0; y < 7; y++){
+                var placement = match["info"]["participants"][y]["placement"];
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
                     //Reset the background to avoid overlap from previous matches
@@ -155,7 +157,6 @@ module.exports = {
                     }                  
                 }
             }
-            var placement = match["info"]["participants"][y]["placement"];
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
