@@ -6,7 +6,7 @@ module.exports = {
     name: "canvas",
     description: "Test",
     async execute(message) {
-        const canvas = Canvas.createCanvas(700, 250)
+        const canvas = Canvas.createCanvas(1000, 500)
         const context = canvas.getContext('2d')    // Load the background image and draw it to the canvas
         const background = await Canvas.loadImage("https://i.imgur.com/ruMzelh.jpeg");
         let x = 0
