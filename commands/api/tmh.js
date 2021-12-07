@@ -79,6 +79,8 @@ module.exports = {
                     //Reset the background to avoid overlap from previous matches
                     const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
                     context.drawImage(background, 0, 0, canvas.width, canvas.height);
+                    teststar = await Canvas.loadImage("https://raw.communitydragon.org/pbe/game/assets/ux/tft/notificationicons/silverstar.png");
+                    context.drawImage(teststar, 0, 0, 25, 25);
                     context.strokeRect(0, 200, 140, 350);
                     context.strokeRect(140, 200, 140, 150);
                     context.strokeRect(280, 200, 140, 150);
