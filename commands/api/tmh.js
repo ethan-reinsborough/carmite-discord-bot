@@ -90,13 +90,11 @@ module.exports = {
                     context.strokeRect(420, 150, 140, 150);
                     context.strokeRect(560, 150, 140, 150);
                     matchType = match["info"]["tft_game_type"];
-                    var placement = match["info"]["participants"][y]["placement"];
                     if(matchType == "pairs"){
                         matchType = "Double Up";
-                        placement = GetDoubleUpPlacement(placement);
                     }
                     printMatch += `\nMode: ${matchType}\n`
-                    matchStats = `Placement: ${placement} Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
+                    matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
                     printMatch += `\n${matchStats}\n`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
                     var traits = "";
@@ -157,9 +155,11 @@ module.exports = {
                     }                  
                 }
             }
+            var placement = match["info"]["participants"][y]["placement"];
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
+                        .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
@@ -169,16 +169,16 @@ module.exports = {
 
   function GetDoubleUpPlacement(placement) {
     if(placement == 1 || placement == 2){
-        return "🏆 First 🏆";
+        return "#ffcb3d";
     } 
     if(placement == 3 || placement == 4){
-        return "🥈 Second 🥈";
+        return "#d4d4d4";
     }
     if(placement == 5 || placement == 6){
-        return "🥉 Third 🥉";
+        return "#945e1c";
     }
     if(placement == 7 || placement == 8){
-        return "😞 Fourth 😞";
+        return "#000000";
     }
   }
   function timeConverter(UNIX_timestamp){
