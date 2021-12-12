@@ -15,26 +15,14 @@ module.exports = {
             return;
         }
 
-        const canvas = Canvas.createCanvas(700, 300)
-                        const context = canvas.getContext('2d')    // Load the background image and draw it to the canvas
-                        const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
-                        context.drawImage(background, 0, 0, canvas.width, canvas.height);
-                        context.strokeRect(0, 0, 140, 150);
-                        context.strokeRect(140, 0, 140, 150);
-                        context.strokeRect(280, 0, 140, 150);
-                        context.strokeRect(420, 0, 140, 150);
-                        context.strokeRect(560, 0, 140, 150);
-                        context.strokeRect(0, 150, 140, 150);
-                        context.strokeRect(140, 150, 140, 150);
-                        context.strokeRect(280, 150, 140, 150);
-                        context.strokeRect(420, 150, 140, 150);
-                        context.strokeRect(560, 150, 140, 150);
+        //Initialize the canvas and context
+        const canvas = Canvas.createCanvas(700, 400)
+        const context = canvas.getContext('2d')
 
         //Name checking for cringe accent users
         if(input[1] == "Polaris"){
             input[1] = "Polariś"
         }
-
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
           );
@@ -51,7 +39,7 @@ module.exports = {
         }
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
         const embed = new MessageEmbed()
-        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${summoner["profileIconId"]}.png`)
+        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.23.1/img/profileicon/${summoner["profileIconId"]}.png`)
         .setAuthor(`${summoner["name"]}`)
         .setTitle(`${rankedDisplay}`)
         .setColor(randomColor)
@@ -64,7 +52,6 @@ module.exports = {
           //Get each match in matches
           for (let i = 0; i < parseInt(input[2]); i++) {
             var printMatch = "";
-
             var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json()
               );
@@ -78,20 +65,32 @@ module.exports = {
                 players += p["name"];
               }
             }
-            printMatch += players;
             var matchStats = "";
             var matchType = "";
+            var placement = "";
             for(let y = 0; y < 7; y++){
                 //If the player matches the summoner who calls command, get their match details
                 if(String(match["info"]["participants"][y]["puuid"]) == String(puuid)){
-                    matchType = match["info"]["tft_game_type"];
+                    //Reset the background to avoid overlap from previous matches
+                    const background = await Canvas.loadImage("https://i.imgur.com/aRoCXLa.png");
+                    context.drawImage(background, 0, 0, canvas.width, canvas.height);
+                    context.strokeRect(0, 100, 140, 350);
+                    context.strokeRect(140, 100, 140, 150);
+                    context.strokeRect(280, 100, 140, 150);
+                    context.strokeRect(420, 100, 140, 150);
+                    context.strokeRect(560, 100, 140, 150);
+                    context.strokeRect(0, 250, 140, 150);
+                    context.strokeRect(140, 250, 140, 150);
+                    context.strokeRect(280, 250, 140, 150);
+                    context.strokeRect(420, 250, 140, 150);
+                    context.strokeRect(560, 250, 140, 150);
                     var placement = match["info"]["participants"][y]["placement"];
+                    matchType = match["info"]["tft_game_type"];
                     if(matchType == "pairs"){
                         matchType = "Double Up";
-                        placement = GetDoubleUpPlacement(placement);
                     }
                     printMatch += `\nMode: ${matchType}\n`
-                    matchStats = `Placement: ${placement} Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
+                    matchStats = `Level: ${match["info"]["participants"][y]["level"]}, Players eliminated: ${match["info"]["participants"][y]["players_eliminated"]}, Total DMG to players: ${match["info"]["participants"][y]["total_damage_to_players"]}`;
                     printMatch += `\n${matchStats}\n`;
                     const keys = Object.keys(match["info"]["participants"][y]["traits"]);
                     var traits = "";
@@ -100,6 +99,7 @@ module.exports = {
                             traits += `${match["info"]["participants"][y]["traits"][z]["name"].replace("Set6_", "")}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} unit(s)  `;
                         }
                     } 
+                    //UPDATE
                     printMatch += `\n${traits}\n`
                     const unitKeys = Object.keys(match["info"]["participants"][y]["units"]);
                     var units = "";
@@ -118,59 +118,68 @@ module.exports = {
                             starcheck = 3
                             star = await Canvas.loadImage("https://raw.communitydragon.org/pbe/game/assets/ux/tft/notificationicons/goldstar.png");
                         }
-                        var ycord = 5;
+                        var ycord = 105;
+                        //If the loop moves onto the 6th element, display images in the next row
                         if(w > 4){
-                            ycord = 155;
+                            ycord = 255;
                         }
                         if(w == 5){
                             xcord = 5;
                         }
+                        //Draw the champion's image into the correct coordinates
                         var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
                         var champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                         context.drawImage(champImage, xcord, ycord, 130, 140);
+                        //If the champion is greater than a 1 star, draw stars onto the image in the correct positions
                         if(starcheck > 1){
+                            var displacement = 40;
                             if(starcheck == 2){
-                                context.drawImage(star, xcord+40, ycord+120, 25, 25);
-                                context.drawImage(star, xcord+60, ycord+120, 25, 25);
+                                for(let c = 0; c < starcheck; c++){
+                                    context.drawImage(star, xcord+displacement, ycord+120, 25, 25);
+                                    displacement += 20;
+                                }
                             }
                             if(starcheck == 3){
-                                context.drawImage(star, xcord+35, ycord+120, 25, 25);
-                                context.drawImage(star, xcord+55, ycord+120, 25, 25);
-                                context.drawImage(star, xcord+75, ycord+120, 25, 25);
+                                displacement = 35;
+                                for(let c = 0; c < starcheck; c++){
+                                    context.drawImage(star, xcord+displacement, ycord+120, 25, 25);
+                                    displacement += 20;
+                                }
                             }
                         }
+                        //Move 140 pixels to the right for the next image in the sequence
                         xcord += 140;
-                        // Use the helpful Attachment class structure to process the file for you
-                        
-                        //units += `${match["info"]["participants"][y]["units"][w]["character_id"].replace("TFT6_", "")} ${star}  `;
                     }                  
                 }
+                
             }
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
+                        .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
                         .setImage('attachment://profile-image.png')
-                        //.setTimestamp(timeConverter(match["info"]["game_datetime"]))
                         message.channel.send(embed);
-                        //message.channel.send(timeConverter(match["info"]["game_datetime"]));
-            //message.channel.send(printMatch);
           }           
     },
   };
 
   function GetDoubleUpPlacement(placement) {
     if(placement == 1 || placement == 2){
+<<<<<<< HEAD
         return "🥶 First 🍦";
+=======
+        return "#ffcb3d";
+>>>>>>> 704a78bae1025932acf5b5892032795b9c00dbe3
     } 
     if(placement == 3 || placement == 4){
-        return "🥈 Second 🥈";
+        return "#d4d4d4";
     }
     if(placement == 5 || placement == 6){
-        return "🥉 Third 🥉";
+        return "#945e1c";
     }
     if(placement == 7 || placement == 8){
-        return "😞 Fourth 😞";
+        return "#000000";
     }
   }
   function timeConverter(UNIX_timestamp){
