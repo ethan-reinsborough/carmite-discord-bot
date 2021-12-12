@@ -31,9 +31,6 @@ module.exports = {
                         context.strokeRect(560, 150, 140, 150);
 
         //Name checking for cringe accent users
-        if(input[1] == "Ayumi"){
-            input[1] = "Ayumí"
-        }
         if(input[1] == "Polaris"){
             input[1] = "Polariś"
         }
@@ -164,7 +161,7 @@ module.exports = {
 
   function GetDoubleUpPlacement(placement) {
     if(placement == 1 || placement == 2){
-        return "🏆 First 🏆";
+        return "🥶 First 🍦";
     } 
     if(placement == 3 || placement == 4){
         return "🥈 Second 🥈";
