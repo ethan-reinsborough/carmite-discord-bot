@@ -166,11 +166,7 @@ module.exports = {
 
   function GetDoubleUpPlacement(placement) {
     if(placement == 1 || placement == 2){
-<<<<<<< HEAD
         return "🥶 First 🍦";
-=======
-        return "#ffcb3d";
->>>>>>> 704a78bae1025932acf5b5892032795b9c00dbe3
     } 
     if(placement == 3 || placement == 4){
         return "#d4d4d4";
