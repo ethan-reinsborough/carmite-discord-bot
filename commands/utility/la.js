@@ -8,7 +8,7 @@
         const embed = new MessageEmbed()
         .setAuthor(`Lost Ark Server Status: DOWN`)
         .setColor("#16b5ff")
-        .setImage("https://imgur.com/gallery/IXSHw");
+        .setImage("https://i.imgur.com/usu1HCx.gif");
         message.channel.send(embed);
     },
   };
