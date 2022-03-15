@@ -140,6 +140,9 @@ module.exports = {
                                 champName2 = "tft6b_jinx_mobile.png";
                                 message.channel.send("Cringe detected.");
                             }
+                            if(/vi/.test(champName2)){
+                                champName2 = "tft6b_vi_mobile.png";
+                            }
                             message.channel.send(champName2);
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
