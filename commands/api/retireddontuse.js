@@ -12,7 +12,7 @@ module.exports = {
             message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)>");
             return;
         }
-
+        //
         //Name checking for cringe accent users
         if(input[1] == "Ayumi"){
             input[1] = "Ayumí"
