@@ -127,8 +127,11 @@ module.exports = {
                             xcord = 5;
                         }
                         //Draw the champion's image into the correct coordinates
-                        var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
-                        var champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
+                        var champName = `${"tft6_" + (match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6_stage2.png";
+                        var champName2 = `${"tft6_" + (match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
+                        var champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`).catch(error =>{ 
+                            champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`)
+                        });
                         context.drawImage(champImage, xcord, ycord, 130, 140);
                         //If the champion is greater than a 1 star, draw stars onto the image in the correct positions
                         if(starcheck > 1){
