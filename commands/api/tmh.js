@@ -138,6 +138,7 @@ module.exports = {
                             //fuck u jinx
                             if(/jinx/.test(champName2)){
                                 champName2 = "tft6b_jinx_mobile.png";
+                                message.channel.send("Cringe detected.");
                             }
                             message.channel.send(champName2);
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`);
