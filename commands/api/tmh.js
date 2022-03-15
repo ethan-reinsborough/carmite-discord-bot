@@ -129,15 +129,15 @@ module.exports = {
                         //Draw the champion's image into the correct coordinates
                         var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6_stage2.png";
                         var champName2 = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
-                        var champImage = "T";
-                        message.channel.send(champName);
-                        message.channel.send(champName2);
+                        var champImage;
                         try{
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
+                            message.channel.send(champName);
                         } catch(error){
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
+                            message.channel.send(champName2);
                         }
                         //If the champion is greater than a 1 star, draw stars onto the image in the correct positions
                         if(starcheck > 1){
@@ -157,7 +157,6 @@ module.exports = {
                             }
                         }
                         //Move 140 pixels to the right for the next image in the sequence
-                        //
                         xcord += 140;
                     }                  
                 }
