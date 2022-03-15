@@ -135,6 +135,10 @@ module.exports = {
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
                         } catch(error){
+                            //fuck u jinx
+                            if(/jinx/.test(champName2)){
+                                champName2 = "tft6b_jinx_mobile.png";
+                            }
                             message.channel.send(champName2);
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
