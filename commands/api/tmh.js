@@ -134,11 +134,11 @@ module.exports = {
                         message.channel.send(champName2);
                         try{
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
+                            context.drawImage(champImage, xcord, ycord, 130, 140);
                         } catch(error){
-                            message.channel.send("Error! Getting old path value.");
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`);
+                            context.drawImage(champImage, xcord, ycord, 130, 140);
                         }
-                        context.drawImage(champImage, xcord, ycord, 130, 140);
                         //If the champion is greater than a 1 star, draw stars onto the image in the correct positions
                         if(starcheck > 1){
                             var displacement = 40;
