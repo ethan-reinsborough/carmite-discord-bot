@@ -130,6 +130,8 @@ module.exports = {
                         var champName = `${"tft6_" + (match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6_stage2.png";
                         var champName2 = `${"tft6_" + (match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set6.png";
                         var champImage = "";
+                        message.channel.send(champName);
+                        message.channel.send(champName2);
                         try{
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                         } catch(error){
