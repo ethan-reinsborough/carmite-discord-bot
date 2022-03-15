@@ -157,6 +157,7 @@ module.exports = {
                             }
                         }
                         //Move 140 pixels to the right for the next image in the sequence
+                        //
                         xcord += 140;
                     }                  
                 }
