@@ -134,7 +134,6 @@ module.exports = {
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
                         } catch(error){
-                            //fuck u jinx
                             if(/jinx/.test(champName2)){
                                 champName2 = "tft6b_jinx_mobile.png";
                             }
@@ -180,7 +179,7 @@ module.exports = {
 
   function GetDoubleUpPlacement(placement) {
     if(placement == 1 || placement == 2){
-        return "🥶 First 🍦";
+        return "#FFD700";
     } 
     if(placement == 3 || placement == 4){
         return "#d4d4d4";
