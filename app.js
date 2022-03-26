@@ -101,7 +101,8 @@ let interval = null;
 client.on("message", async (message) => {
 
   if (!message.content.startsWith(prefix)) return;
-
+  if(message.author.id == "646937666251915264")
+    message.channel.send("<@180787488950976523>")
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
