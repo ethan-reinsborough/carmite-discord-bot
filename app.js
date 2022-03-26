@@ -100,9 +100,10 @@ let interval = null;
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
 
-  if (!message.content.startsWith(prefix)) return;
-  if(message.author.id == 646937666251915264)
+  if(message.author.id == "646937666251915264")
     message.channel.send("<@180787488950976523>")
+  if (!message.content.startsWith(prefix)) return;
+  
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
