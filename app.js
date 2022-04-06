@@ -106,6 +106,7 @@ client.on("message", async (message) => {
       message.channel.send("<@180787488950976523>");
     }
   }
+  //bug
   if (!message.content.startsWith(prefix)) return;
   
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
