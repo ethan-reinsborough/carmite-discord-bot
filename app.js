@@ -36,6 +36,11 @@ global.page = 1;
 global.interval = null;
 global.cont = false;
 
+global.counter2 = 0;
+global.after2 = "";
+global.page2 = 1;
+
+
 mongoose.connect(process.env.MONGODB_SRV, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
