@@ -16,7 +16,7 @@ const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 const prefix = ";";
 require("dotenv").config();
 
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_MESSAGE_REACTIONS, MESSAGE_CONTENT"] });
+const client = new Discord.Client({ intents: ['GUILDS', "GUILD_MESSAGES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_MESSAGE_REACTIONS, MESSAGE_CONTENT"] });
 client.commands = new Discord.Collection();
 
 const commandFolders = fs.readdirSync('./commands');
