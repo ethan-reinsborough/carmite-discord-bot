@@ -16,7 +16,7 @@ const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 const prefix = ";";
 require("dotenv").config();
 
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: [36731] })
 client.commands = new Discord.Collection();
 
 const commandFolders = fs.readdirSync('./commands');
