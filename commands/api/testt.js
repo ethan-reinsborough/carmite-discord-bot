@@ -1,3 +1,5 @@
+const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+
 module.exports = {
     name: "testt",
     description: "Test",
