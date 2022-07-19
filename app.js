@@ -2,6 +2,7 @@
 "use strict";
 const fetch = require("node-fetch");
 const fs = require("fs");
+const { Client, GatewayIntentBits } = require('discord.js');
 const mongoose = require("mongoose");
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
@@ -16,7 +17,12 @@ const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 const prefix = ";";
 require("dotenv").config();
 
-const client = new Discord.Client({ intents: ['GUILDS', "GUILD_MESSAGES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_MESSAGE_REACTIONS, MESSAGE_CONTENT"] });
+const client = new Discord.Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+  ]
+})
 client.commands = new Discord.Collection();
 
 const commandFolders = fs.readdirSync('./commands');
