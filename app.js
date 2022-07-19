@@ -2,7 +2,7 @@
 "use strict";
 const fetch = require("node-fetch");
 const fs = require("fs");
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, Intents } = require('discord.js');
 const mongoose = require("mongoose");
 const Discord = require("discord.js");
 const hmtai = require("hmtai");
