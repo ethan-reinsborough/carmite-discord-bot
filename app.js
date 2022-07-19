@@ -17,12 +17,11 @@ const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 const prefix = ";";
 require("dotenv").config();
 
-const client = new Discord.Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-  ]
-})
+const myIntents = new Intents(62987);
+//myIntents.add(Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MEMBERS);
+
+const client = new Client({ intents: myIntents });
+
 client.commands = new Discord.Collection();
 
 const commandFolders = fs.readdirSync('./commands');
