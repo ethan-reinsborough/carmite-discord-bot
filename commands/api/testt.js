@@ -20,7 +20,8 @@ module.exports = {
                             description: 'This is also a description',
                             value: 'second_option',
                         },
-                    ]))
+                    ]),
+                    );
                 message.channel.send(row);
     },
 };
