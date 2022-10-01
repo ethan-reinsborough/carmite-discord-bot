@@ -106,7 +106,7 @@ let interval = null;
 
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
-
+  message.channel.send("HELLO?");
   if(message.author.id == "646937666251915264"){
     let input = message.content.split(" ");
     if(input[0] == "I'm"){
