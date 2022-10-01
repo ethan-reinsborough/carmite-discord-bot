@@ -134,11 +134,20 @@ module.exports = {
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
                         } catch(error){
-                            if(/jinx/.test(champName2)){
-                                champName2 = "tft6b_jinx_mobile.png";
+                            if(/lulu/.test(champName2)){
+                                champName2 = "tft7b_lulu_mobile.tft_set7_stage2.png";
                             }
-                            if(/vi/.test(champName2)){
-                                champName2 = "tft6b_vi_mobile.png";
+                            if(/anivia/.test(champName2)){
+                                champName2 = "tft7b_anivia_mobile.tft_set7_stage2.png";
+                            }
+                            if(/heimerdinger/.test(champName2)){
+                                champName2 = "tft7b_anivia_mobile.tft_set7_stage2.png";
+                            }
+                            if(/tristana/.test(champName2)){
+                                champName2 = "tft7b_tristana_mobile.tft_set7_stage2.png";
+                            }
+                            if(/volibear/.test(champName2)){
+                                champName2 = "tft7b_volibear_mobile.tft_set7_stage2.png";
                             }
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
