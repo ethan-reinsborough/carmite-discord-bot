@@ -17,10 +17,7 @@ const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 const prefix = ";";
 require("dotenv").config();
 
-const myIntents = new Intents();
-myIntents.add(Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MEMBERS);
-
-const client = new Client({ intents: myIntents });
+const client = new Client();
 
 client.commands = new Discord.Collection();
 
