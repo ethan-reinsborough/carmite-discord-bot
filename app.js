@@ -106,6 +106,7 @@ let interval = null;
 
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
+  if(message.author.bot) return;
   /*
   if(message.author.id == "646937666251915264"){
     let input = message.content.split(" ");
