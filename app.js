@@ -114,8 +114,7 @@ client.on("message", async (message) => {
     }
   }
 */
-  if (!message.content.startsWith(prefix)) { 
-    message.channel.send(message.content.startsWith(prefix));
+  if (!message.content.startsWith(";")) { 
     return;
   }
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
