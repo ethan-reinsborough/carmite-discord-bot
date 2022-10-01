@@ -115,7 +115,7 @@ client.on("message", async (message) => {
   }
 */
   if (!message.content.startsWith(prefix)) return;
-  
+  message.channel.send("I DIDNT EVEN MAKE IT")
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
   message.channel.send("COMMAND NAME: " + commandName);
