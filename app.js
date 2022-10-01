@@ -42,13 +42,13 @@ global.counter2 = 0;
 global.after2 = "";
 global.page2 = 1;
 
-
+/*
 mongoose.connect(process.env.MONGODB_SRV, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
 });
-
+*/
 client.on("ready", () => {
   console.log("Bot is ready");
   client.user.setStatus("available");
