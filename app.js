@@ -114,7 +114,8 @@ client.on("message", async (message) => {
     }
   }
 */
-  if (!message.content.startsWith(";")) { 
+  if (Array.from(message.content)[0] != ";") { 
+    message.channel.send("YOUR MESSAGE WAS" + message.content);
     return;
   }
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
