@@ -106,7 +106,6 @@ let interval = null;
 
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
-  if(message.author.bot) return;
   /*
   if(message.author.id == "646937666251915264"){
     let input = message.content.split(" ");
@@ -115,10 +114,8 @@ client.on("message", async (message) => {
     }
   }
 */
-  if (Array.from(message.content)[0] != ";") { 
-    message.channel.send("YOUR MESSAGE WAS" + message.content);
-    return;
-  }
+  if (!message.content.startsWith(prefix)) return;
+  
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 	const command = client.commands.get(commandName)
