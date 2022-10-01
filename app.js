@@ -114,11 +114,12 @@ client.on("message", async (message) => {
     }
   }
 */
-  if (!message.content.startsWith(prefix)) return;
-  message.channel.send("I DIDNT EVEN MAKE IT")
+  if (!message.content.startsWith(prefix)) { 
+    message.channel.send(message.content.startsWith(prefix));
+    return;
+  }
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
-  message.channel.send("COMMAND NAME: " + commandName);
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
@@ -146,7 +147,6 @@ client.on("message", async (message) => {
 	}
 
 	try {
-    message.channel.send("EXECUTED COMMAND");
 		command.execute(message, args);
 	} catch (error) {
 		console.error(error);
