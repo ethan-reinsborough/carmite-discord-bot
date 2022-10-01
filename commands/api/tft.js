@@ -96,7 +96,7 @@ module.exports = {
                     var traits = "";
                     for(let z = 0; z < keys.length; z++){
                         if(match["info"]["participants"][y]["traits"][z]["tier_total"] > 1 || match["info"]["participants"][y]["traits"][z]["name"] == "Set6_Socialite"){
-                            traits += `${match["info"]["participants"][y]["traits"][z]["name"].replace("Set6_", "")}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} unit(s)  `;
+                            traits += `${match["info"]["participants"][y]["traits"][z]["name"].replace("Set7_", "")}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} unit(s)  `;
                         }
                     } 
                     //UPDATE
