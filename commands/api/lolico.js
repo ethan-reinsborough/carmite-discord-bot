@@ -15,7 +15,7 @@
             .setAuthor(`Random Icon`)
             .setColor("#16b5ff")
             .setImage(
-              `http://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${iconID}.png`
+              `http://ddragon.leagueoflegends.com/cdn/12.18.1/img/profileicon/${iconID}.png`
             );
       
           await msg.channel.send(embed);
