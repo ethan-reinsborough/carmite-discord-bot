@@ -10,7 +10,7 @@ module.exports = {
         ).then((response) => response.json());
         let listLength = 24;
         let listNum = Math.floor(Math.random() * listLength);
-    
+          message.channel.send(res);
         let title = res["data"][`${listNum}`]["title"];
         let rank = res["data"][`${listNum}`]["rank"];
     
