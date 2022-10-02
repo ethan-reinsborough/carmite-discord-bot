@@ -6,13 +6,13 @@ module.exports = {
     async execute(message) {
         let pageNum = Math.floor(Math.random() * 10 + 1);
         const res = await fetch(
-          `https://api.jikan.moe/v3/top/characters/${pageNum}`
+          `https://api.jikan.moe/v4/top/characters?page=${pageNum}`
         ).then((response) => response.json());
-        let listLength = 49;
+        let listLength = 24;
         let listNum = Math.floor(Math.random() * listLength);
     
-        let title = res["top"][`${listNum}`]["title"];
-        let rank = res["top"][`${listNum}`]["rank"];
+        let title = res["data"][`${listNum}`]["title"];
+        let rank = res["data"][`${listNum}`]["rank"];
     
         if (rank === 0) {
           rank = "Unranked";
