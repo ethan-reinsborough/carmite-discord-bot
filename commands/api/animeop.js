@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "banime",
-  description: "Gives a random anime from the top 500 results.",
+  name: "animeop",
+  description: "Gives a random anime opening from the top 500 results.",
   async execute(message) {
     let pageNum = Math.floor(Math.random() * 10 + 1);
     const res = await fetch(
