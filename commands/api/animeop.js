@@ -17,5 +17,18 @@ module.exports = {
 
     message.channel.send(title + "\n" + op["mirrors"]["0"]["mirror"]);
     
+    /*
+    
+    Can't do this because discord file upload limit is 8 MB
+
+    let fileName = 
+    message.channel.send({
+        files: [{
+            attachment: op["mirrors"]["0"]["mirror"],
+            name: 'chart.webm'
+        }],
+        content:title,
+    });
+    */
   },
 };
