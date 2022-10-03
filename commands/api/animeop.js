@@ -18,7 +18,6 @@ module.exports = {
     message.channel.send(title + "\n" + op["mirrors"]["0"]["mirror"]);
     
     /*
-    
     Can't do this because discord file upload limit is 8 MB
 
     let fileName = 
