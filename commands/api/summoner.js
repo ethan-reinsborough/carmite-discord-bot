@@ -26,7 +26,7 @@ module.exports = {
         var id = summoner["id"];
         var puuid = summoner["puuid"];
 
-        const matchList = await fetch(`https://na1.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&api_key=${process.env.RIOT_API_KEY}&count=${parseInt(input[2])}`).then(
+        const matchList = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&api_key=${process.env.RIOT_API_KEY}&count=${parseInt(input[2])}`).then(
             (response) => response.json()
         );
 
@@ -35,8 +35,7 @@ module.exports = {
 
         for (let i = 0; i < parseInt(input[2]); i++) {
             var match = matchList[i];
-            message.channel.send(matchList);
-            const matchDetails = await fetch(`https://na1.api.riotgames.com/lol/match/v5/matches/${match}`).then(
+            const matchDetails = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${match}`).then(
                 (response) => response.json());
                 //message.channel.send(matchDetails["info"]["gameMode"])
             if(matchDetails["info"]["gameMode"] == "ARAM"){
