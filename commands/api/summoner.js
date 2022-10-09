@@ -6,7 +6,7 @@ const { MessageAttachment } = require('discord.js');
 
 module.exports = {
     name: "summoner",
-    description: "SUMMONER MATCH HISTORY NEW!!! Usage -> ;summoner <summoner name> <number of matches to show>.",
+    description: "aram winrate thing for now Usage -> ;summoner <summoner name> <number of matches to show>.",
     async execute(message) {
         input = message.content.split(" ");
 
@@ -41,7 +41,7 @@ module.exports = {
                 //message.channel.send(matchDetails["info"]["gameMode"])
             if(matchDetails["info"]["gameMode"] == "ARAM"){
                 for(let x = 0; x < 9; x++){
-                    if(matchDetails["metaData"]["participants"][x] == puuid){
+                    if(matchDetails["metadata"]["participants"][x] == puuid){
                         if(matchDetails["info"]["participants"][x]["win"] == true){
                             wins += 1;
                         }else{
