@@ -10,8 +10,8 @@ module.exports = {
     async execute(message) {
         input = message.content.split(" ");
 
-        if (input[1] == null || input[2] == null || parseInt(input[2]) > 2000 || isNaN(input[2])) {
-            message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)>");
+        if (input[1] == null || input[2] == null || input[3] == null || parseInt(input[2]) > 2000 || isNaN(input[2])) {
+            message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)> <gamemode>");
             return;
         }
 
@@ -38,8 +38,7 @@ module.exports = {
             var match = matchList[i];
             const matchDetails = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${match}?&api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
-                //message.channel.send(matchDetails["info"]["gameMode"])
-            if(matchDetails["info"]["gameMode"] == "ARAM"){
+            if(matchDetails["info"]["gameMode"] == input[3].toUppercase()){
                 aramCounter += 1;
                 for(let x = 0; x < 9; x++){
                     if(matchDetails["metadata"]["participants"][x] == puuid){
@@ -58,7 +57,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/12.19.1/img/profileicon/${summoner["profileIconId"]}.png`)
             .setAuthor(`${summoner["name"]}`)
-            .setTitle(`ARAM Winrate in ${aramCounter} games: **${Math.round(winrate)}%**`)
+            .setTitle(`${input[3].toUppercase()} Winrate in ${aramCounter} games: **${Math.round(winrate)}%**`)
             .setColor(randomColor)
             .setFooter(`W${wins} L${losses}`)
         await message.channel.send(embed);
