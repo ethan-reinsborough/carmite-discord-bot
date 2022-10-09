@@ -5,8 +5,8 @@ const Canvas = require('canvas');
 const { MessageAttachment } = require('discord.js');
 
 module.exports = {
-    name: "tft",
-    description: "TFT MATCH HISTORY NEW!!! Usage -> ;tft <summoner name> <number of matches to show>.",
+    name: "summoner",
+    description: "SUMMONER MATCH HISTORY NEW!!! Usage -> ;tft <summoner name> <number of matches to show>.",
     async execute(message) {
         input = message.content.split(" ");
 
