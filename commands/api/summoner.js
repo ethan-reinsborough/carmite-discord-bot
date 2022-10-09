@@ -35,7 +35,6 @@ module.exports = {
 
         for (let i = 0; i < parseInt(input[2]); i++) {
             var match = matchList[i];
-            message.channel.send(matchList[i]);
             const matchDetails = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${match}?&api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
                 //message.channel.send(matchDetails["info"]["gameMode"])
