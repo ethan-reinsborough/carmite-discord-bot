@@ -6,11 +6,11 @@ const { MessageAttachment } = require('discord.js');
 
 module.exports = {
     name: "summoner",
-    description: "SUMMONER MATCH HISTORY NEW!!! Usage -> ;tft <summoner name> <number of matches to show>.",
+    description: "SUMMONER MATCH HISTORY NEW!!! Usage -> ;summoner <summoner name> <number of matches to show>.",
     async execute(message) {
         input = message.content.split(" ");
 
-        if (input[1] == null || input[2] == null || parseInt(input[2]) > 10 || isNaN(input[2])) {
+        if (input[1] == null || input[2] == null || parseInt(input[2]) > 2000 || isNaN(input[2])) {
             message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)>");
             return;
         }
