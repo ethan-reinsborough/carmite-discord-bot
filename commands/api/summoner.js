@@ -32,6 +32,7 @@ module.exports = {
 
         var wins = 0;
         var losses = 0;
+        var aramCounter = 0;
 
         for (let i = 0; i < parseInt(input[2]); i++) {
             var match = matchList[i];
@@ -39,6 +40,7 @@ module.exports = {
                 (response) => response.json());
                 //message.channel.send(matchDetails["info"]["gameMode"])
             if(matchDetails["info"]["gameMode"] == "ARAM"){
+                aramCounter += 1;
                 for(let x = 0; x < 9; x++){
                     if(matchDetails["metadata"]["participants"][x] == puuid){
                         if(matchDetails["info"]["participants"][x]["win"] == true){
@@ -50,12 +52,12 @@ module.exports = {
                 }
             }
         }
-        var winrate = (wins / losses) * 100
+        var winrate = (wins / aramCounter) * 100
         var randomColor = Math.floor(Math.random() * 16777215).toString(16);
         const embed = new MessageEmbed()
             .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/12.19.1/img/profileicon/${summoner["profileIconId"]}.png`)
             .setAuthor(`${summoner["name"]}`)
-            .setTitle(`ARAM Winrate in ${input[2]} games: **${winrate}**`)
+            .setTitle(`ARAM Winrate in ${input[2]} ${aramCounter}: **${winrate}**`)
             .setColor(randomColor)
             .setFooter(`W${wins} L${losses}`)
         await message.channel.send(embed);
