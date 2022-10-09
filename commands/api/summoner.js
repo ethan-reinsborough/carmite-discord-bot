@@ -37,6 +37,7 @@ module.exports = {
             var match = matchList[i];
             const matchDetails = await fetch(`https://na1.api.riotgames.com/lol/match/v5/matches/${match}`).then(
                 (response) => response.json());
+                message.channel.send(matchDetails["info"]["gameMode"])
             if(matchDetails["info"]["gameMode"] == "ARAM"){
                 for(let x = 0; x < 9; x++){
                     if(matchDetails["metaData"]["participants"][x] == puuid){
