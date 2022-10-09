@@ -10,38 +10,54 @@ module.exports = {
     async execute(message) {
         input = message.content.split(" ");
 
-        if(input[1] == null || input[2] == null || parseInt(input[2]) > 10 || isNaN(input[2])){
+        if (input[1] == null || input[2] == null || parseInt(input[2]) > 10 || isNaN(input[2])) {
             message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)>");
             return;
         }
 
-        if(input[1] == "Andrew"){
+        if (input[1] == "Andrew") {
             input[1] = "Ãndrew";
         }
+
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
-          );
+        );
+
         var id = summoner["id"];
         var puuid = summoner["puuid"];
-        var rankedDisplay = "";
-        /*
-        const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}?api_key=${process.env.RIOT_API_KEY}`).then(
-            (response) => response.json()
-        ).catch((error) => {rankedDisplay = "Unranked"});
-        if(rankedStats.length > 0){
-            rankedDisplay = `${rankedStats[0]["tier"]} ${rankedStats[0]["rank"]} ${rankedStats[0]["leaguePoints"]} LP`;
-        }else{
-            rankedDisplay = "Unranked"
-        }*/
-        var randomColor = Math.floor(Math.random()*16777215).toString(16);
-        const embed = new MessageEmbed()
-        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/12.19.1/img/profileicon/${summoner["profileIconId"]}.png`)
-        .setAuthor(`${summoner["name"]}`)
-        .setTitle(`${puuid}`)
-        .setColor(randomColor)
-        .setFooter(`${id}`)
-        await message.channel.send(embed);     
-    },
-  };
 
-  
+        const matchList = await fetch(`https://na1.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&api_key=${process.env.RIOT_API_KEY}&count=${parseInt(input[2])}`).then(
+            (response) => response.json()
+        );
+
+        var wins = 0;
+        var losses = 0;
+
+        for (let i = 0; i < parseInt(input[2]); i++) {
+            var match = matchList[i];
+            const matchDetails = await fetch(`https://na1.api.riotgames.com/lol/match/v5/matches/${match}`).then(
+                (response) => response.json());
+            if(matchDetails["info"]["gameMode"] == "ARAM"){
+                for(let x = 0; x < 9; x++){
+                    if(matchDetails["metaData"]["participants"][x] == puuid){
+                        if(matchDetails["info"]["participants"][x]["win"] == true){
+                            wins += 1;
+                        }else{
+                            losses += 1;
+                        }
+                    }
+                }
+            }
+        }
+        var winrate = (wins / losses) * 100
+        var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        const embed = new MessageEmbed()
+            .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/12.19.1/img/profileicon/${summoner["profileIconId"]}.png`)
+            .setAuthor(`${summoner["name"]}`)
+            .setTitle(`ARAM Winrate in ${input[2]} games: **${winrate}**`)
+            .setColor(randomColor)
+            .setFooter(`W${wins} L${losses}`)
+        await message.channel.send(embed);
+    },
+};
+
