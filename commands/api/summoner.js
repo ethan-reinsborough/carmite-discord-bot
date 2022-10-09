@@ -17,7 +17,7 @@ module.exports = {
         if (input[1] == "Andrew") {
             input[1] = "Ãndrew";
         }
-        var gamemode = input[3].toUppercase();
+        var gamemode = input[3].toString().toUppercase();
         
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
