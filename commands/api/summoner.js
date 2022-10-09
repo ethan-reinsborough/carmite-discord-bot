@@ -57,7 +57,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/12.19.1/img/profileicon/${summoner["profileIconId"]}.png`)
             .setAuthor(`${summoner["name"]}`)
-            .setTitle(`ARAM Winrate in ${input[2]} ${aramCounter}: **${winrate}**`)
+            .setTitle(`ARAM Winrate in ${aramCounter} games: **${Math.round(winrate)}**`)
             .setColor(randomColor)
             .setFooter(`W${wins} L${losses}`)
         await message.channel.send(embed);
