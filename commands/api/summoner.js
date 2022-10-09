@@ -39,7 +39,7 @@ module.exports = {
         .setAuthor(`${summoner["name"]}`)
         .setTitle(`${puuid}`)
         .setColor(randomColor)
-        .setFooter(``)
+        .setFooter(`${id}`)
         await message.channel.send(embed);     
     },
   };
