@@ -17,9 +17,7 @@ module.exports = {
         if (input[1] == "Andrew") {
             input[1] = "Ãndrew";
         }
-        var gamemode = input[3];
-
-        var upperCaseGamemode = gamemode.toUppercase();
+        var gamemode = input[3].toUpperCase();
         
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
@@ -40,7 +38,7 @@ module.exports = {
             var match = matchList[i];
             const matchDetails = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${match}?&api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
-            if(matchDetails["info"]["gameMode"] == upperCaseGamemode){
+            if(matchDetails["info"]["gameMode"] == gamemode){
                 aramCounter += 1;
                 for(let x = 0; x < 9; x++){
                     if(matchDetails["metadata"]["participants"][x] == puuid){
@@ -59,7 +57,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/12.19.1/img/profileicon/${summoner["profileIconId"]}.png`)
             .setAuthor(`${summoner["name"]}`)
-            .setTitle(`${upperCaseGamemode} Winrate in ${aramCounter} games: **${Math.round(winrate)}%**`)
+            .setTitle(`${gamemode} Winrate in ${aramCounter} games: **${Math.round(winrate)}%**`)
             .setColor(randomColor)
             .setFooter(`W${wins} L${losses}`)
         await message.channel.send(embed);
