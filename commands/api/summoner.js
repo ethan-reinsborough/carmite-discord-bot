@@ -9,7 +9,7 @@ module.exports = {
     description: "aram winrate thing for now Usage -> ;summoner <summoner name> <number of matches to show>.",
     async execute(message) {
         input = message.content.split(" ");
-
+        message.channel.send(input[3]);
         if (input[1] == null || input[2] == null || input[3] == null || parseInt(input[2]) > 2000 || isNaN(input[2])) {
             message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)> <gamemode>");
             return;
