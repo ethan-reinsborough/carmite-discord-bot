@@ -13,7 +13,6 @@ module.exports = {
             message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)> <gamemode>");
             return;
         }
-        message.channel.send(input[3]);
         if (input[1] == "Andrew") {
             input[1] = "Ãndrew";
         }
