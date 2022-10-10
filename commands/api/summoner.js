@@ -17,7 +17,7 @@ module.exports = {
             input[1] = "Ãndrew";
         }
         var gamemode = input[3].toUpperCase();
-        
+
         const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
             (response) => response.json()
         );
@@ -37,14 +37,16 @@ module.exports = {
             var match = matchList[i];
             const matchDetails = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${match}?&api_key=${process.env.RIOT_API_KEY}`).then(
                 (response) => response.json());
-            if(matchDetails["info"]["gameMode"] == gamemode){
-                aramCounter += 1;
-                for(let x = 0; x < 9; x++){
-                    if(matchDetails["metadata"]["participants"][x] == puuid){
-                        if(matchDetails["info"]["participants"][x]["win"] == true){
-                            wins += 1;
-                        }else{
-                            losses += 1;
+            if (typeof matchDetails["info"]["gameMode"] !== 'undefined') {
+                if (matchDetails["info"]["gameMode"] == gamemode) {
+                    aramCounter += 1;
+                    for (let x = 0; x < 9; x++) {
+                        if (matchDetails["metadata"]["participants"][x] == puuid) {
+                            if (matchDetails["info"]["participants"][x]["win"] == true) {
+                                wins += 1;
+                            } else {
+                                losses += 1;
+                            }
                         }
                     }
                 }
