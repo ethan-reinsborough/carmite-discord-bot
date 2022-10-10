@@ -44,7 +44,8 @@ module.exports = {
                         if (matchDetails["metadata"]["participants"][x] == puuid) {
                             if (matchDetails["info"]["participants"][x]["win"] == true) {
                                 wins += 1;
-                            } else {
+                            } 
+                            if (matchDetails["info"]["participants"][x]["win"] == false){
                                 losses += 1;
                             }
                         }
