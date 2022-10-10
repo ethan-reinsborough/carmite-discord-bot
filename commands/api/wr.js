@@ -5,12 +5,12 @@ const Canvas = require('canvas');
 const { MessageAttachment } = require('discord.js');
 
 module.exports = {
-    name: "winrate",
-    description: "lol winrate Usage -> ;summoner <summoner name> <number of matches to show> <gamemode name>.",
+    name: "wr",
+    description: "lol winrate Usage -> ;wr <summoner name> <number of matches to show> <gamemode name>.",
     async execute(message) {
         input = message.content.split(" ");
         if (input[1] == null || input[2] == null || input[3] == null || parseInt(input[2]) > 2000 || isNaN(input[2])) {
-            message.channel.send("Usage: ;winrate <summoner name> <number of matches to show> <gamemode name>");
+            message.channel.send("Usage: ;wr <summoner name> <number of matches to show> <gamemode name>");
             return;
         }
         if (input[1] == "Andrew") {
