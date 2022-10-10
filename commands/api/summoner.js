@@ -6,11 +6,11 @@ const { MessageAttachment } = require('discord.js');
 
 module.exports = {
     name: "summoner",
-    description: "aram winrate thing for now Usage -> ;summoner <summoner name> <number of matches to show>.",
+    description: "aram winrate thing for now Usage -> ;summoner <summoner name> <number of matches to show> <gamemode name>.",
     async execute(message) {
         input = message.content.split(" ");
         if (input[1] == null || input[2] == null || input[3] == null || parseInt(input[2]) > 2000 || isNaN(input[2])) {
-            message.channel.send("Usage: tft <summoner name> <number of matches to show (1-10)> <gamemode>");
+            message.channel.send("Usage: ;summoner <summoner name> <number of matches to show> <gamemode name>");
             return;
         }
         if (input[1] == "Andrew") {
@@ -52,7 +52,7 @@ module.exports = {
                 }
             }
         }
-        //
+
         var winrate = (wins / aramCounter) * 100
         var randomColor = Math.floor(Math.random() * 16777215).toString(16);
         const embed = new MessageEmbed()
