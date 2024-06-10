@@ -1,4 +1,4 @@
-const apiKey = process.env.RIOT_API_KEY;
+const apiKey = "RGAPI-61f1c98f-7687-4f1a-98dc-526e67b17f5a";
 const fetch = require("node-fetch");
 const { MessageEmbed } = require("discord.js");
 const Canvas = require('canvas');
@@ -19,17 +19,13 @@ module.exports = {
         const canvas = Canvas.createCanvas(700, 400)
         const context = canvas.getContext('2d')
 
-        //Name checking for cringe accent users
-        if(input[1] == "Polaris"){
-            input[1] = "Polariś"
-        }
-        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${process.env.RIOT_API_KEY}`).then(
+        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${apiKey}`).then(
             (response) => response.json()
           );
         var id = summoner["id"];
         var puuid = summoner["puuid"];
         var rankedDisplay = "";
-        const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}?api_key=${process.env.RIOT_API_KEY}`).then(
+        const rankedStats = await fetch(`https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/${id}?api_key=${apiKey}`).then(
             (response) => response.json()
         ).catch((error) => {rankedDisplay = "Unranked"});
         if(rankedStats.length > 0){
@@ -39,25 +35,25 @@ module.exports = {
         }
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
         const embed = new MessageEmbed()
-        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/11.23.1/img/profileicon/${summoner["profileIconId"]}.png`)
+        .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/13.18.1/img/profileicon/${summoner["profileIconId"]}.png`)
         .setAuthor(`${summoner["name"]}`)
         .setTitle(`${rankedDisplay}`)
         .setColor(randomColor)
         .setFooter(`${input[2]} most recent match(es):`)
         await message.channel.send(embed);
 
-        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=${input[2]}&api_key=${process.env.RIOT_API_KEY}`).then(
+        const matches = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/${puuid}/ids?count=${input[2]}&api_key=${apiKey}`).then(
             (response) => response.json()
         );
           //Get each match in matches
           for (let i = 0; i < parseInt(input[2]); i++) {
             var printMatch = "";
-            var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${process.env.RIOT_API_KEY}`).then(
+            var match = await fetch(`https://americas.api.riotgames.com/tft/match/v1/matches/${matches[i]}?api_key=${apiKey}`).then(
                 (response) => response.json()
               );
             var players = "Players: ";
             for(let x = 0; x < 8; x++){
-                var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${process.env.RIOT_API_KEY}`).then(
+                var p = await fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${match["metadata"]["participants"][x]}?api_key=${apiKey}`).then(
                 (response) => response.json());
               if(x < 7){
                 players += p["name"] +", ";
@@ -96,7 +92,7 @@ module.exports = {
                     var traits = "";
                     for(let z = 0; z < keys.length; z++){
                         if(match["info"]["participants"][y]["traits"][z]["tier_total"] > 1 || match["info"]["participants"][y]["traits"][z]["name"] == "Set6_Socialite"){
-                            traits += `${match["info"]["participants"][y]["traits"][z]["name"].replace("Set7_", "")}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} unit(s)  `;
+                            traits += `${match["info"]["participants"][y]["traits"][z]["name"].replace("Set9_", "")}: ${match["info"]["participants"][y]["traits"][z]["num_units"]} unit(s)  `;
                         }
                     } 
                     //UPDATE
@@ -127,28 +123,13 @@ module.exports = {
                             xcord = 5;
                         }
                         //Draw the champion's image into the correct coordinates
-                        var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set7_stage2.png";
-                        var champName2 = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set7.png";
+                        //var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set9_stage2.png";
+                        var champName = `${(match["info"]["participants"][y]["units"][w]["character_id"]).toLowerCase()}` + "_mobile.tft_set9.png";
                         var champImage;
                         try{
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
                         } catch(error){
-                            if(/lulu/.test(champName2)){
-                                champName2 = "tft7b_lulu_mobile.tft_set7_stage2.png";
-                            }
-                            if(/anivia/.test(champName2)){
-                                champName2 = "tft7b_anivia_mobile.tft_set7_stage2.png";
-                            }
-                            if(/heimerdinger/.test(champName2)){
-                                champName2 = "tft7b_anivia_mobile.tft_set7_stage2.png";
-                            }
-                            if(/tristana/.test(champName2)){
-                                champName2 = "tft7b_tristana_mobile.tft_set7_stage2.png";
-                            }
-                            if(/volibear/.test(champName2)){
-                                champName2 = "tft7b_volibear_mobile.tft_set7_stage2.png";
-                            }
                             champImage = await Canvas.loadImage(`https://raw.communitydragon.org/pbe/game/assets/ux/tft/championsplashes/${champName2}`);
                             context.drawImage(champImage, xcord, ycord, 130, 140);
                         }
@@ -175,11 +156,19 @@ module.exports = {
                 }
                 
             }
+            var append = "th";
+            if(placement == 1){
+                append = "st";
+            }
+            if(placement == 2){
+                append = "2nd";
+            }
             const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                         const embed = new MessageEmbed()
                         .attachFiles(attachment)
                         .setColor(GetDoubleUpPlacement(placement))
                         .setDescription(printMatch)
+                        .setFooter(`${placement}${append}`)
                         .setImage('attachment://profile-image.png')
                         message.channel.send(embed);
           }           

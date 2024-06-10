@@ -37,7 +37,7 @@ module.exports = {
         } 
         var opt1 = input[1];
         var opt2 = input[2];
-        message.channel.send("<@!189211716607803392>").then(sentMessage => {
+        message.channel.send("<@!179707824190914560>").then(sentMessage => {
             sentMessage.react(opt1);
             sentMessage.react(opt2);
             sentMessage.react("<:gold-tft:913479929058959401>");

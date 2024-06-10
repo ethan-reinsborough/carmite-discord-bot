@@ -8,14 +8,14 @@
       async execute(msg) {
         
 const res = await fetch(
-    `http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion.json`
+    `http://ddragon.leagueoflegends.com/cdn/14.8.1/data/en_US/champion.json`
   ).then((response) => response.json());
   const keys = Object.keys(res["data"]);
   const randIndex = Math.floor(Math.random() * keys.length);
   const championNameID = keys[randIndex];
   //let realName = res["data"][keith]["name"];
   const indexedChampion = await fetch(
-    `http://ddragon.leagueoflegends.com/cdn/11.9.1/data/en_US/champion/${championNameID}.json`
+    `http://ddragon.leagueoflegends.com/cdn/14.8.1/data/en_US/champion/${championNameID}.json`
   ).then((response) => response.json());
   const randAbility = Math.floor(Math.random() * 5);
 
@@ -29,14 +29,14 @@ const res = await fetch(
     abilityType = "passive";
     abilityID =
       indexedChampion["data"][championNameID]["passive"]["image"]["full"];
-    image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}`;
+    image = `http://ddragon.leagueoflegends.com/cdn/14.8.1/img/${abilityType}/${abilityID}`;
   } else {
     abilityID =
       indexedChampion["data"][championNameID]["spells"][randAbility]["id"];
     abilityType = "spell";
     abilityName =
       indexedChampion["data"][championNameID]["spells"][randAbility]["name"];
-    image = `http://ddragon.leagueoflegends.com/cdn/11.9.1/img/${abilityType}/${abilityID}.png`;
+    image = `http://ddragon.leagueoflegends.com/cdn/14.8.1/img/${abilityType}/${abilityID}.png`;
   }
 
   const filter = (m) => m.author.id === msg.author.id;

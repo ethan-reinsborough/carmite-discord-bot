@@ -24,7 +24,7 @@ module.exports = {
         const embed = new MessageEmbed()
           .setAuthor(`${title} | Rank: ${rank} | Score: ${score}`)
           .setColor(randomColor)
-          .setImage(res["data"][`${listNum}`]["image_url"])
+          .setImage(res["data"][`${listNum}`]["images"]["jpg"]["image_url"])
           message.channel.send(embed);
   },
 };
