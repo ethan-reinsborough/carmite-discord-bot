@@ -57,7 +57,7 @@ client.on("ready", () => {
   });
 });
 
-client.login("ODMwMjg2MTgyNDMyMzc0Nzg2.YHEeQw.Kt3VT1MNu_RyVdySLSJQVB9V3UY");
+client.login("YOUR API KEY HERE");
 
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {
