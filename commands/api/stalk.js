@@ -1,4 +1,4 @@
-const apiKey = "RGAPI-aab4da62-ae4c-4880-a994-1d8bc3cb6dd2";
+const apiKey = "RGAPI-2c571771-a9a5-4d46-b7c8-54c04ad02b91";
 const fetch = require("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
@@ -8,13 +8,18 @@ module.exports = {
     async execute(message) {
         input = message.content.split(" ");
         if (input[1] == null) {
-            message.channel.send("Usage: ;stalk <summoner name> (optional): <track> (optional): <stop> (ends the update)");
+            message.channel.send("Usage: ;wr <summoner name> <number of matches to filter through> <gamemode name>. Don't use spaces in summoner name.");
             return;
         }
-        const summoner = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${encodeURIComponent(input[1])}?api_key=${apiKey}`).then(
+
+        var summonerName = input[1].split('#')
+        message.channel.send(summonerName);
+        const summoner = await fetch(`https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(summonerName[0])}/${summonerName[1]}?api_key=${apiKey}`).then(
             (response) => response.json()
         );
-        var id = summoner["id"];
+
+        var id = summoner["puuid"];
+        message.channel.send(id)
         async function checkInGame(){
             try {           
                 const match = await fetch(`https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${id}?api_key=${apiKey}`).then(

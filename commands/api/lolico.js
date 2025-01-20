@@ -1,4 +1,5 @@
 
+const fetch = require("node-fetch");
     const { MessageEmbed } = require("discord.js");
   
   module.exports = {
@@ -15,7 +16,7 @@
             .setAuthor(`Random Icon`)
             .setColor("#16b5ff")
             .setImage(
-              `http://ddragon.leagueoflegends.com/cdn/13.16.1/img/profileicon/${iconID}.png`
+              `http://ddragon.leagueoflegends.com/cdn/14.17.1/img/profileicon/${iconID}.png`
             );
       
           await msg.channel.send(embed);

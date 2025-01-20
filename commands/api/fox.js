@@ -1,3 +1,6 @@
+
+const fetch = require("node-fetch");
+
 module.exports = {
   name: "fox",
   description: "Gives a random image of a fox.",

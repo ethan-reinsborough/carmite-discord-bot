@@ -6,7 +6,6 @@ const { Client } = require('discord.js');
 const mongoose = require("mongoose");
 const Discord = require("discord.js");
 const Gamba = require("./models/gamba.js");
-const lApi = new LewdClient({ KEY: "Your-API-Key-Here" });
 const prefix = ";";
 require("dotenv").config();
 
@@ -57,7 +56,7 @@ client.on("ready", () => {
   });
 });
 
-client.login("YOUR API KEY HERE");
+client.login(process.env.DISCORD_BOT_TOKEN);
 
 //Main function, tracks when a user message matches a command (always active)
 client.on("message", async (message) => {

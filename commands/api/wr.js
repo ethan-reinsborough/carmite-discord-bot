@@ -1,4 +1,4 @@
-const apiKey = "RGAPI-a7f8dbe9-1ad5-490f-829d-b783a5a8660f";
+const apiKey = "RGAPI-d08ad778-847c-4d37-9606-4f7bb4832bce";
 const fetch = require("node-fetch");
 const { MessageEmbed } = require("discord.js");
 const Canvas = require('canvas');
@@ -84,11 +84,11 @@ module.exports = {
         );
         
     const indexedChampion = await fetch(
-        `http://ddragon.leagueoflegends.com/cdn/14.11.1/data/en_US/champion/${results[0]}.json`
+        `http://ddragon.leagueoflegends.com/cdn/14.17.1/data/en_US/champion/${results[0]}.json`
       ).then((response) => response.json());
-      image = `http://ddragon.leagueoflegends.com/cdn/14.11.1/img/champion/${indexedChampion["data"][`${results[0]}`]["image"]["full"]}`;
+      image = `http://ddragon.leagueoflegends.com/cdn/14.17.1/img/champion/${indexedChampion["data"][`${results[0]}`]["image"]["full"]}`;
         const embed = new MessageEmbed()
-            .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/14.11.1/img/profileicon/${summonerIcon["profileIconId"]}.png`)
+            .setThumbnail(`http://ddragon.leagueoflegends.com/cdn/14.17.1/img/profileicon/${summonerIcon["profileIconId"]}.png`)
             .setAuthor(`${summonerIcon["name"]}`)
             .setTitle(`${gamemode} Winrate in ${aramCounter} games: **${Math.round(winrate)}%**`)
             .setColor(randomColor)
